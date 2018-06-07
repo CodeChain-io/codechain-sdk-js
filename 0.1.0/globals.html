@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>codechain-sdk</title>
+	<title>CodeChain JavaScript SDK</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">codechain-sdk</a>
+					<a href="index.html" class="title">CodeChain JavaScript SDK</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> codechain-sdk</h1>
+			<h1> CodeChain JavaScript SDK</h1>
 		</div>
 	</div>
 </header>
@@ -72,10 +72,10 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-class"><a href="classes/asset.html" class="tsd-kind-icon">Asset</a></li>
 								<li class="tsd-kind-class"><a href="classes/assetminttransaction.html" class="tsd-kind-icon">Asset<wbr>Mint<wbr>Transaction</a></li>
-								<li class="tsd-kind-class tsd-is-not-exported"><a href="classes/assetoutpoint.html" class="tsd-kind-icon">Asset<wbr>Out<wbr>Point</a></li>
+								<li class="tsd-kind-class"><a href="classes/assetoutpoint.html" class="tsd-kind-icon">Asset<wbr>Out<wbr>Point</a></li>
 								<li class="tsd-kind-class"><a href="classes/assetscheme.html" class="tsd-kind-icon">Asset<wbr>Scheme</a></li>
-								<li class="tsd-kind-class tsd-is-not-exported"><a href="classes/assettransferinput.html" class="tsd-kind-icon">Asset<wbr>Transfer<wbr>Input</a></li>
-								<li class="tsd-kind-class tsd-is-not-exported"><a href="classes/assettransferoutput.html" class="tsd-kind-icon">Asset<wbr>Transfer<wbr>Output</a></li>
+								<li class="tsd-kind-class"><a href="classes/assettransferinput.html" class="tsd-kind-icon">Asset<wbr>Transfer<wbr>Input</a></li>
+								<li class="tsd-kind-class"><a href="classes/assettransferoutput.html" class="tsd-kind-icon">Asset<wbr>Transfer<wbr>Output</a></li>
 								<li class="tsd-kind-class"><a href="classes/assettransfertransaction.html" class="tsd-kind-icon">Asset<wbr>Transfer<wbr>Transaction</a></li>
 								<li class="tsd-kind-class"><a href="classes/block.html" class="tsd-kind-icon">Block</a></li>
 								<li class="tsd-kind-class"><a href="classes/h160.html" class="tsd-kind-icon">H160</a></li>
@@ -91,22 +91,16 @@
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Interfaces</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface"><a href="interfaces/assetschemevalues.html" class="tsd-kind-icon">Asset<wbr>Scheme<wbr>Values</a></li>
-								<li class="tsd-kind-interface"><a href="interfaces/assetvalues.html" class="tsd-kind-icon">Asset<wbr>Values</a></li>
-								<li class="tsd-kind-interface"><a href="interfaces/blockvalues.html" class="tsd-kind-icon">Block<wbr>Values</a></li>
-								<li class="tsd-kind-interface tsd-is-not-exported"><a href="interfaces/rpcrequest.html" class="tsd-kind-icon">Rpc<wbr>Request</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias"><a href="globals.html#assetdata" class="tsd-kind-icon">Asset<wbr>Data</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#assetminttransactiondata" class="tsd-kind-icon">Asset<wbr>Mint<wbr>Transaction<wbr>Data</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#assetoutpointdata" class="tsd-kind-icon">Asset<wbr>Out<wbr>Point<wbr>Data</a></li>
+								<li class="tsd-kind-type-alias"><a href="globals.html#assetschemedata" class="tsd-kind-icon">Asset<wbr>Scheme<wbr>Data</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#assettransferinputdata" class="tsd-kind-icon">Asset<wbr>Transfer<wbr>Input<wbr>Data</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#assettransferoutputdata" class="tsd-kind-icon">Asset<wbr>Transfer<wbr>Output<wbr>Data</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#assettransfertransactiondata" class="tsd-kind-icon">Asset<wbr>Transfer<wbr>Transaction<wbr>Data</a></li>
+								<li class="tsd-kind-type-alias"><a href="globals.html#blockdata" class="tsd-kind-icon">Block<wbr>Data</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#paymenttransactiondata" class="tsd-kind-icon">Payment<wbr>Transaction<wbr>Data</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#setregularkeytransactiondata" class="tsd-kind-icon">Set<wbr>Regular<wbr>Key<wbr>Transaction<wbr>Data</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#transaction" class="tsd-kind-icon">Transaction</a></li>
@@ -132,12 +126,39 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="assetdata" class="tsd-anchor"></a>
+					<h3>Asset<wbr>Data</h3>
+					<div class="tsd-signature tsd-kind-icon">Asset<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/Asset.ts#L3">primitives/Asset.ts:3</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>amount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>asset<wbr>Type<span class="tsd-signature-symbol">: </span><a href="classes/h256.html" class="tsd-signature-type">H256</a></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>lock<wbr>Script<wbr>Hash<span class="tsd-signature-symbol">: </span><a href="classes/h256.html" class="tsd-signature-type">H256</a></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>parameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">[]</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="assetminttransactiondata" class="tsd-anchor"></a>
 					<h3>Asset<wbr>Mint<wbr>Transaction<wbr>Data</h3>
 					<div class="tsd-signature tsd-kind-icon">Asset<wbr>Mint<wbr>Transaction<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/00316dd/src/primitives/transaction/AssetMintTransaction.ts#L6">primitives/transaction/AssetMintTransaction.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/transaction/AssetMintTransaction.ts#L6">primitives/transaction/AssetMintTransaction.ts:6</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -170,7 +191,7 @@
 					<div class="tsd-signature tsd-kind-icon">Asset<wbr>Out<wbr>Point<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/00316dd/src/primitives/transaction/AssetTransferTransaction.ts#L6">primitives/transaction/AssetTransferTransaction.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/transaction/AssetTransferTransaction.ts#L6">primitives/transaction/AssetTransferTransaction.ts:6</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -192,12 +213,36 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="assetschemedata" class="tsd-anchor"></a>
+					<h3>Asset<wbr>Scheme<wbr>Data</h3>
+					<div class="tsd-signature tsd-kind-icon">Asset<wbr>Scheme<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/AssetScheme.ts#L3">primitives/AssetScheme.ts:3</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>amount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>metadata<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>registrar<span class="tsd-signature-symbol">: </span><a href="classes/h160.html" class="tsd-signature-type">H160</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="assettransferinputdata" class="tsd-anchor"></a>
 					<h3>Asset<wbr>Transfer<wbr>Input<wbr>Data</h3>
 					<div class="tsd-signature tsd-kind-icon">Asset<wbr>Transfer<wbr>Input<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/00316dd/src/primitives/transaction/AssetTransferTransaction.ts#L25">primitives/transaction/AssetTransferTransaction.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/transaction/AssetTransferTransaction.ts#L52">primitives/transaction/AssetTransferTransaction.ts:52</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -207,7 +252,7 @@
 								<h5>lock<wbr>Script<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span></h5>
 							</li>
 							<li class="tsd-parameter">
-								<h5>prev<wbr>Out<span class="tsd-signature-symbol">: </span><a href="globals.html#assetoutpointdata" class="tsd-signature-type">AssetOutPointData</a></h5>
+								<h5>prev<wbr>Out<span class="tsd-signature-symbol">: </span><a href="classes/assetoutpoint.html" class="tsd-signature-type">AssetOutPoint</a></h5>
 							</li>
 							<li class="tsd-parameter">
 								<h5>unlock<wbr>Script<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span></h5>
@@ -221,7 +266,7 @@
 					<div class="tsd-signature tsd-kind-icon">Asset<wbr>Transfer<wbr>Output<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/00316dd/src/primitives/transaction/AssetTransferTransaction.ts#L48">primitives/transaction/AssetTransferTransaction.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/transaction/AssetTransferTransaction.ts#L101">primitives/transaction/AssetTransferTransaction.ts:101</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -248,17 +293,68 @@
 					<div class="tsd-signature tsd-kind-icon">Asset<wbr>Transfer<wbr>Transaction<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/00316dd/src/primitives/transaction/AssetTransferTransaction.ts#L68">primitives/transaction/AssetTransferTransaction.ts:68</a></li>
+							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/transaction/AssetTransferTransaction.ts#L143">primitives/transaction/AssetTransferTransaction.ts:143</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter">
-								<h5>inputs<span class="tsd-signature-symbol">: </span><a href="globals.html#assettransferinputdata" class="tsd-signature-type">AssetTransferInputData</a><span class="tsd-signature-symbol">[]</span></h5>
+								<h5>inputs<span class="tsd-signature-symbol">: </span><a href="classes/assettransferinput.html" class="tsd-signature-type">AssetTransferInput</a><span class="tsd-signature-symbol">[]</span></h5>
 							</li>
 							<li class="tsd-parameter">
-								<h5>outputs<span class="tsd-signature-symbol">: </span><a href="globals.html#assettransferoutputdata" class="tsd-signature-type">AssetTransferOutputData</a><span class="tsd-signature-symbol">[]</span></h5>
+								<h5>outputs<span class="tsd-signature-symbol">: </span><a href="classes/assettransferoutput.html" class="tsd-signature-type">AssetTransferOutput</a><span class="tsd-signature-symbol">[]</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="blockdata" class="tsd-anchor"></a>
+					<h3>Block<wbr>Data</h3>
+					<div class="tsd-signature tsd-kind-icon">Block<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/Block.ts#L3">primitives/Block.ts:3</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>author<span class="tsd-signature-symbol">: </span><a href="classes/h160.html" class="tsd-signature-type">H160</a></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>extra<wbr>Data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>hash<span class="tsd-signature-symbol">: </span><a href="classes/h256.html" class="tsd-signature-type">H256</a></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>invoices<wbr>Root<span class="tsd-signature-symbol">: </span><a href="classes/h256.html" class="tsd-signature-type">H256</a></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>number<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>parcels<span class="tsd-signature-symbol">: </span><a href="classes/signedparcel.html" class="tsd-signature-type">SignedParcel</a><span class="tsd-signature-symbol">[]</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>parcels<wbr>Root<span class="tsd-signature-symbol">: </span><a href="classes/h256.html" class="tsd-signature-type">H256</a></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>parent<wbr>Hash<span class="tsd-signature-symbol">: </span><a href="classes/h256.html" class="tsd-signature-type">H256</a></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>score<span class="tsd-signature-symbol">: </span><a href="classes/u256.html" class="tsd-signature-type">U256</a></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>seal<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">[]</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>state<wbr>Root<span class="tsd-signature-symbol">: </span><a href="classes/h256.html" class="tsd-signature-type">H256</a></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>timestamp<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
 							</li>
 						</ul>
 					</div>
@@ -269,7 +365,7 @@
 					<div class="tsd-signature tsd-kind-icon">Payment<wbr>Transaction<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/00316dd/src/primitives/transaction/PaymentTransaction.ts#L6">primitives/transaction/PaymentTransaction.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/transaction/PaymentTransaction.ts#L6">primitives/transaction/PaymentTransaction.ts:6</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -296,7 +392,7 @@
 					<div class="tsd-signature tsd-kind-icon">Set<wbr>Regular<wbr>Key<wbr>Transaction<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/00316dd/src/primitives/transaction/SetRegularKeyTransaction.ts#L3">primitives/transaction/SetRegularKeyTransaction.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/transaction/SetRegularKeyTransaction.ts#L3">primitives/transaction/SetRegularKeyTransaction.ts:3</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -320,7 +416,7 @@
 					<div class="tsd-signature tsd-kind-icon">Transaction<span class="tsd-signature-symbol">:</span> <a href="classes/paymenttransaction.html" class="tsd-signature-type">PaymentTransaction</a><span class="tsd-signature-symbol"> | </span><a href="classes/setregularkeytransaction.html" class="tsd-signature-type">SetRegularKeyTransaction</a><span class="tsd-signature-symbol"> | </span><a href="classes/assetminttransaction.html" class="tsd-signature-type">AssetMintTransaction</a><span class="tsd-signature-symbol"> | </span><a href="classes/assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/00316dd/src/primitives/transaction/index.ts#L6">primitives/transaction/index.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/transaction/index.ts#L6">primitives/transaction/index.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -330,7 +426,7 @@
 					<div class="tsd-signature tsd-kind-icon">Transaction<wbr>Outcome<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"Success"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Failed"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/00316dd/src/primitives/Invoice.ts#L3">primitives/Invoice.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/Invoice.ts#L3">primitives/Invoice.ts:3</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -347,7 +443,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/00316dd/src/utils.ts#L28">utils.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/utils.ts#L28">utils.ts:28</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -370,7 +466,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/00316dd/src/utils.ts#L37">utils.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/utils.ts#L37">utils.ts:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -390,13 +486,13 @@
 					<a name="gettransactionfromjson" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Transaction<wbr>FromJSON</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Transaction<wbr>FromJSON<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/paymenttransaction.html" class="tsd-signature-type">PaymentTransaction</a><span class="tsd-signature-symbol"> | </span><a href="classes/setregularkeytransaction.html" class="tsd-signature-type">SetRegularKeyTransaction</a><span class="tsd-signature-symbol"> | </span><a href="classes/assetminttransaction.html" class="tsd-signature-type">AssetMintTransaction</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Transaction<wbr>FromJSON<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/paymenttransaction.html" class="tsd-signature-type">PaymentTransaction</a><span class="tsd-signature-symbol"> | </span><a href="classes/setregularkeytransaction.html" class="tsd-signature-type">SetRegularKeyTransaction</a><span class="tsd-signature-symbol"> | </span><a href="classes/assetminttransaction.html" class="tsd-signature-type">AssetMintTransaction</a><span class="tsd-signature-symbol"> | </span><a href="classes/assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/00316dd/src/primitives/transaction/index.ts#L14">primitives/transaction/index.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/transaction/index.ts#L14">primitives/transaction/index.ts:14</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -410,6 +506,8 @@
 								<a href="classes/setregularkeytransaction.html" class="tsd-signature-type">SetRegularKeyTransaction</a>
 								<span class="tsd-signature-symbol"> | </span>
 								<a href="classes/assetminttransaction.html" class="tsd-signature-type">AssetMintTransaction</a>
+								<span class="tsd-signature-symbol"> | </span>
+								<a href="classes/assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a>
 							</h4>
 						</li>
 					</ul>
@@ -424,7 +522,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/00316dd/src/utils.ts#L58">utils.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/utils.ts#L58">utils.ts:58</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -447,7 +545,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/00316dd/src/utils.ts#L46">utils.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/utils.ts#L46">utils.ts:46</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -470,7 +568,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/00316dd/src/utils.ts#L53">utils.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/utils.ts#L53">utils.ts:53</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -496,7 +594,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/00316dd/src/utils.ts#L24">utils.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/utils.ts#L24">utils.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -519,7 +617,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/00316dd/src/utils.ts#L22">utils.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/utils.ts#L22">utils.ts:22</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -550,16 +648,16 @@
 					<li class=" tsd-kind-class">
 						<a href="classes/assetminttransaction.html" class="tsd-kind-icon">Asset<wbr>Mint<wbr>Transaction</a>
 					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
+					<li class=" tsd-kind-class">
 						<a href="classes/assetoutpoint.html" class="tsd-kind-icon">Asset<wbr>Out<wbr>Point</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/assetscheme.html" class="tsd-kind-icon">Asset<wbr>Scheme</a>
 					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
+					<li class=" tsd-kind-class">
 						<a href="classes/assettransferinput.html" class="tsd-kind-icon">Asset<wbr>Transfer<wbr>Input</a>
 					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
+					<li class=" tsd-kind-class">
 						<a href="classes/assettransferoutput.html" class="tsd-kind-icon">Asset<wbr>Transfer<wbr>Output</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -598,23 +696,17 @@
 					<li class=" tsd-kind-class">
 						<a href="classes/u256.html" class="tsd-kind-icon">U256</a>
 					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/assetschemevalues.html" class="tsd-kind-icon">Asset<wbr>Scheme<wbr>Values</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/assetvalues.html" class="tsd-kind-icon">Asset<wbr>Values</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/blockvalues.html" class="tsd-kind-icon">Block<wbr>Values</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="interfaces/rpcrequest.html" class="tsd-kind-icon">Rpc<wbr>Request</a>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#assetdata" class="tsd-kind-icon">Asset<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#assetminttransactiondata" class="tsd-kind-icon">Asset<wbr>Mint<wbr>Transaction<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#assetoutpointdata" class="tsd-kind-icon">Asset<wbr>Out<wbr>Point<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#assetschemedata" class="tsd-kind-icon">Asset<wbr>Scheme<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#assettransferinputdata" class="tsd-kind-icon">Asset<wbr>Transfer<wbr>Input<wbr>Data</a>
@@ -624,6 +716,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#assettransfertransactiondata" class="tsd-kind-icon">Asset<wbr>Transfer<wbr>Transaction<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#blockdata" class="tsd-kind-icon">Block<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#paymenttransactiondata" class="tsd-kind-icon">Payment<wbr>Transaction<wbr>Data</a>

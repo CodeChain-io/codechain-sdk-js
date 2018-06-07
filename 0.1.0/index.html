@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>codechain-sdk</title>
+	<title>CodeChain JavaScript SDK</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">codechain-sdk</a>
+					<a href="index.html" class="title">CodeChain JavaScript SDK</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> codechain-sdk</h1>
+			<h1> CodeChain JavaScript SDK</h1>
 		</div>
 	</div>
 </header>
@@ -64,32 +64,84 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h1 id="codechain-sdk-js-build-status">codechain-sdk-js <a href="https://travis-ci.com/kodebox-io/codechain-sdk-js"><img src="https://travis-ci.com/kodebox-io/codechain-sdk-js.svg?token=ekWhXzYw9sUsATQJSpJ1&amp;branch=master" alt="Build Status"></a></h1>
-				<p>A JavaScript SDK for CodeChain</p>
-				<h1 id="features">Features</h1>
+				<h1 id="install-package-not-available-yet-">Install package (not available yet)</h1>
+				<pre><code class="lang-sh">npm install codechain-sdk
+</code></pre>
+				<p>or</p>
+				<pre><code class="lang-sh">yarn add codechain-sdk
+</code></pre>
+				<h1 id="usage-example">Usage example</h1>
+				<p>Make sure that your CodeChain RPC server is listening. In the examples, we assume it is localhost:8080</p>
+				<h2 id="send-paymenttransaction">Send PaymentTransaction</h2>
+				<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { SDK, Parcel, U256, H256, H160, PaymentTransaction } <span class="hljs-keyword">from</span> <span class="hljs-string">"codechain-sdk"</span>;
+
+<span class="hljs-comment">// Create SDK object with CodeChain RPC server URL</span>
+<span class="hljs-keyword">const</span> sdk = <span class="hljs-keyword">new</span> SDK(<span class="hljs-string">"http://localhost:8080"</span>);
+
+<span class="hljs-comment">// Create PaymentTransaction that sends 10000 CCC from 0x5bcd7c... to 0x744142..</span>
+<span class="hljs-comment">// Transaction is only valid if the nonce matches the nonce of the sender.</span>
+<span class="hljs-comment">// The nonce of the sender is increased by 1 when this transaction is confirmed.</span>
+<span class="hljs-keyword">const</span> tx = <span class="hljs-keyword">new</span> PaymentTransaction({
+    <span class="hljs-attr">nonce</span>: <span class="hljs-keyword">new</span> U256(<span class="hljs-number">0</span>),
+    <span class="hljs-attr">sender</span>: <span class="hljs-keyword">new</span> H160(<span class="hljs-string">"0x5bcd7c840f108172d94a4d084af711d879630fe6"</span>),
+    <span class="hljs-attr">receiver</span>: <span class="hljs-keyword">new</span> H160(<span class="hljs-string">"0x744142069fe2d03d48e61734cbe564fcc94e6e31"</span>),
+    <span class="hljs-attr">value</span>: <span class="hljs-keyword">new</span> U256(<span class="hljs-number">10000</span>)
+});
+
+<span class="hljs-comment">// Parcel is only valid if the nonce matches the nonce of the parcel signer.</span>
+<span class="hljs-comment">// The nonce of the signer is increased by 1 when this parcel is confirmed.</span>
+<span class="hljs-keyword">const</span> parcelSignerNonce = <span class="hljs-keyword">new</span> U256(<span class="hljs-number">0</span>);
+<span class="hljs-comment">// Parcel signer pays 10 CCC as fee.</span>
+<span class="hljs-keyword">const</span> fee = <span class="hljs-keyword">new</span> U256(<span class="hljs-number">10</span>);
+<span class="hljs-comment">// Network ID prevents replay attacks or confusion among different CodeChain networks.</span>
+<span class="hljs-keyword">const</span> networkId = <span class="hljs-number">17</span>;
+<span class="hljs-comment">// Create Parcel</span>
+<span class="hljs-keyword">const</span> parcel = <span class="hljs-keyword">new</span> Parcel(parcelSignerNonce, fee, networkId, tx);
+
+<span class="hljs-comment">// Sign the parcel with the secret key of the address 0x31bd8354de8f7dbab6764a11851086061fee3f25.</span>
+<span class="hljs-keyword">const</span> parcelSignerSecret = <span class="hljs-keyword">new</span> H256(<span class="hljs-string">"b15139f97aad25ae0330432aeb091ef962eee643e41dc07a1e04457c5c2c6088"</span>);
+<span class="hljs-keyword">const</span> signedParcel = parcel.sign(parcelSignerSecret);
+
+<span class="hljs-comment">// Send the signed parcel to the CodeChain node. The node will propagate this</span>
+<span class="hljs-comment">// parcel and attempt to confirm it.</span>
+sdk.sendSignedParcel(signedParcel).then(<span class="hljs-function">(<span class="hljs-params">hash</span>) =&gt;</span> {
+    <span class="hljs-comment">// sendSignedParcel returns a promise that resolves with a parcel hash if parcel has</span>
+    <span class="hljs-comment">// been verified and queued successfully. It doesn't mean parcel was confirmed.</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Parcel sent:`</span>, hash);
+    <span class="hljs-keyword">return</span> sdk.getParcel(hash);
+}).then(<span class="hljs-function">(<span class="hljs-params">parcel</span>) =&gt;</span> {
+    <span class="hljs-comment">// getParcel returns a promise that resolves with a parcel.</span>
+    <span class="hljs-comment">// blockNumber/blockHash/parcelIndex fields in Parcel is present only for the</span>
+    <span class="hljs-comment">// confirmed parcel</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Parcel`</span>, parcel);
+}).catch(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
+    <span class="hljs-built_in">console</span>.error(<span class="hljs-string">`Error:`</span>, err);
+});
+
+</code></pre>
+				<h1 id="sdk-methods"><a href="classes/sdk.html">SDK</a> methods</h1>
 				<ul>
-					<li>Connect to a <a href="https://github.com/kodebox-io/codechain/wiki/JSON-RPC">CodeChain JSON-RPC</a> server from Node.js <del>or a web browser</del></li>
-					<li>Generate an account, create a transacton, sign a parcel.</li>
+					<li><a href="classes/sdk.html#getasset">getAsset</a></li>
+					<li><a href="classes/sdk.html#getassetscheme">getAssetScheme</a></li>
+					<li><a href="classes/sdk.html#getbalance">getBalance</a></li>
+					<li><a href="classes/sdk.html#getblock">getBlock</a></li>
+					<li><a href="classes/sdk.html#getblockhash">getBlockHash</a></li>
+					<li><a href="classes/sdk.html#getblocknumber">getBlockNumber</a></li>
+					<li><a href="classes/sdk.html#getnonce">getNonce</a></li>
+					<li><a href="classes/sdk.html#getparcel">getParcel</a></li>
+					<li><a href="classes/sdk.html#getparcelinvoices">getParcelInvoices</a></li>
+					<li><a href="classes/sdk.html#getpendingparcels">getPendingParcels</a></li>
+					<li><a href="classes/sdk.html#getregularkey">getRegularKey</a></li>
+					<li><a href="classes/sdk.html#gettransactioninvoice">getTransactionInvoice</a></li>
+					<li><a href="classes/sdk.html#ping">ping</a></li>
+					<li><a href="classes/sdk.html#sendsignedparcel">sendSignedParcel</a></li>
 				</ul>
-				<h1 id="getting-started">Getting Started</h1>
-				<h2 id="install">Install</h2>
-				<pre><code>yarn <span class="hljs-keyword">install</span>
-</code></pre><h2 id="running-unit-tests">Running unit tests</h2>
-				<p>Run <code>yarn test</code></p>
-				<h2 id="building-and-running-integration-tests">Building and Running integration tests</h2>
-				<ol>
-					<li>Run <code>yarn build</code> command.</li>
-					<li>Run CodeChain RPC server.</li>
-					<li>Set <code>CODECHAIN_RPC_HTTP</code> environment variable with JSON-RPC HTTP server. (e.g. <code>https://localhost:8080</code>)</li>
-					<li>Run <code>yarn test-int</code> command.<blockquote>
-							<p>It is also possible to indicate specific testcase with <code>-t</code> option. (e.g. <code>yarn test-int -t getBlockNumber</code>)</p>
-						</blockquote>
-					</li>
-				</ol>
-				<h1 id="documentations">Documentations</h1>
+				<h1 id="transactions">Transactions</h1>
 				<ul>
-					<li><a href="https://github.com/kodebox-io/codechain-sdk-js/wiki/Basic-Types">Basic Types</a></li>
-					<li><a href="https://github.com/kodebox-io/codechain-sdk-js/wiki/API-Specifications">API Specifications</a></li>
+					<li><a href="classes/paymenttransaction.html">PaymentTransaction</a></li>
+					<li><a href="classes/setregularkeytransaction.html">SetRegularKeyTransaction</a></li>
+					<li><a href="classes/assetminttransaction.html">AssetMintTransaction</a></li>
+					<li><a href="classes/assettransfertransaction.html">AssetTransferTransaction</a></li>
 				</ul>
 			</div>
 		</div>
@@ -109,16 +161,16 @@
 					<li class=" tsd-kind-class">
 						<a href="classes/assetminttransaction.html" class="tsd-kind-icon">Asset<wbr>Mint<wbr>Transaction</a>
 					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
+					<li class=" tsd-kind-class">
 						<a href="classes/assetoutpoint.html" class="tsd-kind-icon">Asset<wbr>Out<wbr>Point</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/assetscheme.html" class="tsd-kind-icon">Asset<wbr>Scheme</a>
 					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
+					<li class=" tsd-kind-class">
 						<a href="classes/assettransferinput.html" class="tsd-kind-icon">Asset<wbr>Transfer<wbr>Input</a>
 					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
+					<li class=" tsd-kind-class">
 						<a href="classes/assettransferoutput.html" class="tsd-kind-icon">Asset<wbr>Transfer<wbr>Output</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -157,23 +209,17 @@
 					<li class=" tsd-kind-class">
 						<a href="classes/u256.html" class="tsd-kind-icon">U256</a>
 					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/assetschemevalues.html" class="tsd-kind-icon">Asset<wbr>Scheme<wbr>Values</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/assetvalues.html" class="tsd-kind-icon">Asset<wbr>Values</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/blockvalues.html" class="tsd-kind-icon">Block<wbr>Values</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="interfaces/rpcrequest.html" class="tsd-kind-icon">Rpc<wbr>Request</a>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#assetdata" class="tsd-kind-icon">Asset<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#assetminttransactiondata" class="tsd-kind-icon">Asset<wbr>Mint<wbr>Transaction<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#assetoutpointdata" class="tsd-kind-icon">Asset<wbr>Out<wbr>Point<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#assetschemedata" class="tsd-kind-icon">Asset<wbr>Scheme<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#assettransferinputdata" class="tsd-kind-icon">Asset<wbr>Transfer<wbr>Input<wbr>Data</a>
@@ -183,6 +229,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#assettransfertransactiondata" class="tsd-kind-icon">Asset<wbr>Transfer<wbr>Transaction<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#blockdata" class="tsd-kind-icon">Block<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#paymenttransactiondata" class="tsd-kind-icon">Payment<wbr>Transaction<wbr>Data</a>

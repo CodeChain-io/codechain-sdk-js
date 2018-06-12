@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AssetTransferTransaction | CodeChain JavaScript SDK</title>
+	<title>SetRegularKeyTransaction | CodeChain JavaScript SDK</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="assettransfertransaction.html">AssetTransferTransaction</a>
+					<a href="setregularkeytransaction.html">SetRegularKeyTransaction</a>
 				</li>
 			</ul>
-			<h1>Class AssetTransferTransaction</h1>
+			<h1>Class SetRegularKeyTransaction</h1>
 		</div>
 	</div>
 </header>
@@ -69,14 +69,12 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Spends the existing asset and creates a new asset. Ownership can be transferred during this process.</p>
+						<p>Registers address&#39; regular key. The regular key can sign in place of the account&#39;s private key.</p>
 					</div>
 					<ul>
-						<li>AssetTransfer consists of AssetTransferInput&#39;s list to spend and AssetTransferOutput&#39;s list to create.</li>
-						<li>All inputs must be valid for the transaction to be valid.</li>
-						<li>When each asset types&#39; amount have been summed, the sum of inputs and the sum of outputs must be identical.</li>
-						<li>It contains the network ID. This must be identical to the network ID to which the transaction is being sent to.</li>
-						<li>If an identical transaction hash already exists, then the change fails. In this situation, a transaction can be created again by arbitrarily changing the nonce.</li>
+						<li>Its nonce has to be identical with the address account&#39;s nonce.</li>
+						<li>If there already exists a regular key, then the old one gets overwritten.</li>
+						<li>If the nonce is not identical, the transaction fails.</li>
 					</ul>
 				</div>
 			</section>
@@ -84,7 +82,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">AssetTransferTransaction</span>
+						<span class="target">SetRegularKeyTransaction</span>
 					</li>
 				</ul>
 			</section>
@@ -95,18 +93,15 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="assettransfertransaction.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="setregularkeytransaction.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assettransfertransaction.html#getassetaddress" class="tsd-kind-icon">get<wbr>Asset<wbr>Address</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assettransfertransaction.html#hash" class="tsd-kind-icon">hash</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assettransfertransaction.html#rlpbytes" class="tsd-kind-icon">rlp<wbr>Bytes</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assettransfertransaction.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assettransfertransaction.html#tojson" class="tsd-kind-icon">toJSON</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="assettransfertransaction.html#fromjson" class="tsd-kind-icon">fromJSON</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="setregularkeytransaction.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="setregularkeytransaction.html#tojson" class="tsd-kind-icon">toJSON</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="setregularkeytransaction.html#fromjson" class="tsd-kind-icon">fromJSON</a></li>
 							</ul>
 						</section>
 					</div>
@@ -118,36 +113,22 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Asset<wbr>Transfer<wbr>Transaction<span class="tsd-signature-symbol">(</span>networkId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, __namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, nonce<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Set<wbr>Regular<wbr>Key<wbr>Transaction<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../globals.html#setregularkeytransactiondata" class="tsd-signature-type">SetRegularKeyTransactionData</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="setregularkeytransaction.html" class="tsd-signature-type">SetRegularKeyTransaction</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/transaction/AssetTransferTransaction.ts#L161">primitives/transaction/AssetTransferTransaction.ts:161</a></li>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/f4c4871/src/primitives/transaction/SetRegularKeyTransaction.ts#L17">primitives/transaction/SetRegularKeyTransaction.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>networkId: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-type">object</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>inputs<span class="tsd-signature-symbol">: </span><a href="assettransferinput.html" class="tsd-signature-type">AssetTransferInput</a><span class="tsd-signature-symbol">[]</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>outputs<span class="tsd-signature-symbol">: </span><a href="assettransferoutput.html" class="tsd-signature-type">AssetTransferOutput</a><span class="tsd-signature-symbol">[]</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> nonce: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
+									<h5>data: <a href="../globals.html#setregularkeytransactiondata" class="tsd-signature-type">SetRegularKeyTransactionData</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="setregularkeytransaction.html" class="tsd-signature-type">SetRegularKeyTransaction</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -155,76 +136,19 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getassetaddress" class="tsd-anchor"></a>
-					<h3>get<wbr>Asset<wbr>Address</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Asset<wbr>Address<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="h256.html" class="tsd-signature-type">H256</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/transaction/AssetTransferTransaction.ts#L188">primitives/transaction/AssetTransferTransaction.ts:188</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>index: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="h256.html" class="tsd-signature-type">H256</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="hash" class="tsd-anchor"></a>
-					<h3>hash</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">hash<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="h256.html" class="tsd-signature-type">H256</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/transaction/AssetTransferTransaction.ts#L184">primitives/transaction/AssetTransferTransaction.ts:184</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="h256.html" class="tsd-signature-type">H256</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="rlpbytes" class="tsd-anchor"></a>
-					<h3>rlp<wbr>Bytes</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">rlp<wbr>Bytes<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/transaction/AssetTransferTransaction.ts#L180">primitives/transaction/AssetTransferTransaction.ts:180</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="toencodeobject" class="tsd-anchor"></a>
 					<h3>to<wbr>Encode<wbr>Object</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">to<wbr>Encode<wbr>Object<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Encode<wbr>Object<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/transaction/AssetTransferTransaction.ts#L170">primitives/transaction/AssetTransferTransaction.ts:170</a></li>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/f4c4871/src/primitives/transaction/SetRegularKeyTransaction.ts#L43">primitives/transaction/SetRegularKeyTransaction.ts:43</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -238,7 +162,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/transaction/AssetTransferTransaction.ts#L207">primitives/transaction/AssetTransferTransaction.ts:207</a></li>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/f4c4871/src/primitives/transaction/SetRegularKeyTransaction.ts#L32">primitives/transaction/SetRegularKeyTransaction.ts:32</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
@@ -247,16 +171,13 @@
 									<h5>__computed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter">
-											<h5>inputs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">[]</span></h5>
+											<h5>address<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
 										</li>
 										<li class="tsd-parameter">
-											<h5>network<wbr>Id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+											<h5>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
 										</li>
 										<li class="tsd-parameter">
-											<h5>nonce<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>outputs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">[]</span></h5>
+											<h5>nonce<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
 										</li>
 									</ul>
 								</li>
@@ -268,13 +189,13 @@
 					<a name="fromjson" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> fromJSON</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">fromJSON<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a></li>
+						<li class="tsd-signature tsd-kind-icon">fromJSON<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="setregularkeytransaction.html" class="tsd-signature-type">SetRegularKeyTransaction</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/transaction/AssetTransferTransaction.ts#L199">primitives/transaction/AssetTransferTransaction.ts:199</a></li>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/f4c4871/src/primitives/transaction/SetRegularKeyTransaction.ts#L23">primitives/transaction/SetRegularKeyTransaction.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -283,7 +204,7 @@
 									<h5>data: <span class="tsd-signature-type">any</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="setregularkeytransaction.html" class="tsd-signature-type">SetRegularKeyTransaction</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -317,36 +238,9 @@
 					<li class=" tsd-kind-class">
 						<a href="assettransferoutput.html" class="tsd-kind-icon">Asset<wbr>Transfer<wbr>Output</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-class">
+					<li class=" tsd-kind-class">
 						<a href="assettransfertransaction.html" class="tsd-kind-icon">Asset<wbr>Transfer<wbr>Transaction</a>
-						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="assettransfertransaction.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="assettransfertransaction.html#getassetaddress" class="tsd-kind-icon">get<wbr>Asset<wbr>Address</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="assettransfertransaction.html#hash" class="tsd-kind-icon">hash</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="assettransfertransaction.html#rlpbytes" class="tsd-kind-icon">rlp<wbr>Bytes</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="assettransfertransaction.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="assettransfertransaction.html#tojson" class="tsd-kind-icon">toJSON</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="assettransfertransaction.html#fromjson" class="tsd-kind-icon">fromJSON</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-class">
 						<a href="block.html" class="tsd-kind-icon">Block</a>
 					</li>
@@ -371,9 +265,27 @@
 					<li class=" tsd-kind-class">
 						<a href="sdk.html" class="tsd-kind-icon">SDK</a>
 					</li>
-					<li class=" tsd-kind-class">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
 						<a href="setregularkeytransaction.html" class="tsd-kind-icon">Set<wbr>Regular<wbr>Key<wbr>Transaction</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="setregularkeytransaction.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="setregularkeytransaction.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="setregularkeytransaction.html#tojson" class="tsd-kind-icon">toJSON</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="setregularkeytransaction.html#fromjson" class="tsd-kind-icon">fromJSON</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-class">
 						<a href="signedparcel.html" class="tsd-kind-icon">Signed<wbr>Parcel</a>
 					</li>
@@ -423,10 +335,16 @@
 						<a href="../globals.html#blake256withkey" class="tsd-kind-icon">blake256<wbr>With<wbr>Key</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="../globals.html#generatepubkeyscript" class="tsd-kind-icon">generate<wbr>Pub<wbr>Key<wbr>Script</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="../globals.html#gettransactionfromjson" class="tsd-kind-icon">get<wbr>Transaction<wbr>FromJSON</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#privatekeytoaddress" class="tsd-kind-icon">private<wbr>Key<wbr>ToAddress</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#privatekeytopublic" class="tsd-kind-icon">private<wbr>Key<wbr>ToPublic</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#ripemd160" class="tsd-kind-icon">ripemd160</a>

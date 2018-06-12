@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>H160 | CodeChain JavaScript SDK</title>
+	<title>U256 | CodeChain JavaScript SDK</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="h160.html">H160</a>
+					<a href="u256.html">U256</a>
 				</li>
 			</ul>
-			<h1>Class H160</h1>
+			<h1>Class U256</h1>
 		</div>
 	</div>
 </header>
@@ -69,7 +69,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Handles 160-bit data. Used to express account addresses.</p>
+						<p>Handles 256-bit unsigned integers. Used to express nonce, asset amount, etc.</p>
 					</div>
 				</div>
 			</section>
@@ -77,7 +77,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">H160</span>
+						<span class="target">U256</span>
 					</li>
 				</ul>
 			</section>
@@ -88,21 +88,23 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="h160.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="u256.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="h160.html#value" class="tsd-kind-icon">value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="u256.html#value" class="tsd-kind-icon">value</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="h160.html#rlpbytes" class="tsd-kind-icon">rlp<wbr>Bytes</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="h160.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="h160.html#frombytes" class="tsd-kind-icon">from<wbr>Bytes</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="u256.html#increase" class="tsd-kind-icon">increase</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="u256.html#isequalto" class="tsd-kind-icon">is<wbr>Equal<wbr>To</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="u256.html#rlpbytes" class="tsd-kind-icon">rlp<wbr>Bytes</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="u256.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="u256.html#frombytes" class="tsd-kind-icon">from<wbr>Bytes</a></li>
 							</ul>
 						</section>
 					</div>
@@ -114,22 +116,22 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>H160<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="h160.html" class="tsd-signature-type">H160</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>U256<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">BigNumber</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/H160.ts#L6">primitives/H160.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/f4c4871/src/primitives/U256.ts#L9">primitives/U256.ts:9</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>value: <span class="tsd-signature-type">string</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> value: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">BigNumber</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="h160.html" class="tsd-signature-type">H160</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="u256.html" class="tsd-signature-type">U256</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -139,16 +141,56 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="value" class="tsd-anchor"></a>
 					<h3>value</h3>
-					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">BigNumber</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/H160.ts#L6">primitives/H160.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/f4c4871/src/primitives/U256.ts#L9">primitives/U256.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="increase" class="tsd-anchor"></a>
+					<h3>increase</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">increase<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/f4c4871/src/primitives/U256.ts#L20">primitives/U256.ts:20</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="u256.html" class="tsd-signature-type">U256</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="isequalto" class="tsd-anchor"></a>
+					<h3>is<wbr>Equal<wbr>To</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Equal<wbr>To<span class="tsd-signature-symbol">(</span>rhs<span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/f4c4871/src/primitives/U256.ts#L53">primitives/U256.ts:53</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>rhs: <a href="u256.html" class="tsd-signature-type">U256</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="rlpbytes" class="tsd-anchor"></a>
 					<h3>rlp<wbr>Bytes</h3>
@@ -159,7 +201,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/H160.ts#L30">primitives/H160.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/f4c4871/src/primitives/U256.ts#L49">primitives/U256.ts:49</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Buffer</span></h4>
@@ -170,16 +212,19 @@
 					<a name="toencodeobject" class="tsd-anchor"></a>
 					<h3>to<wbr>Encode<wbr>Object</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">to<wbr>Encode<wbr>Object<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Encode<wbr>Object<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/H160.ts#L26">primitives/H160.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/f4c4871/src/primitives/U256.ts#L37">primitives/U256.ts:37</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">number</span>
+							</h4>
 						</li>
 					</ul>
 				</section>
@@ -187,13 +232,13 @@
 					<a name="frombytes" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Bytes</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Bytes<span class="tsd-signature-symbol">(</span>buffer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="h160.html" class="tsd-signature-type">H160</a></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Bytes<span class="tsd-signature-symbol">(</span>buffer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/H160.ts#L17">primitives/H160.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/f4c4871/src/primitives/U256.ts#L24">primitives/U256.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -202,7 +247,7 @@
 									<h5>buffer: <span class="tsd-signature-type">Buffer</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="h160.html" class="tsd-signature-type">H160</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="u256.html" class="tsd-signature-type">U256</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -242,30 +287,9 @@
 					<li class=" tsd-kind-class">
 						<a href="block.html" class="tsd-kind-icon">Block</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-class">
+					<li class=" tsd-kind-class">
 						<a href="h160.html" class="tsd-kind-icon">H160</a>
-						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="h160.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="h160.html#value" class="tsd-kind-icon">value</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="h160.html#rlpbytes" class="tsd-kind-icon">rlp<wbr>Bytes</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="h160.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="h160.html#frombytes" class="tsd-kind-icon">from<wbr>Bytes</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-class">
 						<a href="h256.html" class="tsd-kind-icon">H256</a>
 					</li>
@@ -290,9 +314,36 @@
 					<li class=" tsd-kind-class">
 						<a href="signedparcel.html" class="tsd-kind-icon">Signed<wbr>Parcel</a>
 					</li>
-					<li class=" tsd-kind-class">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
 						<a href="u256.html" class="tsd-kind-icon">U256</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="u256.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="u256.html#value" class="tsd-kind-icon">value</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="u256.html#increase" class="tsd-kind-icon">increase</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="u256.html#isequalto" class="tsd-kind-icon">is<wbr>Equal<wbr>To</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="u256.html#rlpbytes" class="tsd-kind-icon">rlp<wbr>Bytes</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="u256.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="u256.html#frombytes" class="tsd-kind-icon">from<wbr>Bytes</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#assetdata" class="tsd-kind-icon">Asset<wbr>Data</a>
 					</li>
@@ -336,10 +387,16 @@
 						<a href="../globals.html#blake256withkey" class="tsd-kind-icon">blake256<wbr>With<wbr>Key</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="../globals.html#generatepubkeyscript" class="tsd-kind-icon">generate<wbr>Pub<wbr>Key<wbr>Script</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="../globals.html#gettransactionfromjson" class="tsd-kind-icon">get<wbr>Transaction<wbr>FromJSON</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#privatekeytoaddress" class="tsd-kind-icon">private<wbr>Key<wbr>ToAddress</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#privatekeytopublic" class="tsd-kind-icon">private<wbr>Key<wbr>ToPublic</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#ripemd160" class="tsd-kind-icon">ripemd160</a>

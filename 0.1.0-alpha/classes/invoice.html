@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Block | CodeChain JavaScript SDK</title>
+	<title>Invoice | CodeChain JavaScript SDK</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="block.html">Block</a>
+					<a href="invoice.html">Invoice</a>
 				</li>
 			</ul>
-			<h1>Class Block</h1>
+			<h1>Class Invoice</h1>
 		</div>
 	</div>
 </header>
@@ -69,7 +69,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Block is the unit of processes being handled by CodeChain. Contains information related to SignedParcel&#39;s list and block creation.</p>
+						<p>Used to know whether a transaction succeeded or failed.</p>
 					</div>
 				</div>
 			</section>
@@ -77,7 +77,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Block</span>
+						<span class="target">Invoice</span>
 					</li>
 				</ul>
 			</section>
@@ -88,31 +88,17 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="block.html#constructor" class="tsd-kind-icon">constructor</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="block.html#author" class="tsd-kind-icon">author</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="block.html#extradata" class="tsd-kind-icon">extra<wbr>Data</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="block.html#hash" class="tsd-kind-icon">hash</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="block.html#invoicesroot" class="tsd-kind-icon">invoices<wbr>Root</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="block.html#number" class="tsd-kind-icon">number</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="block.html#parcels" class="tsd-kind-icon">parcels</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="block.html#parcelsroot" class="tsd-kind-icon">parcels<wbr>Root</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="block.html#parenthash" class="tsd-kind-icon">parent<wbr>Hash</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="block.html#score" class="tsd-kind-icon">score</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="block.html#seal" class="tsd-kind-icon">seal</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="block.html#stateroot" class="tsd-kind-icon">state<wbr>Root</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="block.html#timestamp" class="tsd-kind-icon">timestamp</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="invoice.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="block.html#tojson" class="tsd-kind-icon">toJSON</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="block.html#fromjson" class="tsd-kind-icon">fromJSON</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="invoice.html#rlpbytes" class="tsd-kind-icon">rlp<wbr>Bytes</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="invoice.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="invoice.html#tojson" class="tsd-kind-icon">toJSON</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="invoice.html#frombytes" class="tsd-kind-icon">from<wbr>Bytes</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="invoice.html#fromjson" class="tsd-kind-icon">fromJSON</a></li>
 							</ul>
 						</section>
 					</div>
@@ -124,151 +110,62 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Block<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../globals.html#blockdata" class="tsd-signature-type">BlockData</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="block.html" class="tsd-signature-type">Block</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Invoice<span class="tsd-signature-symbol">(</span>success<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="invoice.html" class="tsd-signature-type">Invoice</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/Block.ts#L32">primitives/Block.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/f4c4871/src/primitives/Invoice.ts#L8">primitives/Invoice.ts:8</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>data: <a href="../globals.html#blockdata" class="tsd-signature-type">BlockData</a></h5>
+									<h5>success: <span class="tsd-signature-type">boolean</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="block.html" class="tsd-signature-type">Block</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="invoice.html" class="tsd-signature-type">Invoice</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="author" class="tsd-anchor"></a>
-					<h3>author</h3>
-					<div class="tsd-signature tsd-kind-icon">author<span class="tsd-signature-symbol">:</span> <a href="h160.html" class="tsd-signature-type">H160</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/Block.ts#L24">primitives/Block.ts:24</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="extradata" class="tsd-anchor"></a>
-					<h3>extra<wbr>Data</h3>
-					<div class="tsd-signature tsd-kind-icon">extra<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Buffer</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/Block.ts#L25">primitives/Block.ts:25</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="hash" class="tsd-anchor"></a>
-					<h3>hash</h3>
-					<div class="tsd-signature tsd-kind-icon">hash<span class="tsd-signature-symbol">:</span> <a href="h256.html" class="tsd-signature-type">H256</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/Block.ts#L31">primitives/Block.ts:31</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="invoicesroot" class="tsd-anchor"></a>
-					<h3>invoices<wbr>Root</h3>
-					<div class="tsd-signature tsd-kind-icon">invoices<wbr>Root<span class="tsd-signature-symbol">:</span> <a href="h256.html" class="tsd-signature-type">H256</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/Block.ts#L28">primitives/Block.ts:28</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="number" class="tsd-anchor"></a>
-					<h3>number</h3>
-					<div class="tsd-signature tsd-kind-icon">number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/Block.ts#L23">primitives/Block.ts:23</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="parcels" class="tsd-anchor"></a>
-					<h3>parcels</h3>
-					<div class="tsd-signature tsd-kind-icon">parcels<span class="tsd-signature-symbol">:</span> <a href="signedparcel.html" class="tsd-signature-type">SignedParcel</a><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/Block.ts#L32">primitives/Block.ts:32</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="parcelsroot" class="tsd-anchor"></a>
-					<h3>parcels<wbr>Root</h3>
-					<div class="tsd-signature tsd-kind-icon">parcels<wbr>Root<span class="tsd-signature-symbol">:</span> <a href="h256.html" class="tsd-signature-type">H256</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/Block.ts#L26">primitives/Block.ts:26</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="parenthash" class="tsd-anchor"></a>
-					<h3>parent<wbr>Hash</h3>
-					<div class="tsd-signature tsd-kind-icon">parent<wbr>Hash<span class="tsd-signature-symbol">:</span> <a href="h256.html" class="tsd-signature-type">H256</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/Block.ts#L21">primitives/Block.ts:21</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="score" class="tsd-anchor"></a>
-					<h3>score</h3>
-					<div class="tsd-signature tsd-kind-icon">score<span class="tsd-signature-symbol">:</span> <a href="u256.html" class="tsd-signature-type">U256</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/Block.ts#L29">primitives/Block.ts:29</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="seal" class="tsd-anchor"></a>
-					<h3>seal</h3>
-					<div class="tsd-signature tsd-kind-icon">seal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/Block.ts#L30">primitives/Block.ts:30</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="stateroot" class="tsd-anchor"></a>
-					<h3>state<wbr>Root</h3>
-					<div class="tsd-signature tsd-kind-icon">state<wbr>Root<span class="tsd-signature-symbol">:</span> <a href="h256.html" class="tsd-signature-type">H256</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/Block.ts#L27">primitives/Block.ts:27</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="timestamp" class="tsd-anchor"></a>
-					<h3>timestamp</h3>
-					<div class="tsd-signature tsd-kind-icon">timestamp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/Block.ts#L22">primitives/Block.ts:22</a></li>
-						</ul>
-					</aside>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="rlpbytes" class="tsd-anchor"></a>
+					<h3>rlp<wbr>Bytes</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">rlp<wbr>Bytes<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/f4c4871/src/primitives/Invoice.ts#L35">primitives/Invoice.ts:35</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Buffer</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="toencodeobject" class="tsd-anchor"></a>
+					<h3>to<wbr>Encode<wbr>Object</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Encode<wbr>Object<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/f4c4871/src/primitives/Invoice.ts#L31">primitives/Invoice.ts:31</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="tojson" class="tsd-anchor"></a>
 					<h3>toJSON</h3>
@@ -279,48 +176,38 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/Block.ts#L70">primitives/Block.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/f4c4871/src/primitives/Invoice.ts#L18">primitives/Invoice.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
 							<ul class="tsd-parameters">
 								<li class="tsd-parameter">
-									<h5>author<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>extra<wbr>Data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>hash<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>invoices<wbr>Root<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>number<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>parcels<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>parcels<wbr>Root<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>parent<wbr>Hash<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>score<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>seal<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>state<wbr>Root<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>timestamp<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+									<h5>outcome<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Success"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Failed"</span></h5>
 								</li>
 							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="frombytes" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Bytes</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Bytes<span class="tsd-signature-symbol">(</span>buffer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="invoice.html" class="tsd-signature-type">Invoice</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/f4c4871/src/primitives/Invoice.ts#L23">primitives/Invoice.ts:23</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>buffer: <span class="tsd-signature-type">Buffer</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="invoice.html" class="tsd-signature-type">Invoice</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -328,13 +215,13 @@
 					<a name="fromjson" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> fromJSON</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">fromJSON<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="block.html" class="tsd-signature-type">Block</a></li>
+						<li class="tsd-signature tsd-kind-icon">fromJSON<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="invoice.html" class="tsd-signature-type">Invoice</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/d1fd73f/src/primitives/Block.ts#L51">primitives/Block.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/kodebox-io/codechain-sdk-js/blob/f4c4871/src/primitives/Invoice.ts#L14">primitives/Invoice.ts:14</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -343,7 +230,7 @@
 									<h5>data: <span class="tsd-signature-type">any</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="block.html" class="tsd-signature-type">Block</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="invoice.html" class="tsd-signature-type">Invoice</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -380,60 +267,9 @@
 					<li class=" tsd-kind-class">
 						<a href="assettransfertransaction.html" class="tsd-kind-icon">Asset<wbr>Transfer<wbr>Transaction</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-class">
+					<li class=" tsd-kind-class">
 						<a href="block.html" class="tsd-kind-icon">Block</a>
-						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="block.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="block.html#author" class="tsd-kind-icon">author</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="block.html#extradata" class="tsd-kind-icon">extra<wbr>Data</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="block.html#hash" class="tsd-kind-icon">hash</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="block.html#invoicesroot" class="tsd-kind-icon">invoices<wbr>Root</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="block.html#number" class="tsd-kind-icon">number</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="block.html#parcels" class="tsd-kind-icon">parcels</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="block.html#parcelsroot" class="tsd-kind-icon">parcels<wbr>Root</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="block.html#parenthash" class="tsd-kind-icon">parent<wbr>Hash</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="block.html#score" class="tsd-kind-icon">score</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="block.html#seal" class="tsd-kind-icon">seal</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="block.html#stateroot" class="tsd-kind-icon">state<wbr>Root</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="block.html#timestamp" class="tsd-kind-icon">timestamp</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="block.html#tojson" class="tsd-kind-icon">toJSON</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="block.html#fromjson" class="tsd-kind-icon">fromJSON</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-class">
 						<a href="h160.html" class="tsd-kind-icon">H160</a>
 					</li>
@@ -443,9 +279,33 @@
 					<li class=" tsd-kind-class">
 						<a href="h512.html" class="tsd-kind-icon">H512</a>
 					</li>
-					<li class=" tsd-kind-class">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
 						<a href="invoice.html" class="tsd-kind-icon">Invoice</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="invoice.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="invoice.html#rlpbytes" class="tsd-kind-icon">rlp<wbr>Bytes</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="invoice.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="invoice.html#tojson" class="tsd-kind-icon">toJSON</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="invoice.html#frombytes" class="tsd-kind-icon">from<wbr>Bytes</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="invoice.html#fromjson" class="tsd-kind-icon">fromJSON</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-class">
 						<a href="parcel.html" class="tsd-kind-icon">Parcel</a>
 					</li>
@@ -507,10 +367,16 @@
 						<a href="../globals.html#blake256withkey" class="tsd-kind-icon">blake256<wbr>With<wbr>Key</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="../globals.html#generatepubkeyscript" class="tsd-kind-icon">generate<wbr>Pub<wbr>Key<wbr>Script</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="../globals.html#gettransactionfromjson" class="tsd-kind-icon">get<wbr>Transaction<wbr>FromJSON</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#privatekeytoaddress" class="tsd-kind-icon">private<wbr>Key<wbr>ToAddress</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#privatekeytopublic" class="tsd-kind-icon">private<wbr>Key<wbr>ToPublic</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#ripemd160" class="tsd-kind-icon">ripemd160</a>

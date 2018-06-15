@@ -68,7 +68,7 @@
 				<p><code>npm install codechain-sdk</code> or <code>yarn add codechain-sdk</code></p>
 				<h1 id="usage-example">Usage example</h1>
 				<p>Make sure that your CodeChain RPC server is listening. In the examples, we assume it is localhost:8080</p>
-				<h2 id="send-paymenttransaction">Send PaymentTransaction</h2>
+				<h2 id="send-10000-ccc-using-paymenttransaction">Send 10000 CCC using PaymentTransaction</h2>
 				<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { SDK, Parcel, U256, H256, H160, PaymentTransaction } <span class="hljs-keyword">from</span> <span class="hljs-string">"codechain-sdk"</span>;
 
 <span class="hljs-comment">// Create SDK object with CodeChain RPC server URL</span>
@@ -114,6 +114,127 @@ sdk.sendSignedParcel(signedParcel).then(<span class="hljs-function">(<span class
     <span class="hljs-built_in">console</span>.error(<span class="hljs-string">`Error:`</span>, err);
 });
 
+</code></pre>
+				<h2 id="mint-10000-gold-and-send-3000-gold-using-assetminttransaction-assettransfertransaction">Mint 10000 Gold and send 3000 Gold using AssetMintTransaction, AssetTransferTransaction</h2>
+				<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { SDK, AssetMintTransaction, H256, blake256, signEcdsa, privateKeyToPublic,
+    privateKeyToAddress, H160, Parcel, U256, AssetTransferTransaction,
+    AssetTransferInput, AssetOutPoint, AssetTransferOutput, Transaction } <span class="hljs-keyword">from</span> <span class="hljs-string">"codechain-sdk"</span>;
+
+<span class="hljs-keyword">const</span> sdk = <span class="hljs-keyword">new</span> SDK(<span class="hljs-string">"http://localhost:8080"</span>);
+
+<span class="hljs-comment">// CodeChain opcodes for P2PK(Pay to Public Key)</span>
+<span class="hljs-keyword">const</span> OP_PUSHB = <span class="hljs-number">0x32</span>;
+<span class="hljs-keyword">const</span> OP_CHECKSIG = <span class="hljs-number">0x81</span>;
+
+<span class="hljs-comment">// Alice's key pair</span>
+<span class="hljs-keyword">const</span> alicePrivate = <span class="hljs-string">"37a948d2e9ae622f3b9e224657249259312ffd3f2d105eabda6f222074608df3"</span>;
+<span class="hljs-keyword">const</span> alicePublic = privateKeyToPublic(alicePrivate);
+<span class="hljs-comment">// Alice's P2PK script</span>
+<span class="hljs-keyword">const</span> aliceLockScript = Buffer.from([OP_PUSHB, <span class="hljs-number">64</span>, ...Buffer.from(alicePublic, <span class="hljs-string">"hex"</span>), OP_CHECKSIG]);
+
+<span class="hljs-comment">// Bob's key pair</span>
+<span class="hljs-keyword">const</span> bobPrivate = <span class="hljs-string">"f9387b3247c21e88c656490914f4598a3b52b807517753b4a9d7a51d54a6260c"</span>;
+<span class="hljs-keyword">const</span> bobPublic = privateKeyToPublic(bobPrivate);
+<span class="hljs-comment">// Bob's P2PK script</span>
+<span class="hljs-keyword">const</span> bobLockScript = Buffer.from([OP_PUSHB, <span class="hljs-number">64</span>, ...Buffer.from(bobPublic, <span class="hljs-string">"hex"</span>), OP_CHECKSIG]);
+
+<span class="hljs-comment">// sendTransaction() is a function to make transaction to be processed.</span>
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sendTransaction</span>(<span class="hljs-params">t: Transaction</span>) </span>{
+    <span class="hljs-keyword">const</span> parcelSignerSecret = <span class="hljs-keyword">new</span> H256(<span class="hljs-string">"ede1d4ccb4ec9a8bbbae9a13db3f4a7b56ea04189be86ac3a6a439d9a0a1addd"</span>);
+    <span class="hljs-keyword">const</span> parcelSignerAddress = <span class="hljs-keyword">new</span> H160(privateKeyToAddress(<span class="hljs-string">"ede1d4ccb4ec9a8bbbae9a13db3f4a7b56ea04189be86ac3a6a439d9a0a1addd"</span>));
+    <span class="hljs-keyword">const</span> parcelSignerNonce = <span class="hljs-keyword">await</span> sdk.getNonce(parcelSignerAddress);
+    <span class="hljs-keyword">const</span> parcel = <span class="hljs-keyword">new</span> Parcel(parcelSignerNonce!, <span class="hljs-keyword">new</span> U256(<span class="hljs-number">10</span>), <span class="hljs-number">17</span>, t);
+    <span class="hljs-keyword">const</span> signedParcel = parcel.sign(parcelSignerSecret);
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> sdk.sendSignedParcel(signedParcel);
+}
+
+(<span class="hljs-keyword">async</span> () =&gt; {
+    <span class="hljs-comment">// Create AssetMintTransaction that creates 10000 amount of asset named Gold for Alice.</span>
+    <span class="hljs-keyword">const</span> mintGoldTx = <span class="hljs-keyword">new</span> AssetMintTransaction({
+        <span class="hljs-comment">// Put name, description and imageUrl to metadata.</span>
+        metadata: <span class="hljs-built_in">JSON</span>.stringify({
+            <span class="hljs-attr">name</span>: <span class="hljs-string">"Gold"</span>,
+            <span class="hljs-attr">imageUrl</span>: <span class="hljs-string">"https://gold.image/"</span>
+        }),
+        <span class="hljs-comment">// hash value of locking script of the asset</span>
+        lockScriptHash: <span class="hljs-keyword">new</span> H256(blake256(aliceLockScript)),
+        <span class="hljs-attr">parameters</span>: [],
+        <span class="hljs-comment">// Mints 10000 golds</span>
+        amount: <span class="hljs-number">10000</span>,
+        <span class="hljs-comment">// No registrar for Gold. It means AssetTransfer of Gold can be done with any</span>
+        <span class="hljs-comment">// parcel. If registrar is present, the parcel must be signed with the</span>
+        <span class="hljs-comment">// registrar.</span>
+        registrar: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">nonce</span>: <span class="hljs-number">0</span>
+    });
+
+    <span class="hljs-comment">// Process the AssetMintTransaction</span>
+    <span class="hljs-keyword">await</span> sendTransaction(mintGoldTx);
+
+    <span class="hljs-comment">// AssetMintTransaction creates Asset and AssetScheme object</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> sdk.getAsset(mintGoldTx.hash(), <span class="hljs-number">0</span>));
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> sdk.getAssetScheme(mintGoldTx.hash()));
+
+    <span class="hljs-comment">// The address of asset</span>
+    <span class="hljs-keyword">const</span> goldAssetType = mintGoldTx.getAssetSchemeAddress();
+
+    <span class="hljs-comment">// Create an input that spends 10000 golds</span>
+    <span class="hljs-keyword">const</span> inputs = [<span class="hljs-keyword">new</span> AssetTransferInput({
+        <span class="hljs-attr">prevOut</span>: <span class="hljs-keyword">new</span> AssetOutPoint({
+            <span class="hljs-attr">transactionHash</span>: mintGoldTx.hash(),
+            <span class="hljs-attr">index</span>: <span class="hljs-number">0</span>,
+            <span class="hljs-attr">assetType</span>: goldAssetType,
+            <span class="hljs-attr">amount</span>: <span class="hljs-number">10000</span>
+        }),
+        <span class="hljs-comment">// Provide the preimage of the lockScriptHash.</span>
+        lockScript: aliceLockScript,
+        <span class="hljs-comment">// unlockScript can't be calculated at this moment.</span>
+        unlockScript: Buffer.from([])
+    })];
+
+    <span class="hljs-comment">// Create outputs. The sum of amount must equals to 10000. In this case, Alice</span>
+    <span class="hljs-comment">// pays 3000 golds to Bob. Alice is paid the remains back.</span>
+    <span class="hljs-keyword">const</span> outputs = [<span class="hljs-keyword">new</span> AssetTransferOutput({
+        <span class="hljs-attr">lockScriptHash</span>: <span class="hljs-keyword">new</span> H256(blake256(bobLockScript)),
+        <span class="hljs-attr">parameters</span>: [],
+        <span class="hljs-attr">assetType</span>: goldAssetType,
+        <span class="hljs-attr">amount</span>: <span class="hljs-number">3000</span>
+    }), <span class="hljs-keyword">new</span> AssetTransferOutput({
+        <span class="hljs-attr">lockScriptHash</span>: <span class="hljs-keyword">new</span> H256(blake256(aliceLockScript)),
+        <span class="hljs-attr">parameters</span>: [],
+        <span class="hljs-attr">assetType</span>: goldAssetType,
+        <span class="hljs-attr">amount</span>: <span class="hljs-number">7000</span>
+    })];
+
+    <span class="hljs-comment">// Create AssetTransferTransaction with the input and the outputs</span>
+    <span class="hljs-keyword">const</span> transferTx = <span class="hljs-keyword">new</span> AssetTransferTransaction(<span class="hljs-number">17</span>, {
+        inputs,
+        outputs,
+    });
+
+    <span class="hljs-comment">// Calculate Alice's signature for the transaction.</span>
+    <span class="hljs-keyword">const</span> { r, s, v } = signEcdsa(transferTx.hashWithoutScript().value, alicePrivate);
+    <span class="hljs-keyword">const</span> aliceSigBuffer = <span class="hljs-keyword">new</span> Buffer(<span class="hljs-number">65</span>);
+    aliceSigBuffer.write(r.padStart(<span class="hljs-number">64</span>, <span class="hljs-string">"0"</span>), <span class="hljs-number">0</span>, <span class="hljs-number">32</span>, <span class="hljs-string">"hex"</span>);
+    aliceSigBuffer.write(s.padStart(<span class="hljs-number">64</span>, <span class="hljs-string">"0"</span>), <span class="hljs-number">32</span>, <span class="hljs-number">32</span>, <span class="hljs-string">"hex"</span>);
+    aliceSigBuffer.write(v.toString(<span class="hljs-number">16</span>).padStart(<span class="hljs-number">2</span>, <span class="hljs-string">"0"</span>), <span class="hljs-number">64</span>, <span class="hljs-number">1</span>, <span class="hljs-string">"hex"</span>);
+
+    <span class="hljs-comment">// Create unlock script for the input of the transaction</span>
+    <span class="hljs-keyword">const</span> aliceUnlockScript = Buffer.from([OP_PUSHB, <span class="hljs-number">65</span>, ...aliceSigBuffer]);
+    <span class="hljs-comment">// Put unlock script to the transaction</span>
+    transferTx.setUnlockScript(<span class="hljs-number">0</span>, aliceUnlockScript);
+
+    <span class="hljs-comment">// Process the AssetTransferTransaction</span>
+    <span class="hljs-keyword">await</span> sendTransaction(transferTx);
+
+    <span class="hljs-comment">// Spent asset will be null</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> sdk.getAsset(mintGoldTx.hash(), <span class="hljs-number">0</span>));
+
+    <span class="hljs-comment">// Unspent Bob's 3000 golds</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> sdk.getAsset(transferTx.hash(), <span class="hljs-number">0</span>));
+    <span class="hljs-comment">// Unspent Alice's 7000 golds</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> sdk.getAsset(transferTx.hash(), <span class="hljs-number">1</span>));
+})();
 </code></pre>
 				<h1 id="sdk-methods"><a href="classes/sdk.html">SDK</a> methods</h1>
 				<ul>
@@ -205,6 +326,9 @@ sdk.sendSignedParcel(signedParcel).then(<span class="hljs-function">(<span class
 					<li class=" tsd-kind-class">
 						<a href="classes/u256.html" class="tsd-kind-icon">U256</a>
 					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ecdsasignature.html" class="tsd-kind-icon">ECDSASignature</a>
+					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#assetdata" class="tsd-kind-icon">Asset<wbr>Data</a>
 					</li>
@@ -257,6 +381,9 @@ sdk.sendSignedParcel(signedParcel).then(<span class="hljs-function">(<span class
 						<a href="globals.html#privatekeytopublic" class="tsd-kind-icon">private<wbr>Key<wbr>ToPublic</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="globals.html#recoverpublic" class="tsd-kind-icon">recover<wbr>Public</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="globals.html#ripemd160" class="tsd-kind-icon">ripemd160</a>
 					</li>
 					<li class=" tsd-kind-function">
@@ -267,6 +394,9 @@ sdk.sendSignedParcel(signedParcel).then(<span class="hljs-function">(<span class
 					</li>
 					<li class=" tsd-kind-function tsd-is-not-exported">
 						<a href="globals.html#tohexbyte" class="tsd-kind-icon">to<wbr>Hex<wbr>Byte</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#verifyecdsa" class="tsd-kind-icon">verify<wbr>Ecdsa</a>
 					</li>
 				</ul>
 			</nav>

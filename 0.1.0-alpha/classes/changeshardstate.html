@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SetRegularKeyTransaction | CodeChain JavaScript SDK</title>
+	<title>ChangeShardState | CodeChain JavaScript SDK</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,33 +56,21 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="setregularkeytransaction.html">SetRegularKeyTransaction</a>
+					<a href="changeshardstate.html">ChangeShardState</a>
 				</li>
 			</ul>
-			<h1>Class SetRegularKeyTransaction</h1>
+			<h1>Class ChangeShardState</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Registers address&#39; regular key. The regular key can sign in place of the account&#39;s private key.</p>
-					</div>
-					<ul>
-						<li>Its nonce has to be identical with the address account&#39;s nonce.</li>
-						<li>If there already exists a regular key, then the old one gets overwritten.</li>
-						<li>If the nonce is not identical, the transaction fails.</li>
-					</ul>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">SetRegularKeyTransaction</span>
+						<span class="target">ChangeShardState</span>
 					</li>
 				</ul>
 			</section>
@@ -90,121 +78,108 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="setregularkeytransaction.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-not-exported"><a href="changeshardstate.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-not-exported"><a href="changeshardstate.html#transactions" class="tsd-kind-icon">transactions</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="setregularkeytransaction.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="setregularkeytransaction.html#tojson" class="tsd-kind-icon">toJSON</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="setregularkeytransaction.html#fromjson" class="tsd-kind-icon">fromJSON</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-not-exported"><a href="changeshardstate.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-not-exported"><a href="changeshardstate.html#tojson" class="tsd-kind-icon">toJSON</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-not-exported">
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Set<wbr>Regular<wbr>Key<wbr>Transaction<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../globals.html#setregularkeytransactiondata" class="tsd-signature-type">SetRegularKeyTransactionData</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="setregularkeytransaction.html" class="tsd-signature-type">SetRegularKeyTransaction</a></li>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Change<wbr>Shard<wbr>State<span class="tsd-signature-symbol">(</span>transactions<span class="tsd-signature-symbol">: </span><a href="../globals.html#transaction" class="tsd-signature-type">Transaction</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="changeshardstate.html" class="tsd-signature-type">ChangeShardState</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/2072302/src/primitives/transaction/SetRegularKeyTransaction.ts#L19">primitives/transaction/SetRegularKeyTransaction.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/1699114/src/primitives/Parcel.ts#L16">primitives/Parcel.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>data: <a href="../globals.html#setregularkeytransactiondata" class="tsd-signature-type">SetRegularKeyTransactionData</a></h5>
+									<h5>transactions: <a href="../globals.html#transaction" class="tsd-signature-type">Transaction</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="setregularkeytransaction.html" class="tsd-signature-type">SetRegularKeyTransaction</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="changeshardstate.html" class="tsd-signature-type">ChangeShardState</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-not-exported">
+					<a name="transactions" class="tsd-anchor"></a>
+					<h3>transactions</h3>
+					<div class="tsd-signature tsd-kind-icon">transactions<span class="tsd-signature-symbol">:</span> <a href="../globals.html#transaction" class="tsd-signature-type">Transaction</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/1699114/src/primitives/Parcel.ts#L16">primitives/Parcel.ts:16</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-not-exported">
 					<a name="toencodeobject" class="tsd-anchor"></a>
 					<h3>to<wbr>Encode<wbr>Object</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">to<wbr>Encode<wbr>Object<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Encode<wbr>Object<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/2072302/src/primitives/transaction/SetRegularKeyTransaction.ts#L45">primitives/transaction/SetRegularKeyTransaction.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/1699114/src/primitives/Parcel.ts#L22">primitives/Parcel.ts:22</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-not-exported">
 					<a name="tojson" class="tsd-anchor"></a>
 					<h3>toJSON</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-not-exported">
 						<li class="tsd-signature tsd-kind-icon">toJSON<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/2072302/src/primitives/transaction/SetRegularKeyTransaction.ts#L34">primitives/transaction/SetRegularKeyTransaction.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/1699114/src/primitives/Parcel.ts#L26">primitives/Parcel.ts:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
 							<ul class="tsd-parameters">
 								<li class="tsd-parameter">
-									<h5>__computed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>address<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>nonce<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
-										</li>
-									</ul>
+									<h5>action<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>transactions<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="fromjson" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> fromJSON</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">fromJSON<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="setregularkeytransaction.html" class="tsd-signature-type">SetRegularKeyTransaction</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/2072302/src/primitives/transaction/SetRegularKeyTransaction.ts#L25">primitives/transaction/SetRegularKeyTransaction.ts:25</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>data: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="setregularkeytransaction.html" class="tsd-signature-type">SetRegularKeyTransaction</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -222,20 +197,20 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
-						<a href="setregularkeytransaction.html" class="tsd-kind-icon">Set<wbr>Regular<wbr>Key<wbr>Transaction</a>
+					<li class="current tsd-kind-class tsd-is-not-exported">
+						<a href="changeshardstate.html" class="tsd-kind-icon">Change<wbr>Shard<wbr>State</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="setregularkeytransaction.html#constructor" class="tsd-kind-icon">constructor</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-not-exported">
+								<a href="changeshardstate.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="setregularkeytransaction.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-not-exported">
+								<a href="changeshardstate.html#transactions" class="tsd-kind-icon">transactions</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="setregularkeytransaction.html#tojson" class="tsd-kind-icon">toJSON</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-not-exported">
+								<a href="changeshardstate.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="setregularkeytransaction.html#fromjson" class="tsd-kind-icon">fromJSON</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-not-exported">
+								<a href="changeshardstate.html#tojson" class="tsd-kind-icon">toJSON</a>
 							</li>
 						</ul>
 					</li>

@@ -69,20 +69,12 @@
 				<h1 id="usage-example">Usage example</h1>
 				<p>Make sure that your CodeChain RPC server is listening. In the examples, we assume it is localhost:8080</p>
 				<h2 id="send-10000-ccc-using-paymenttransaction">Send 10000 CCC using PaymentTransaction</h2>
-				<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { SDK, Parcel, U256, H256, H160, PaymentTransaction } <span class="hljs-keyword">from</span> <span class="hljs-string">"codechain-sdk"</span>;
+				<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
+<span class="hljs-comment">// import { Parcel, U256, H256, H160 } from "codechain-sdk";</span>
+<span class="hljs-keyword">const</span> { Parcel, U256, H256, H160 } = SDK;
 
 <span class="hljs-comment">// Create SDK object with CodeChain RPC server URL</span>
 <span class="hljs-keyword">const</span> sdk = <span class="hljs-keyword">new</span> SDK(<span class="hljs-string">"http://localhost:8080"</span>);
-
-<span class="hljs-comment">// Create PaymentTransaction that sends 10000 CCC from 0x5bcd7c... to 0x744142..</span>
-<span class="hljs-comment">// Transaction is only valid if the nonce matches the nonce of the sender.</span>
-<span class="hljs-comment">// The nonce of the sender is increased by 1 when this transaction is confirmed.</span>
-<span class="hljs-keyword">const</span> tx = <span class="hljs-keyword">new</span> PaymentTransaction({
-    <span class="hljs-attr">nonce</span>: <span class="hljs-keyword">new</span> U256(<span class="hljs-number">0</span>),
-    <span class="hljs-attr">sender</span>: <span class="hljs-keyword">new</span> H160(<span class="hljs-string">"0x5bcd7c840f108172d94a4d084af711d879630fe6"</span>),
-    <span class="hljs-attr">receiver</span>: <span class="hljs-keyword">new</span> H160(<span class="hljs-string">"0x744142069fe2d03d48e61734cbe564fcc94e6e31"</span>),
-    <span class="hljs-attr">value</span>: <span class="hljs-keyword">new</span> U256(<span class="hljs-number">10000</span>)
-});
 
 <span class="hljs-comment">// Parcel is only valid if the nonce matches the nonce of the parcel signer.</span>
 <span class="hljs-comment">// The nonce of the signer is increased by 1 when this parcel is confirmed.</span>
@@ -91,11 +83,15 @@
 <span class="hljs-keyword">const</span> fee = <span class="hljs-keyword">new</span> U256(<span class="hljs-number">10</span>);
 <span class="hljs-comment">// Network ID prevents replay attacks or confusion among different CodeChain networks.</span>
 <span class="hljs-keyword">const</span> networkId = <span class="hljs-number">17</span>;
-<span class="hljs-comment">// Create Parcel</span>
-<span class="hljs-keyword">const</span> parcel = <span class="hljs-keyword">new</span> Parcel(parcelSignerNonce, fee, networkId, tx);
+<span class="hljs-comment">// Recipient of the payment</span>
+<span class="hljs-keyword">const</span> receiver = <span class="hljs-keyword">new</span> H160(<span class="hljs-string">"744142069fe2d03d48e61734cbe564fcc94e6e31"</span>);
+<span class="hljs-comment">// Amount of the payment. The parcel signer's balance must be at least 10010.</span>
+<span class="hljs-keyword">const</span> value = <span class="hljs-keyword">new</span> U256(<span class="hljs-number">10000</span>);
+<span class="hljs-comment">// Create the Parcel for the payment</span>
+<span class="hljs-keyword">const</span> parcel = Parcel.payment(parcelSignerNonce, fee, networkId, receiver, value);
 
-<span class="hljs-comment">// Sign the parcel with the secret key of the address 0x31bd8354de8f7dbab6764a11851086061fee3f25.</span>
-<span class="hljs-keyword">const</span> parcelSignerSecret = <span class="hljs-keyword">new</span> H256(<span class="hljs-string">"b15139f97aad25ae0330432aeb091ef962eee643e41dc07a1e04457c5c2c6088"</span>);
+<span class="hljs-comment">// Sign the parcel with the secret key of the address 0xa6594b7196808d161b6fb137e781abbc251385d9.</span>
+<span class="hljs-keyword">const</span> parcelSignerSecret = <span class="hljs-keyword">new</span> H256(<span class="hljs-string">"ede1d4ccb4ec9a8bbbae9a13db3f4a7b56ea04189be86ac3a6a439d9a0a1addd"</span>);
 <span class="hljs-keyword">const</span> signedParcel = parcel.sign(parcelSignerSecret);
 
 <span class="hljs-comment">// Send the signed parcel to the CodeChain node. The node will propagate this</span>
@@ -116,15 +112,16 @@ sdk.sendSignedParcel(signedParcel).then(<span class="hljs-function">(<span class
 
 </code></pre>
 				<h2 id="mint-10000-gold-and-send-3000-gold-using-assetminttransaction-assettransfertransaction">Mint 10000 Gold and send 3000 Gold using AssetMintTransaction, AssetTransferTransaction</h2>
-				<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { SDK, AssetMintTransaction, H256, blake256, signEcdsa, privateKeyToPublic,
+				<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
+<span class="hljs-keyword">const</span> { AssetMintTransaction, H256, blake256, signEcdsa, privateKeyToPublic,
     privateKeyToAddress, H160, Parcel, U256, AssetTransferTransaction,
-    AssetTransferInput, AssetOutPoint, AssetTransferOutput, Transaction } <span class="hljs-keyword">from</span> <span class="hljs-string">"codechain-sdk"</span>;
+    AssetTransferInput, AssetOutPoint, AssetTransferOutput, Transaction } = SDK;
 
 <span class="hljs-keyword">const</span> sdk = <span class="hljs-keyword">new</span> SDK(<span class="hljs-string">"http://localhost:8080"</span>);
 
 <span class="hljs-comment">// CodeChain opcodes for P2PK(Pay to Public Key)</span>
 <span class="hljs-keyword">const</span> OP_PUSHB = <span class="hljs-number">0x32</span>;
-<span class="hljs-keyword">const</span> OP_CHECKSIG = <span class="hljs-number">0x81</span>;
+<span class="hljs-keyword">const</span> OP_CHECKSIG = <span class="hljs-number">0x80</span>;
 
 <span class="hljs-comment">// Alice's key pair</span>
 <span class="hljs-keyword">const</span> alicePrivate = <span class="hljs-string">"37a948d2e9ae622f3b9e224657249259312ffd3f2d105eabda6f222074608df3"</span>;
@@ -139,11 +136,11 @@ sdk.sendSignedParcel(signedParcel).then(<span class="hljs-function">(<span class
 <span class="hljs-keyword">const</span> bobLockScript = Buffer.from([OP_PUSHB, <span class="hljs-number">64</span>, ...Buffer.from(bobPublic, <span class="hljs-string">"hex"</span>), OP_CHECKSIG]);
 
 <span class="hljs-comment">// sendTransaction() is a function to make transaction to be processed.</span>
-<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sendTransaction</span>(<span class="hljs-params">t: Transaction</span>) </span>{
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sendTransaction</span>(<span class="hljs-params">tx</span>) </span>{
     <span class="hljs-keyword">const</span> parcelSignerSecret = <span class="hljs-keyword">new</span> H256(<span class="hljs-string">"ede1d4ccb4ec9a8bbbae9a13db3f4a7b56ea04189be86ac3a6a439d9a0a1addd"</span>);
     <span class="hljs-keyword">const</span> parcelSignerAddress = <span class="hljs-keyword">new</span> H160(privateKeyToAddress(<span class="hljs-string">"ede1d4ccb4ec9a8bbbae9a13db3f4a7b56ea04189be86ac3a6a439d9a0a1addd"</span>));
     <span class="hljs-keyword">const</span> parcelSignerNonce = <span class="hljs-keyword">await</span> sdk.getNonce(parcelSignerAddress);
-    <span class="hljs-keyword">const</span> parcel = <span class="hljs-keyword">new</span> Parcel(parcelSignerNonce!, <span class="hljs-keyword">new</span> U256(<span class="hljs-number">10</span>), <span class="hljs-number">17</span>, t);
+    <span class="hljs-keyword">const</span> parcel = Parcel.transactions(parcelSignerNonce, <span class="hljs-keyword">new</span> U256(<span class="hljs-number">10</span>), <span class="hljs-number">17</span>, tx);
     <span class="hljs-keyword">const</span> signedParcel = parcel.sign(parcelSignerSecret);
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> sdk.sendSignedParcel(signedParcel);
 }
@@ -208,6 +205,7 @@ sdk.sendSignedParcel(signedParcel).then(<span class="hljs-function">(<span class
 
     <span class="hljs-comment">// Create AssetTransferTransaction with the input and the outputs</span>
     <span class="hljs-keyword">const</span> transferTx = <span class="hljs-keyword">new</span> AssetTransferTransaction(<span class="hljs-number">17</span>, {
+        <span class="hljs-attr">burns</span>: [],
         inputs,
         outputs,
     });
@@ -296,6 +294,9 @@ sdk.sendSignedParcel(signedParcel).then(<span class="hljs-function">(<span class
 					<li class=" tsd-kind-class">
 						<a href="classes/block.html" class="tsd-kind-icon">Block</a>
 					</li>
+					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="classes/changeshardstate.html" class="tsd-kind-icon">Change<wbr>Shard<wbr>State</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/h160.html" class="tsd-kind-icon">H160</a>
 					</li>
@@ -311,14 +312,14 @@ sdk.sendSignedParcel(signedParcel).then(<span class="hljs-function">(<span class
 					<li class=" tsd-kind-class">
 						<a href="classes/parcel.html" class="tsd-kind-icon">Parcel</a>
 					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/paymenttransaction.html" class="tsd-kind-icon">Payment<wbr>Transaction</a>
+					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="classes/payment.html" class="tsd-kind-icon">Payment</a>
 					</li>
 					<li class=" tsd-kind-class tsd-is-not-exported">
 						<a href="classes/sdk.html" class="tsd-kind-icon">SDK</a>
 					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/setregularkeytransaction.html" class="tsd-kind-icon">Set<wbr>Regular<wbr>Key<wbr>Transaction</a>
+					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="classes/setregularkey.html" class="tsd-kind-icon">Set<wbr>Regular<wbr>Key</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/signedparcel.html" class="tsd-kind-icon">Signed<wbr>Parcel</a>
@@ -326,8 +327,8 @@ sdk.sendSignedParcel(signedParcel).then(<span class="hljs-function">(<span class
 					<li class=" tsd-kind-class">
 						<a href="classes/u256.html" class="tsd-kind-icon">U256</a>
 					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/ecdsasignature.html" class="tsd-kind-icon">ECDSASignature</a>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#action" class="tsd-kind-icon">Action</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#assetdata" class="tsd-kind-icon">Asset<wbr>Data</a>
@@ -354,16 +355,16 @@ sdk.sendSignedParcel(signedParcel).then(<span class="hljs-function">(<span class
 						<a href="globals.html#blockdata" class="tsd-kind-icon">Block<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#paymenttransactiondata" class="tsd-kind-icon">Payment<wbr>Transaction<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#setregularkeytransactiondata" class="tsd-kind-icon">Set<wbr>Regular<wbr>Key<wbr>Transaction<wbr>Data</a>
+						<a href="globals.html#ecdsasignature" class="tsd-kind-icon">ECDSASignature</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#transaction" class="tsd-kind-icon">Transaction</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-is-not-exported">
-						<a href="globals.html#transactionoutcome" class="tsd-kind-icon">Transaction<wbr>Outcome</a>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#alphabet" class="tsd-kind-icon">ALPHABET</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#alphabet_map" class="tsd-kind-icon">ALPHABET_<wbr>MAP</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#blake256" class="tsd-kind-icon">blake256</a>
@@ -371,8 +372,29 @@ sdk.sendSignedParcel(signedParcel).then(<span class="hljs-function">(<span class
 					<li class=" tsd-kind-function">
 						<a href="globals.html#blake256withkey" class="tsd-kind-icon">blake256<wbr>With<wbr>Key</a>
 					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#convert" class="tsd-kind-icon">convert</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#decode" class="tsd-kind-icon">decode</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#encode" class="tsd-kind-icon">encode</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#fromwords" class="tsd-kind-icon">from<wbr>Words</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#getactionfromjson" class="tsd-kind-icon">get<wbr>Action<wbr>From<wbr>Json</a>
+					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#gettransactionfromjson" class="tsd-kind-icon">get<wbr>Transaction<wbr>FromJSON</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#polymodstep" class="tsd-kind-icon">polymod<wbr>Step</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#prefixchk" class="tsd-kind-icon">prefix<wbr>Chk</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#privatekeytoaddress" class="tsd-kind-icon">private<wbr>Key<wbr>ToAddress</a>
@@ -394,6 +416,9 @@ sdk.sendSignedParcel(signedParcel).then(<span class="hljs-function">(<span class
 					</li>
 					<li class=" tsd-kind-function tsd-is-not-exported">
 						<a href="globals.html#tohexbyte" class="tsd-kind-icon">to<wbr>Hex<wbr>Byte</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#towords" class="tsd-kind-icon">to<wbr>Words</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#verifyecdsa" class="tsd-kind-icon">verify<wbr>Ecdsa</a>

@@ -1,4 +1,4 @@
-const SDK = require(".");
+const SDK = require("codechain-sdk");
 const { H256, privateKeyToAddress, H160, Parcel, U256,
     AssetScheme, PubkeyAssetAgent, MemoryKeyStore } = SDK;
 

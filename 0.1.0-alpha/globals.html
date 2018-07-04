@@ -84,9 +84,11 @@
 								<li class="tsd-kind-class"><a href="classes/h256.html" class="tsd-kind-icon">H256</a></li>
 								<li class="tsd-kind-class"><a href="classes/h512.html" class="tsd-kind-icon">H512</a></li>
 								<li class="tsd-kind-class"><a href="classes/invoice.html" class="tsd-kind-icon">Invoice</a></li>
+								<li class="tsd-kind-class"><a href="classes/memorykeystore.html" class="tsd-kind-icon">Memory<wbr>Key<wbr>Store</a></li>
 								<li class="tsd-kind-class"><a href="classes/parcel.html" class="tsd-kind-icon">Parcel</a></li>
 								<li class="tsd-kind-class"><a href="classes/payment.html" class="tsd-kind-icon">Payment</a></li>
 								<li class="tsd-kind-class"><a href="classes/platformaddress.html" class="tsd-kind-icon">Platform<wbr>Address</a></li>
+								<li class="tsd-kind-class"><a href="classes/pubkeyassetagent.html" class="tsd-kind-icon">Pubkey<wbr>Asset<wbr>Agent</a></li>
 								<li class="tsd-kind-class tsd-is-not-exported"><a href="classes/sdk.html" class="tsd-kind-icon">SDK</a></li>
 								<li class="tsd-kind-class"><a href="classes/setregularkey.html" class="tsd-kind-icon">Set<wbr>Regular<wbr>Key</a></li>
 								<li class="tsd-kind-class"><a href="classes/signedparcel.html" class="tsd-kind-icon">Signed<wbr>Parcel</a></li>
@@ -97,6 +99,7 @@
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-type-alias"><a href="globals.html#action" class="tsd-kind-icon">Action</a></li>
+								<li class="tsd-kind-type-alias"><a href="globals.html#assetagent" class="tsd-kind-icon">Asset<wbr>Agent</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#assetdata" class="tsd-kind-icon">Asset<wbr>Data</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#assetminttransactiondata" class="tsd-kind-icon">Asset<wbr>Mint<wbr>Transaction<wbr>Data</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#assetoutpointdata" class="tsd-kind-icon">Asset<wbr>Out<wbr>Point<wbr>Data</a></li>
@@ -106,6 +109,7 @@
 								<li class="tsd-kind-type-alias"><a href="globals.html#assettransfertransactiondata" class="tsd-kind-icon">Asset<wbr>Transfer<wbr>Transaction<wbr>Data</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#blockdata" class="tsd-kind-icon">Block<wbr>Data</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#ecdsasignature" class="tsd-kind-icon">ECDSASignature</a></li>
+								<li class="tsd-kind-type-alias"><a href="globals.html#keystore" class="tsd-kind-icon">Key<wbr>Store</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#transaction" class="tsd-kind-icon">Transaction</a></li>
 							</ul>
 						</section>
@@ -123,6 +127,7 @@
 								<li class="tsd-kind-function"><a href="globals.html#decode" class="tsd-kind-icon">decode</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#encode" class="tsd-kind-icon">encode</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#fromwords" class="tsd-kind-icon">from<wbr>Words</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#generateprivatekey" class="tsd-kind-icon">generate<wbr>Private<wbr>Key</a></li>
 								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#getactionfromjson" class="tsd-kind-icon">get<wbr>Action<wbr>From<wbr>Json</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#gettransactionfromjson" class="tsd-kind-icon">get<wbr>Transaction<wbr>FromJSON</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#privatekeytoaddress" class="tsd-kind-icon">private<wbr>Key<wbr>ToAddress</a></li>
@@ -147,7 +152,17 @@
 					<div class="tsd-signature tsd-kind-icon">Action<span class="tsd-signature-symbol">:</span> <a href="classes/changeshardstate.html" class="tsd-signature-type">ChangeShardState</a><span class="tsd-signature-symbol"> | </span><a href="classes/payment.html" class="tsd-signature-type">Payment</a><span class="tsd-signature-symbol"> | </span><a href="classes/setregularkey.html" class="tsd-signature-type">SetRegularKey</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/Parcel.ts#L13">primitives/Parcel.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/Parcel.ts#L13">primitives/Parcel.ts:13</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="assetagent" class="tsd-anchor"></a>
+					<h3>Asset<wbr>Agent</h3>
+					<div class="tsd-signature tsd-kind-icon">Asset<wbr>Agent<span class="tsd-signature-symbol">:</span> <a href="classes/pubkeyassetagent.html" class="tsd-signature-type">PubkeyAssetAgent</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/Asset.ts#L6">primitives/Asset.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -157,7 +172,7 @@
 					<div class="tsd-signature tsd-kind-icon">Asset<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/Asset.ts#L5">primitives/Asset.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/Asset.ts#L8">primitives/Asset.ts:8</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -190,7 +205,7 @@
 					<div class="tsd-signature tsd-kind-icon">Asset<wbr>Mint<wbr>Transaction<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/transaction/AssetMintTransaction.ts#L7">primitives/transaction/AssetMintTransaction.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/transaction/AssetMintTransaction.ts#L7">primitives/transaction/AssetMintTransaction.ts:7</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -223,7 +238,7 @@
 					<div class="tsd-signature tsd-kind-icon">Asset<wbr>Out<wbr>Point<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/transaction/AssetTransferTransaction.ts#L6">primitives/transaction/AssetTransferTransaction.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/transaction/AssetTransferTransaction.ts#L6">primitives/transaction/AssetTransferTransaction.ts:6</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -250,7 +265,7 @@
 					<div class="tsd-signature tsd-kind-icon">Asset<wbr>Scheme<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/AssetScheme.ts#L5">primitives/AssetScheme.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/AssetScheme.ts#L5">primitives/AssetScheme.ts:5</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -274,7 +289,7 @@
 					<div class="tsd-signature tsd-kind-icon">Asset<wbr>Transfer<wbr>Input<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/transaction/AssetTransferTransaction.ts#L52">primitives/transaction/AssetTransferTransaction.ts:52</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/transaction/AssetTransferTransaction.ts#L52">primitives/transaction/AssetTransferTransaction.ts:52</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -298,7 +313,7 @@
 					<div class="tsd-signature tsd-kind-icon">Asset<wbr>Transfer<wbr>Output<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/transaction/AssetTransferTransaction.ts#L118">primitives/transaction/AssetTransferTransaction.ts:118</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/transaction/AssetTransferTransaction.ts#L118">primitives/transaction/AssetTransferTransaction.ts:118</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -325,7 +340,7 @@
 					<div class="tsd-signature tsd-kind-icon">Asset<wbr>Transfer<wbr>Transaction<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/transaction/AssetTransferTransaction.ts#L160">primitives/transaction/AssetTransferTransaction.ts:160</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/transaction/AssetTransferTransaction.ts#L160">primitives/transaction/AssetTransferTransaction.ts:160</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -349,7 +364,7 @@
 					<div class="tsd-signature tsd-kind-icon">Block<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/Block.ts#L6">primitives/Block.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/Block.ts#L6">primitives/Block.ts:6</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -400,7 +415,7 @@
 					<div class="tsd-signature tsd-kind-icon">ECDSASignature<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/utils.ts#L49">utils.ts:49</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/utils.ts#L49">utils.ts:49</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -419,12 +434,27 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="keystore" class="tsd-anchor"></a>
+					<h3>Key<wbr>Store</h3>
+					<div class="tsd-signature tsd-kind-icon">Key<wbr>Store<span class="tsd-signature-symbol">:</span> <a href="classes/memorykeystore.html" class="tsd-signature-type">MemoryKeyStore</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/signer/PubkeyAssetAgent.ts#L13">signer/PubkeyAssetAgent.ts:13</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>hidden</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="transaction" class="tsd-anchor"></a>
 					<h3>Transaction</h3>
 					<div class="tsd-signature tsd-kind-icon">Transaction<span class="tsd-signature-symbol">:</span> <a href="classes/assetminttransaction.html" class="tsd-signature-type">AssetMintTransaction</a><span class="tsd-signature-symbol"> | </span><a href="classes/assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/transaction/index.ts#L4">primitives/transaction/index.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/transaction/index.ts#L4">primitives/transaction/index.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -437,15 +467,15 @@
 					<div class="tsd-signature tsd-kind-icon">RLP<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;require(&quot;rlp&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/H256.ts#L1">primitives/H256.ts:1</a></li>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/H160.ts#L1">primitives/H160.ts:1</a></li>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/H512.ts#L1">primitives/H512.ts:1</a></li>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/U256.ts#L3">primitives/U256.ts:3</a></li>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/SignedParcel.ts#L6">primitives/SignedParcel.ts:6</a></li>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/transaction/AssetMintTransaction.ts#L5">primitives/transaction/AssetMintTransaction.ts:5</a></li>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/transaction/AssetTransferTransaction.ts#L4">primitives/transaction/AssetTransferTransaction.ts:4</a></li>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/Parcel.ts#L11">primitives/Parcel.ts:11</a></li>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/Invoice.ts#L1">primitives/Invoice.ts:1</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/H256.ts#L1">primitives/H256.ts:1</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/H160.ts#L1">primitives/H160.ts:1</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/H512.ts#L1">primitives/H512.ts:1</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/U256.ts#L3">primitives/U256.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/SignedParcel.ts#L6">primitives/SignedParcel.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/transaction/AssetMintTransaction.ts#L5">primitives/transaction/AssetMintTransaction.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/transaction/AssetTransferTransaction.ts#L4">primitives/transaction/AssetTransferTransaction.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/Parcel.ts#L11">primitives/Parcel.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/Invoice.ts#L1">primitives/Invoice.ts:1</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -462,7 +492,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/utils.ts#L24">utils.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/utils.ts#L24">utils.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -485,7 +515,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/utils.ts#L33">utils.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/utils.ts#L33">utils.ts:33</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -511,7 +541,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/bech32.ts#L85">bech32.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/bech32.ts#L85">bech32.ts:85</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -548,7 +578,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/bech32.ts#L54">bech32.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/bech32.ts#L54">bech32.ts:54</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -577,7 +607,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/bech32.ts#L159">bech32.ts:159</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/bech32.ts#L159">bech32.ts:159</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -587,6 +617,23 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="generateprivatekey" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> generate<wbr>Private<wbr>Key</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">generate<wbr>Private<wbr>Key<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/utils.ts#L78">utils.ts:78</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -600,7 +647,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/Parcel.ts#L75">primitives/Parcel.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/Parcel.ts#L75">primitives/Parcel.ts:75</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -623,7 +670,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/primitives/transaction/index.ts#L10">primitives/transaction/index.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/primitives/transaction/index.ts#L10">primitives/transaction/index.ts:10</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -657,7 +704,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/utils.ts#L78">utils.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/utils.ts#L82">utils.ts:82</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -680,7 +727,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/utils.ts#L83">utils.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/utils.ts#L87">utils.ts:87</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -697,13 +744,13 @@
 					<a name="recoverpublic" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> recover<wbr>Public</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">recover<wbr>Public<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, signature<span class="tsd-signature-symbol">: </span><a href="globals.html#ecdsasignature" class="tsd-signature-type">ECDSASignature</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">recover<wbr>Public<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, signature<span class="tsd-signature-symbol">: </span><a href="globals.html#ecdsasignature" class="tsd-signature-type">ECDSASignature</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/utils.ts#L70">utils.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/utils.ts#L70">utils.ts:70</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -715,7 +762,7 @@
 									<h5>signature: <a href="globals.html#ecdsasignature" class="tsd-signature-type">ECDSASignature</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -729,7 +776,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/utils.ts#L42">utils.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/utils.ts#L42">utils.ts:42</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -752,7 +799,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/utils.ts#L55">utils.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/utils.ts#L55">utils.ts:55</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -778,7 +825,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/utils.ts#L20">utils.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/utils.ts#L20">utils.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -801,7 +848,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/utils.ts#L18">utils.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/utils.ts#L18">utils.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -824,7 +871,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/bech32.ts#L154">bech32.ts:154</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/bech32.ts#L154">bech32.ts:154</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -841,13 +888,13 @@
 					<a name="verifyecdsa" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> verify<wbr>Ecdsa</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">verify<wbr>Ecdsa<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, signature<span class="tsd-signature-symbol">: </span><a href="globals.html#ecdsasignature" class="tsd-signature-type">ECDSASignature</a>, pub<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">verify<wbr>Ecdsa<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, signature<span class="tsd-signature-symbol">: </span><a href="globals.html#ecdsasignature" class="tsd-signature-type">ECDSASignature</a>, pub<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/d6991e9/src/utils.ts#L65">utils.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/b64d5ff/src/utils.ts#L65">utils.ts:65</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -862,7 +909,7 @@
 									<h5>pub: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -921,6 +968,9 @@
 						<a href="classes/invoice.html" class="tsd-kind-icon">Invoice</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/memorykeystore.html" class="tsd-kind-icon">Memory<wbr>Key<wbr>Store</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/parcel.html" class="tsd-kind-icon">Parcel</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -928,6 +978,9 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/platformaddress.html" class="tsd-kind-icon">Platform<wbr>Address</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/pubkeyassetagent.html" class="tsd-kind-icon">Pubkey<wbr>Asset<wbr>Agent</a>
 					</li>
 					<li class=" tsd-kind-class tsd-is-not-exported">
 						<a href="classes/sdk.html" class="tsd-kind-icon">SDK</a>
@@ -943,6 +996,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#action" class="tsd-kind-icon">Action</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#assetagent" class="tsd-kind-icon">Asset<wbr>Agent</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#assetdata" class="tsd-kind-icon">Asset<wbr>Data</a>
@@ -972,6 +1028,9 @@
 						<a href="globals.html#ecdsasignature" class="tsd-kind-icon">ECDSASignature</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#keystore" class="tsd-kind-icon">Key<wbr>Store</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#transaction" class="tsd-kind-icon">Transaction</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
@@ -991,6 +1050,9 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#fromwords" class="tsd-kind-icon">from<wbr>Words</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#generateprivatekey" class="tsd-kind-icon">generate<wbr>Private<wbr>Key</a>
 					</li>
 					<li class=" tsd-kind-function tsd-is-not-exported">
 						<a href="globals.html#getactionfromjson" class="tsd-kind-icon">get<wbr>Action<wbr>From<wbr>Json</a>

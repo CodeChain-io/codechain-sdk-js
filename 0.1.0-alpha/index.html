@@ -64,11 +64,35 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
+				<h1 id="table-of-contents">Table of Contents</h1>
+				<ol>
+					<li><a href="#install-package">Install package</a></li>
+					<li><a href="#usage-examples">Usage examples</a><ol>
+							<li><a href="#get-the-latest-block-number">Get the latest block number</a></li>
+							<li><a href="#send-ccc-codechain-coin-">Send CCC (CodeChain Coin)</a></li>
+							<li><a href="#mint-and-transfer-an-asset">Mint and Transfer an asset</a></li>
+						</ol>
+					</li>
+					<li><a href="#sdk-modules">SDK modules</a></li>
+				</ol>
 				<h1 id="install-package">Install package</h1>
-				<p><code>npm install codechain-sdk</code> or <code>yarn add codechain-sdk</code></p>
-				<h1 id="usage-example">Usage example</h1>
+				<pre><code class="lang-sh">npm install codechain-sdk
+</code></pre>
+				<p>or</p>
+				<pre><code class="lang-sh">yarn add codechain-sdk
+</code></pre>
+				<h1 id="usage-examples">Usage examples</h1>
 				<p>Make sure that your CodeChain RPC server is listening. In the examples, we assume it is localhost:8080</p>
-				<h2 id="send-10000-ccc-from-one-party-to-another">Send 10000 CCC From One Party To Another</h2>
+				<h2 id="get-the-latest-block-number">Get the latest block number</h2>
+				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
+<span class="hljs-keyword">var</span> sdk = <span class="hljs-keyword">new</span> SDK({ <span class="hljs-attr">server</span>: <span class="hljs-string">"http://localhost:8080"</span> });
+
+sdk.rpc.chain.getBestBlockNumber().then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">num</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(num);
+});
+</code></pre>
+				<h2 id="send-ccc-codechain-coin-">Send CCC(CodeChain Coin)</h2>
+				<p>To view entire example, click <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/master/examples/payment.js">here</a>.</p>
 				<p>This example involves sending CCC from one party to another.
 				First, make sure to import the correct sdk and use the proper server port.</p>
 				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
@@ -106,8 +130,8 @@
     <span class="hljs-built_in">console</span>.error(<span class="hljs-string">`Error:`</span>, err);
 });
 </code></pre>
-				<p>To view entire example, click <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/master/examples/payment.js">here</a>.</p>
-				<h2 id="mint-10000-gold-and-send-3000-gold">Mint 10000 Gold and send 3000 Gold</h2>
+				<h2 id="mint-and-transfer-an-asset">Mint and Transfer an asset</h2>
+				<p>The entire example can be viewed <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/master/examples/mint-and-transfer.js">here</a>.</p>
 				<p>This example involves creating new assets and sending them amongst users. It largely involves three steps. First, create key pairs for each users. Then create the asset(in this case, Gold). Finally, execute the transaction.</p>
 				<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
 
@@ -140,7 +164,8 @@
 				<pre><code class="lang-javascript">    <span class="hljs-keyword">const</span> goldAssetScheme = sdk.core.createAssetScheme({
         <span class="hljs-attr">metadata</span>: <span class="hljs-built_in">JSON</span>.stringify({
             <span class="hljs-attr">name</span>: <span class="hljs-string">"Gold"</span>,
-            <span class="hljs-attr">imageUrl</span>: <span class="hljs-string">"https://gold.image/"</span>,
+            <span class="hljs-attr">description</span>: <span class="hljs-string">"An asset example"</span>,
+            <span class="hljs-attr">icon_url</span>: <span class="hljs-string">"https://gold.image/"</span>,
         }),
         <span class="hljs-attr">amount</span>: <span class="hljs-number">10000</span>,
         <span class="hljs-attr">registrar</span>: <span class="hljs-literal">null</span>,
@@ -176,39 +201,28 @@
     }
 
     <span class="hljs-comment">// Spent asset will be null</span>
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> sdk.getAsset(mintTx.hash(), <span class="hljs-number">0</span>));
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> sdk.rpc.chain.getAsset(mintTx.hash(), <span class="hljs-number">0</span>));
 
     <span class="hljs-comment">// Unspent Bob's 3000 golds</span>
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> sdk.getAsset(transferTx.hash(), <span class="hljs-number">0</span>));
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> sdk.rpc.chain.getAsset(transferTx.hash(), <span class="hljs-number">0</span>));
     <span class="hljs-comment">// Unspent Alice's 7000 golds</span>
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> sdk.getAsset(transferTx.hash(), <span class="hljs-number">1</span>));
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> sdk.rpc.chain.getAsset(transferTx.hash(), <span class="hljs-number">1</span>));
 <span class="hljs-comment">// End of wrapping async function</span>
 })();
 </code></pre>
-				<p>The entire example can be viewed <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/master/examples/mint-and-transfer.js">here</a>.</p>
-				<h1 id="sdk-methods"><a href="classes/sdk.html">SDK</a> methods</h1>
+				<h1 id="sdk-modules">SDK modules</h1>
 				<ul>
-					<li><a href="classes/sdk.html#getasset">getAsset</a></li>
-					<li><a href="classes/sdk.html#getassetscheme">getAssetScheme</a></li>
-					<li><a href="classes/sdk.html#getbalance">getBalance</a></li>
-					<li><a href="classes/sdk.html#getblock">getBlock</a></li>
-					<li><a href="classes/sdk.html#getblockhash">getBlockHash</a></li>
-					<li><a href="classes/sdk.html#getbestblocknumber">getBestBlockNumber</a></li>
-					<li><a href="classes/sdk.html#getnonce">getNonce</a></li>
-					<li><a href="classes/sdk.html#getparcel">getParcel</a></li>
-					<li><a href="classes/sdk.html#getparcelinvoices">getParcelInvoices</a></li>
-					<li><a href="classes/sdk.html#getpendingparcels">getPendingParcels</a></li>
-					<li><a href="classes/sdk.html#getregularkey">getRegularKey</a></li>
-					<li><a href="classes/sdk.html#gettransactioninvoice">getTransactionInvoice</a></li>
-					<li><a href="classes/sdk.html#ping">ping</a></li>
-					<li><a href="classes/sdk.html#sendsignedparcel">sendSignedParcel</a></li>
-				</ul>
-				<h1 id="transactions">Transactions</h1>
-				<ul>
-					<li><a href="classes/paymenttransaction.html">PaymentTransaction</a></li>
-					<li><a href="classes/setregularkeytransaction.html">SetRegularKeyTransaction</a></li>
-					<li><a href="classes/assetminttransaction.html">AssetMintTransaction</a></li>
-					<li><a href="classes/assettransfertransaction.html">AssetTransferTransaction</a></li>
+					<li><a href="classes/rpc.html">RPC</a><ul>
+							<li><a href="classes/noderpc.html">node</a></li>
+							<li><a href="classes/chainrpc.html">chain</a></li>
+							<li><a href="classes/networkrpc.html">network</a></li>
+						</ul>
+					</li>
+					<li><a href="classes/core.html">Core</a><ul>
+							<li><a href="classes/core.html#classes-1">classes</a> (Block, Parcel, Transaction, ...)</li>
+						</ul>
+					</li>
+					<li><a href="classes/sdk.html#util">Utility</a></li>
 				</ul>
 			</div>
 		</div>
@@ -274,6 +288,9 @@
 						<a href="classes/invoice.html" class="tsd-kind-icon">Invoice</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/key.html" class="tsd-kind-icon">Key</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/memorykeystore.html" class="tsd-kind-icon">Memory<wbr>Key<wbr>Store</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -301,6 +318,9 @@
 						<a href="classes/sdk.html" class="tsd-kind-icon">SDK</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/script.html" class="tsd-kind-icon">Script</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/setregularkey.html" class="tsd-kind-icon">Set<wbr>Regular<wbr>Key</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -311,9 +331,6 @@
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#action" class="tsd-kind-icon">Action</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#assetagent" class="tsd-kind-icon">Asset<wbr>Agent</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#assetdata" class="tsd-kind-icon">Asset<wbr>Data</a>
@@ -372,7 +389,7 @@
 					<li class=" tsd-kind-function">
 						<a href="globals.html#getaccountidfromprivate" class="tsd-kind-icon">get<wbr>Account<wbr>IdFrom<wbr>Private</a>
 					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
+					<li class=" tsd-kind-function">
 						<a href="globals.html#getactionfromjson" class="tsd-kind-icon">get<wbr>Action<wbr>FromJSON</a>
 					</li>
 					<li class=" tsd-kind-function">

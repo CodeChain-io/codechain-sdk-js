@@ -71,7 +71,7 @@
 					<div class="lead">
 						<p>A <a href="parcel.html">Parcel</a> signed by a private key. It is possible to request
 							processing on the CodeChain network with the
-						<a href="sdk.html#sendsignedparcel">sendSignedParcel</a> function.</p>
+						<a href="chainrpc.html#sendsignedparcel">sendSignedParcel</a> function.</p>
 					</div>
 					<p>Parcels signed with a regular key has the same effect as those signed with
 						the original key. The original key is the key of the account that registered
@@ -130,6 +130,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="signedparcel.html#signature" class="tsd-kind-icon">signature</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="signedparcel.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="signedparcel.html#tojson" class="tsd-kind-icon">toJSON</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="signedparcel.html#convertrsvtosignaturestring" class="tsd-kind-icon">convert<wbr>Rsv<wbr>ToSignature<wbr>String</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="signedparcel.html#fromjson" class="tsd-kind-icon">fromJSON</a></li>
 							</ul>
 						</section>
@@ -142,13 +143,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Signed<wbr>Parcel<span class="tsd-signature-symbol">(</span>unsigned<span class="tsd-signature-symbol">: </span><a href="parcel.html" class="tsd-signature-type">Parcel</a>, v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, r<span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a>, s<span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a>, blockNumber<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, blockHash<span class="tsd-signature-symbol">?: </span><a href="h256.html" class="tsd-signature-type">H256</a>, parcelIndex<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="signedparcel.html" class="tsd-signature-type">SignedParcel</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Signed<wbr>Parcel<span class="tsd-signature-symbol">(</span>unsigned<span class="tsd-signature-symbol">: </span><a href="parcel.html" class="tsd-signature-type">Parcel</a>, sig<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, blockNumber<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, blockHash<span class="tsd-signature-symbol">?: </span><a href="h256.html" class="tsd-signature-type">H256</a>, parcelIndex<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="signedparcel.html" class="tsd-signature-type">SignedParcel</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/SignedParcel.ts#L40">core/SignedParcel.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/SignedParcel.ts#L40">core/SignedParcel.ts:40</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -157,13 +158,7 @@
 									<h5>unsigned: <a href="parcel.html" class="tsd-signature-type">Parcel</a></h5>
 								</li>
 								<li>
-									<h5>v: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>r: <a href="u256.html" class="tsd-signature-type">U256</a></h5>
-								</li>
-								<li>
-									<h5>s: <a href="u256.html" class="tsd-signature-type">U256</a></h5>
+									<h5>sig: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> blockNumber: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
@@ -188,7 +183,7 @@
 					<div class="tsd-signature tsd-kind-icon">block<wbr>Hash<span class="tsd-signature-symbol">:</span> <a href="h256.html" class="tsd-signature-type">H256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/SignedParcel.ts#L39">core/SignedParcel.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/SignedParcel.ts#L39">core/SignedParcel.ts:39</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -198,7 +193,7 @@
 					<div class="tsd-signature tsd-kind-icon">block<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/SignedParcel.ts#L38">core/SignedParcel.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/SignedParcel.ts#L38">core/SignedParcel.ts:38</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -208,7 +203,7 @@
 					<div class="tsd-signature tsd-kind-icon">parcel<wbr>Index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/SignedParcel.ts#L40">core/SignedParcel.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/SignedParcel.ts#L40">core/SignedParcel.ts:40</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -218,7 +213,7 @@
 					<div class="tsd-signature tsd-kind-icon">r<span class="tsd-signature-symbol">:</span> <a href="u256.html" class="tsd-signature-type">U256</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/SignedParcel.ts#L36">core/SignedParcel.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/SignedParcel.ts#L36">core/SignedParcel.ts:36</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -228,7 +223,7 @@
 					<div class="tsd-signature tsd-kind-icon">s<span class="tsd-signature-symbol">:</span> <a href="u256.html" class="tsd-signature-type">U256</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/SignedParcel.ts#L37">core/SignedParcel.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/SignedParcel.ts#L37">core/SignedParcel.ts:37</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -238,7 +233,7 @@
 					<div class="tsd-signature tsd-kind-icon">unsigned<span class="tsd-signature-symbol">:</span> <a href="parcel.html" class="tsd-signature-type">Parcel</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/SignedParcel.ts#L34">core/SignedParcel.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/SignedParcel.ts#L34">core/SignedParcel.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -248,7 +243,7 @@
 					<div class="tsd-signature tsd-kind-icon">v<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/SignedParcel.ts#L35">core/SignedParcel.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/SignedParcel.ts#L35">core/SignedParcel.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -265,7 +260,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/SignedParcel.ts#L77">core/SignedParcel.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/SignedParcel.ts#L81">core/SignedParcel.ts:81</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="h160.html" class="tsd-signature-type">H160</a></h4>
@@ -282,7 +277,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/SignedParcel.ts#L73">core/SignedParcel.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/SignedParcel.ts#L77">core/SignedParcel.ts:77</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="h256.html" class="tsd-signature-type">H256</a></h4>
@@ -299,7 +294,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/SignedParcel.ts#L69">core/SignedParcel.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/SignedParcel.ts#L73">core/SignedParcel.ts:73</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Buffer</span></h4>
@@ -316,7 +311,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/SignedParcel.ts#L52">core/SignedParcel.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/SignedParcel.ts#L53">core/SignedParcel.ts:53</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
@@ -344,7 +339,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/SignedParcel.ts#L57">core/SignedParcel.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/SignedParcel.ts#L58">core/SignedParcel.ts:58</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -361,7 +356,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/SignedParcel.ts#L102">core/SignedParcel.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/SignedParcel.ts#L103">core/SignedParcel.ts:103</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
@@ -403,6 +398,40 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="convertrsvtosignaturestring" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> convert<wbr>Rsv<wbr>ToSignature<wbr>String</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">convert<wbr>Rsv<wbr>ToSignature<wbr>String<span class="tsd-signature-symbol">(</span>params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/SignedParcel.ts#L134">core/SignedParcel.ts:134</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>params: <span class="tsd-signature-type">object</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>r<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>s<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
 					<a name="fromjson" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> fromJSON</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
@@ -412,7 +441,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/SignedParcel.ts#L87">core/SignedParcel.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/SignedParcel.ts#L91">core/SignedParcel.ts:91</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -483,6 +512,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="signedparcel.html#tojson" class="tsd-kind-icon">toJSON</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="signedparcel.html#convertrsvtosignaturestring" class="tsd-kind-icon">convert<wbr>Rsv<wbr>ToSignature<wbr>String</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="signedparcel.html#fromjson" class="tsd-kind-icon">fromJSON</a>

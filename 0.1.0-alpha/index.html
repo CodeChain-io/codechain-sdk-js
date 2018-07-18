@@ -98,34 +98,24 @@ sdk.rpc.chain.getBestBlockNumber().then(<span class="hljs-function"><span class=
 				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
 <span class="hljs-keyword">var</span> sdk = <span class="hljs-keyword">new</span> SDK({ <span class="hljs-attr">server</span>: <span class="hljs-string">"http://localhost:8080"</span> });
 
-<span class="hljs-keyword">var</span> signerAddress = <span class="hljs-string">"0xa6594b7196808d161b6fb137e781abbc251385d9"</span>;
-<span class="hljs-keyword">var</span> recipientAddress = <span class="hljs-string">"0x744142069fe2d03d48e61734cbe564fcc94e6e31"</span>;
+<span class="hljs-keyword">var</span> signerSecret = <span class="hljs-string">"ede1d4ccb4ec9a8bbbae9a13db3f4a7b56ea04189be86ac3a6a439d9a0a1addd"</span>
 </code></pre>
 				<p>The parcel signer must pay the transaction fees. Parcels are basically a group of transactions used in CodeChain. They are the smallest unit that can be processed on the blockchain.</p>
 				<p>In order for the parcel to be valid, the nonce must match the nonce of the parcel signer. Once the parcel is confirmed, the nonce of the signer is increased by 1. When specifying the receiver, make sure the correct address is used for the recipient. In addition, the parcel must be signed with the secret key of the address. After signing the parcel, send the parcel off to the CodeChain node. The node is responsible for propagating the parcels properly.</p>
-				<pre><code class="lang-javascript">sdk.rpc.chain.getNonce(signerAddress).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">nonce</span>) </span>{
+				<pre><code class="lang-javascript">sdk.rpc.account.createAccountFromSecret(signerSecret).then(<span class="hljs-function"><span class="hljs-params">account</span> =&gt;</span> {
     <span class="hljs-keyword">var</span> parcel = sdk.core.createPaymentParcel({
-        <span class="hljs-attr">recipient</span>: recipientAddress,
+        <span class="hljs-attr">recipient</span>: <span class="hljs-string">"0x744142069fe2d03d48e61734cbe564fcc94e6e31"</span>,
         <span class="hljs-attr">amount</span>: <span class="hljs-number">10000</span>,
-        nonce,
-        <span class="hljs-comment">// Parcel signer pays 10 CCC as fee.</span>
-        fee: <span class="hljs-number">10</span>
     });
-    <span class="hljs-keyword">var</span> signedParcel = parcel.sign(signerSecret);
-    <span class="hljs-keyword">return</span> sdk.rpc.chain.sendSignedParcel(signedParcel);
 })
 </code></pre>
-				<p>sendSignedParcel returns a promise that resolves with a parcel hash if the parcel has been verified and queued successfully. It doesn&#39;t mean that the parcel was confirmed, however. getParcel returns a promise that resolves with a parcel. Only confirmed parcels contain blockNumber/blockHash/parcelIndex fields.</p>
+				<p>sendSignedParcel returns a promise that resolves with a parcel hash if the parcel has been verified and queued successfully. It doesn&#39;t mean that the parcel was confirmed, however. getParcelInvoice returns a promise that resolves with the invoice. The invoice tells that the parcel was successful or not.</p>
 				<pre><code class="lang-javascript">.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">parcelHash</span>) </span>{
-    <span class="hljs-comment">// sendSignedParcel returns a promise that resolves with a parcel hash if parcel has</span>
-    <span class="hljs-comment">// been verified and queued successfully. It doesn't mean parcel was confirmed.</span>
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Parcel sent:`</span>, parcelHash);
-    <span class="hljs-keyword">return</span> sdk.rpc.chain.getParcel(parcelHash);
-}).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">parcel</span>) </span>{
-    <span class="hljs-comment">// getParcel returns a promise that resolves with a parcel.</span>
-    <span class="hljs-comment">// blockNumber/blockHash/parcelIndex fields in Parcel is present only for the</span>
-    <span class="hljs-comment">// confirmed parcel</span>
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Parcel`</span>, parcel);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Parcel Hash: "</span>, parcelHash);
+    <span class="hljs-comment">// getParcelInvoice() waits the parcel to be confirmed until the given timeout(5 minutes).</span>
+    <span class="hljs-keyword">return</span> sdk.rpc.chain.getParcelInvoice(parcelHash, <span class="hljs-number">5</span> * <span class="hljs-number">60</span> * <span class="hljs-number">1000</span>);
+}).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">invoice</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Parcel Invoice: "</span>, invoice);
 }).catch(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
     <span class="hljs-built_in">console</span>.error(<span class="hljs-string">`Error:`</span>, err);
 });
@@ -137,9 +127,6 @@ sdk.rpc.chain.getBestBlockNumber().then(<span class="hljs-function"><span class=
 
 <span class="hljs-keyword">const</span> sdk = <span class="hljs-keyword">new</span> SDK({ <span class="hljs-attr">server</span>: <span class="hljs-string">"http://localhost:8080"</span> });
 </code></pre>
-				<p>We create new instances of an assetAgent. AssetAgent creates addresses for assets and manages their locking/unlocking data. </p>
-				<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> assetAgent = sdk.core.getAssetAgent();
-</code></pre>
 				<p>In this example, it is assumed that there is something that created a parcel out of the transactions. sendTransaction has been declared for later use.</p>
 				<pre><code class="lang-javascript"><span class="hljs-comment">// sendTransaction() is a function to make transaction to be processed.</span>
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sendTransaction</span>(<span class="hljs-params">tx</span>) </span>{
@@ -147,9 +134,11 @@ sdk.rpc.chain.getBestBlockNumber().then(<span class="hljs-function"><span class=
     <span class="hljs-keyword">const</span> parcelSignerAddress = SDK.util.getAccountIdFromPrivate(parcelSignerSecret);
     <span class="hljs-keyword">const</span> parcel = sdk.core.createChangeShardStateParcel({
         <span class="hljs-attr">transactions</span>: [tx],
-        <span class="hljs-attr">nonce</span>: <span class="hljs-keyword">await</span> sdk.rpc.chain.getNonce(parcelSignerAddress),
+    }).sign({
+        <span class="hljs-attr">secret</span>: parcelSignerSecret
+        nonce: <span class="hljs-keyword">await</span> sdk.rpc.chain.getNonce(parcelSignerAddress),
         <span class="hljs-attr">fee</span>: <span class="hljs-number">10</span>,
-    }).sign(parcelSignerSecret)
+    })
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> sdk.rpc.chain.sendSignedParcel(parcel);
 }
 </code></pre>
@@ -157,8 +146,8 @@ sdk.rpc.chain.getBestBlockNumber().then(<span class="hljs-function"><span class=
 				<pre><code class="lang-javascript"><span class="hljs-comment">// Start of wrapping async function, we use async/await here because a lot of</span>
 <span class="hljs-comment">// Promises are there.</span>
 (<span class="hljs-keyword">async</span> () =&gt; {
-    <span class="hljs-keyword">const</span> aliceAddress = <span class="hljs-keyword">await</span> assetAgent.createAddress();
-    <span class="hljs-keyword">const</span> bobAddress = <span class="hljs-keyword">await</span> assetAgent.createAddress();
+    <span class="hljs-keyword">const</span> aliceAddress = <span class="hljs-keyword">await</span> assetAgent.createPubKeyAddress();
+    <span class="hljs-keyword">const</span> bobAddress = <span class="hljs-keyword">await</span> assetAgent.createPubKeyAddress();
 </code></pre>
 				<p>In this example, we want to create an asset called &quot;Gold&quot;. Thus, we define a new asset scheme for the asset that will be named Gold. In schemes, the amount to be minted, and the registrar, if any, should be defined. If there is no registrar, it means that AssetTransfer of Gold can be done through any parcel. If the registrar is present, the parcel must be signed by the registrar. In this example, the registrar is set to null.</p>
 				<pre><code class="lang-javascript">    <span class="hljs-keyword">const</span> goldAssetScheme = sdk.core.createAssetScheme({
@@ -185,7 +174,7 @@ sdk.rpc.chain.getBestBlockNumber().then(<span class="hljs-function"><span class=
 </code></pre>
 				<p>Alice then sends 3000 gold to Bob. In CodeChain, users must follow the <a href="https://codechain.readthedocs.io/en/latest/what-is-codechain.html#what-is-utxo">UTXO</a> standard, and make a transaction that spends an entire UTXO balance, and receive the change back through another transaction.</p>
 				<pre><code class="lang-javascript">    <span class="hljs-comment">// The sum of amount must equal to the amount of firstGold.</span>
-    <span class="hljs-keyword">const</span> transferTx = <span class="hljs-keyword">await</span> firstGold.transfer(assetAgent, [{
+    <span class="hljs-keyword">const</span> transferTx = firstGold.transfer([{
         <span class="hljs-attr">address</span>: bobAddress,
         <span class="hljs-attr">amount</span>: <span class="hljs-number">3000</span>
     }, {
@@ -194,7 +183,9 @@ sdk.rpc.chain.getBestBlockNumber().then(<span class="hljs-function"><span class=
     }]);
 </code></pre>
 				<p>By using Alice&#39;s signature, the 10000 Gold that was first minted can now be transferred to other users like Bob.</p>
-				<pre><code class="lang-javascript">    <span class="hljs-keyword">await</span> sendTransaction(transferTx);
+				<pre><code class="lang-javascript">    <span class="hljs-comment">// Unlock first input of the transaction. The key instance can unlock because the Alice's key is created by it.</span>
+    <span class="hljs-keyword">await</span> sdk.key.unlock(transferTx, <span class="hljs-number">0</span>);
+    <span class="hljs-keyword">await</span> sendTransaction(transferTx);
     <span class="hljs-keyword">const</span> transferTxInvoice = <span class="hljs-keyword">await</span> sdk.rpc.chain.getTransactionInvoice(transferTx.hash(), <span class="hljs-number">5</span> * <span class="hljs-number">60</span> * <span class="hljs-number">1000</span>);
     <span class="hljs-keyword">if</span> (!transferTxInvoice.success) {
         <span class="hljs-keyword">throw</span> <span class="hljs-string">"AssetTransferTransaction failed"</span>;
@@ -237,6 +228,9 @@ sdk.rpc.chain.getBestBlockNumber().then(<span class="hljs-function"><span class=
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
+						<a href="classes/accountrpc.html" class="tsd-kind-icon">Account<wbr>Rpc</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/asset.html" class="tsd-kind-icon">Asset</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -265,6 +259,9 @@ sdk.rpc.chain.getBestBlockNumber().then(<span class="hljs-function"><span class=
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/chainrpc.html" class="tsd-kind-icon">Chain<wbr>Rpc</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/changeshard.html" class="tsd-kind-icon">Change<wbr>Shard</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/changeshardstate.html" class="tsd-kind-icon">Change<wbr>Shard<wbr>State</a>
@@ -304,6 +301,9 @@ sdk.rpc.chain.getBestBlockNumber().then(<span class="hljs-function"><span class=
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/payment.html" class="tsd-kind-icon">Payment</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/pkhassetagent.html" class="tsd-kind-icon">Pkh<wbr>Asset<wbr>Agent</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/platformaddress.html" class="tsd-kind-icon">Platform<wbr>Address</a>

@@ -112,6 +112,8 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="parcel.html#hash" class="tsd-kind-icon">hash</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="parcel.html#rlpbytes" class="tsd-kind-icon">rlp<wbr>Bytes</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="parcel.html#setfee" class="tsd-kind-icon">set<wbr>Fee</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="parcel.html#setnonce" class="tsd-kind-icon">set<wbr>Nonce</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="parcel.html#sign" class="tsd-kind-icon">sign</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="parcel.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="parcel.html#tojson" class="tsd-kind-icon">toJSON</a></li>
@@ -131,23 +133,17 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Parcel<span class="tsd-signature-symbol">(</span>nonce<span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a>, fee<span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a>, networkId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, action<span class="tsd-signature-symbol">: </span><a href="../globals.html#action" class="tsd-signature-type">Action</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="parcel.html" class="tsd-signature-type">Parcel</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Parcel<span class="tsd-signature-symbol">(</span>networkId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, action<span class="tsd-signature-symbol">: </span><a href="../globals.html#action" class="tsd-signature-type">Action</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="parcel.html" class="tsd-signature-type">Parcel</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/Parcel.ts#L53">core/Parcel.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/Parcel.ts#L51">core/Parcel.ts:51</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
-								<li>
-									<h5>nonce: <a href="u256.html" class="tsd-signature-type">U256</a></h5>
-								</li>
-								<li>
-									<h5>fee: <a href="u256.html" class="tsd-signature-type">U256</a></h5>
-								</li>
 								<li>
 									<h5>networkId: <span class="tsd-signature-type">number</span></h5>
 								</li>
@@ -168,17 +164,17 @@
 					<div class="tsd-signature tsd-kind-icon">action<span class="tsd-signature-symbol">:</span> <a href="../globals.html#action" class="tsd-signature-type">Action</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/Parcel.ts#L33">core/Parcel.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/Parcel.ts#L31">core/Parcel.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="fee" class="tsd-anchor"></a>
 					<h3>fee</h3>
-					<div class="tsd-signature tsd-kind-icon">fee<span class="tsd-signature-symbol">:</span> <a href="u256.html" class="tsd-signature-type">U256</a></div>
+					<div class="tsd-signature tsd-kind-icon">fee<span class="tsd-signature-symbol">:</span> <a href="u256.html" class="tsd-signature-type">U256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/Parcel.ts#L29">core/Parcel.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/Parcel.ts#L27">core/Parcel.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -188,17 +184,17 @@
 					<div class="tsd-signature tsd-kind-icon">network<wbr>Id<span class="tsd-signature-symbol">:</span> <a href="u256.html" class="tsd-signature-type">U256</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/Parcel.ts#L32">core/Parcel.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/Parcel.ts#L30">core/Parcel.ts:30</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="nonce" class="tsd-anchor"></a>
 					<h3>nonce</h3>
-					<div class="tsd-signature tsd-kind-icon">nonce<span class="tsd-signature-symbol">:</span> <a href="u256.html" class="tsd-signature-type">U256</a></div>
+					<div class="tsd-signature tsd-kind-icon">nonce<span class="tsd-signature-symbol">:</span> <a href="u256.html" class="tsd-signature-type">U256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/Parcel.ts#L28">core/Parcel.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/Parcel.ts#L26">core/Parcel.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -215,7 +211,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/Parcel.ts#L76">core/Parcel.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/Parcel.ts#L85">core/Parcel.ts:85</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="h256.html" class="tsd-signature-type">H256</a></h4>
@@ -232,7 +228,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/Parcel.ts#L72">core/Parcel.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/Parcel.ts#L81">core/Parcel.ts:81</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Buffer</span></h4>
@@ -240,22 +236,79 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="sign" class="tsd-anchor"></a>
-					<h3>sign</h3>
+					<a name="setfee" class="tsd-anchor"></a>
+					<h3>set<wbr>Fee</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">sign<span class="tsd-signature-symbol">(</span>secret<span class="tsd-signature-symbol">: </span><a href="h256.html" class="tsd-signature-type">H256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="signedparcel.html" class="tsd-signature-type">SignedParcel</a></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Fee<span class="tsd-signature-symbol">(</span>fee<span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/Parcel.ts#L80">core/Parcel.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/Parcel.ts#L64">core/Parcel.ts:64</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>secret: <a href="h256.html" class="tsd-signature-type">H256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<h5>fee: <a href="u256.html" class="tsd-signature-type">U256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setnonce" class="tsd-anchor"></a>
+					<h3>set<wbr>Nonce</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Nonce<span class="tsd-signature-symbol">(</span>nonce<span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/Parcel.ts#L60">core/Parcel.ts:60</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>nonce: <a href="u256.html" class="tsd-signature-type">U256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="sign" class="tsd-anchor"></a>
+					<h3>sign</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">sign<span class="tsd-signature-symbol">(</span>params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="signedparcel.html" class="tsd-signature-type">SignedParcel</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/Parcel.ts#L89">core/Parcel.ts:89</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>params: <span class="tsd-signature-type">object</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>fee<span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>nonce<span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>secret<span class="tsd-signature-symbol">: </span><a href="h256.html" class="tsd-signature-type">H256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="signedparcel.html" class="tsd-signature-type">SignedParcel</a></h4>
@@ -272,7 +325,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/Parcel.ts#L62">core/Parcel.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/Parcel.ts#L68">core/Parcel.ts:68</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -289,7 +342,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/Parcel.ts#L90">core/Parcel.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/Parcel.ts#L116">core/Parcel.ts:116</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
@@ -319,23 +372,17 @@
 					<a name="createshard" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> create<wbr>Shard</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Shard<span class="tsd-signature-symbol">(</span>nonce<span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a>, fee<span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a>, networkId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="parcel.html" class="tsd-signature-type">Parcel</a></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Shard<span class="tsd-signature-symbol">(</span>networkId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="parcel.html" class="tsd-signature-type">Parcel</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/Parcel.ts#L50">core/Parcel.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/Parcel.ts#L48">core/Parcel.ts:48</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
-								<li>
-									<h5>nonce: <a href="u256.html" class="tsd-signature-type">U256</a></h5>
-								</li>
-								<li>
-									<h5>fee: <a href="u256.html" class="tsd-signature-type">U256</a></h5>
-								</li>
 								<li>
 									<h5>networkId: <span class="tsd-signature-type">number</span></h5>
 								</li>
@@ -354,7 +401,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/Parcel.ts#L85">core/Parcel.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/Parcel.ts#L108">core/Parcel.ts:108</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -371,23 +418,17 @@
 					<a name="payment" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> payment</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">payment<span class="tsd-signature-symbol">(</span>nonce<span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a>, fee<span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a>, networkId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, receiver<span class="tsd-signature-symbol">: </span><a href="h160.html" class="tsd-signature-type">H160</a>, value<span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="parcel.html" class="tsd-signature-type">Parcel</a></li>
+						<li class="tsd-signature tsd-kind-icon">payment<span class="tsd-signature-symbol">(</span>networkId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, receiver<span class="tsd-signature-symbol">: </span><a href="h160.html" class="tsd-signature-type">H160</a>, value<span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="parcel.html" class="tsd-signature-type">Parcel</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/Parcel.ts#L40">core/Parcel.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/Parcel.ts#L38">core/Parcel.ts:38</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
-								<li>
-									<h5>nonce: <a href="u256.html" class="tsd-signature-type">U256</a></h5>
-								</li>
-								<li>
-									<h5>fee: <a href="u256.html" class="tsd-signature-type">U256</a></h5>
-								</li>
 								<li>
 									<h5>networkId: <span class="tsd-signature-type">number</span></h5>
 								</li>
@@ -406,23 +447,17 @@
 					<a name="setregularkey" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> set<wbr>Regular<wbr>Key</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Regular<wbr>Key<span class="tsd-signature-symbol">(</span>nonce<span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a>, fee<span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a>, networkId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, key<span class="tsd-signature-symbol">: </span><a href="h512.html" class="tsd-signature-type">H512</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="parcel.html" class="tsd-signature-type">Parcel</a></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Regular<wbr>Key<span class="tsd-signature-symbol">(</span>networkId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, key<span class="tsd-signature-symbol">: </span><a href="h512.html" class="tsd-signature-type">H512</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="parcel.html" class="tsd-signature-type">Parcel</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/Parcel.ts#L45">core/Parcel.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/Parcel.ts#L43">core/Parcel.ts:43</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
-								<li>
-									<h5>nonce: <a href="u256.html" class="tsd-signature-type">U256</a></h5>
-								</li>
-								<li>
-									<h5>fee: <a href="u256.html" class="tsd-signature-type">U256</a></h5>
-								</li>
 								<li>
 									<h5>networkId: <span class="tsd-signature-type">number</span></h5>
 								</li>
@@ -438,23 +473,17 @@
 					<a name="transactions" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> transactions</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">transactions<span class="tsd-signature-symbol">(</span>nonce<span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a>, fee<span class="tsd-signature-symbol">: </span><a href="u256.html" class="tsd-signature-type">U256</a>, networkId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, <span class="tsd-signature-symbol">...</span>transactions<span class="tsd-signature-symbol">: </span><a href="../globals.html#transaction" class="tsd-signature-type">Transaction</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="parcel.html" class="tsd-signature-type">Parcel</a></li>
+						<li class="tsd-signature tsd-kind-icon">transactions<span class="tsd-signature-symbol">(</span>networkId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, <span class="tsd-signature-symbol">...</span>transactions<span class="tsd-signature-symbol">: </span><a href="../globals.html#transaction" class="tsd-signature-type">Transaction</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="parcel.html" class="tsd-signature-type">Parcel</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/9882dea/src/core/Parcel.ts#L35">core/Parcel.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/core/Parcel.ts#L33">core/Parcel.ts:33</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
-								<li>
-									<h5>nonce: <a href="u256.html" class="tsd-signature-type">U256</a></h5>
-								</li>
-								<li>
-									<h5>fee: <a href="u256.html" class="tsd-signature-type">U256</a></h5>
-								</li>
 								<li>
 									<h5>networkId: <span class="tsd-signature-type">number</span></h5>
 								</li>
@@ -503,6 +532,12 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="parcel.html#rlpbytes" class="tsd-kind-icon">rlp<wbr>Bytes</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="parcel.html#setfee" class="tsd-kind-icon">set<wbr>Fee</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="parcel.html#setnonce" class="tsd-kind-icon">set<wbr>Nonce</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="parcel.html#sign" class="tsd-kind-icon">sign</a>

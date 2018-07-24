@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PkhAssetAgent | CodeChain JavaScript SDK</title>
+	<title>P2PKH | CodeChain JavaScript SDK</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="pkhassetagent.html">PkhAssetAgent</a>
+					<a href="p2pkh.html">P2PKH</a>
 				</li>
 			</ul>
-			<h1>Class PkhAssetAgent</h1>
+			<h1>Class P2PKH</h1>
 		</div>
 	</div>
 </header>
@@ -77,8 +77,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">PkhAssetAgent</span>
+						<span class="target">P2PKH</span>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../interfaces/transactionsigner.html" class="tsd-signature-type">TransactionSigner</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -88,15 +94,16 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="pkhassetagent.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="p2pkh.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="pkhassetagent.html#createaddress" class="tsd-kind-icon">create<wbr>Address</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="pkhassetagent.html#inunlockable" class="tsd-kind-icon">in<wbr>Unlockable</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="pkhassetagent.html#unlock" class="tsd-kind-icon">unlock</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="p2pkh.html#createaddress" class="tsd-kind-icon">create<wbr>Address</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="p2pkh.html#sign" class="tsd-kind-icon">sign</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="p2pkh.html#getlockscript" class="tsd-kind-icon">get<wbr>Lock<wbr>Script</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="p2pkh.html#getlockscripthash" class="tsd-kind-icon">get<wbr>Lock<wbr>Script<wbr>Hash</a></li>
 							</ul>
 						</section>
 					</div>
@@ -108,13 +115,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Pkh<wbr>Asset<wbr>Agent<span class="tsd-signature-symbol">(</span>params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="pkhassetagent.html" class="tsd-signature-type">PkhAssetAgent</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>P2PKH<span class="tsd-signature-symbol">(</span>params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="p2pkh.html" class="tsd-signature-type">P2PKH</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/key/PkhAssetAgent.ts#L17">key/PkhAssetAgent.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/P2PKH.ts#L16">key/P2PKH.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -123,12 +130,12 @@
 									<h5>params: <span class="tsd-signature-type">object</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter">
-											<h5>key<wbr>Store<span class="tsd-signature-symbol">: </span><a href="../globals.html#keystore" class="tsd-signature-type">KeyStore</a></h5>
+											<h5>key<wbr>Store<span class="tsd-signature-symbol">: </span><a href="memorykeystore.html" class="tsd-signature-type">MemoryKeyStore</a></h5>
 										</li>
 									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="pkhassetagent.html" class="tsd-signature-type">PkhAssetAgent</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="p2pkh.html" class="tsd-signature-type">P2PKH</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -145,7 +152,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/key/PkhAssetAgent.ts#L23">key/PkhAssetAgent.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/P2PKH.ts#L23">key/P2PKH.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="assettransferaddress.html" class="tsd-signature-type">AssetTransferAddress</a><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -153,51 +160,62 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="inunlockable" class="tsd-anchor"></a>
-					<h3>in<wbr>Unlockable</h3>
+					<a name="sign" class="tsd-anchor"></a>
+					<h3>sign</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">in<wbr>Unlockable<span class="tsd-signature-symbol">(</span>asset<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">sign<span class="tsd-signature-symbol">(</span>transaction<span class="tsd-signature-symbol">: </span><a href="assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/key/PkhAssetAgent.ts#L29">key/PkhAssetAgent.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/P2PKH.ts#L30">key/P2PKH.ts:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>asset: <a href="asset.html" class="tsd-signature-type">Asset</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="unlock" class="tsd-anchor"></a>
-					<h3>unlock</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">unlock<span class="tsd-signature-symbol">(</span>asset<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a>, tx<span class="tsd-signature-symbol">: </span><a href="assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/key/PkhAssetAgent.ts#L37">key/PkhAssetAgent.ts:37</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>asset: <a href="asset.html" class="tsd-signature-type">Asset</a></h5>
+									<h5>transaction: <a href="assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a></h5>
 								</li>
 								<li>
-									<h5>tx: <a href="assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a></h5>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="getlockscript" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Lock<wbr>Script</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Lock<wbr>Script<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/P2PKH.ts#L68">key/P2PKH.ts:68</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Buffer</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="getlockscripthash" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Lock<wbr>Script<wbr>Hash</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Lock<wbr>Script<wbr>Hash<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="h256.html" class="tsd-signature-type">H256</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/P2PKH.ts#L73">key/P2PKH.ts:73</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="h256.html" class="tsd-signature-type">H256</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -216,19 +234,22 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="pkhassetagent.html" class="tsd-kind-icon">Pkh<wbr>Asset<wbr>Agent</a>
+						<a href="p2pkh.html" class="tsd-kind-icon">P2PKH</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="pkhassetagent.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="p2pkh.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="pkhassetagent.html#createaddress" class="tsd-kind-icon">create<wbr>Address</a>
+								<a href="p2pkh.html#createaddress" class="tsd-kind-icon">create<wbr>Address</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="pkhassetagent.html#inunlockable" class="tsd-kind-icon">in<wbr>Unlockable</a>
+								<a href="p2pkh.html#sign" class="tsd-kind-icon">sign</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="pkhassetagent.html#unlock" class="tsd-kind-icon">unlock</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="p2pkh.html#getlockscript" class="tsd-kind-icon">get<wbr>Lock<wbr>Script</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="p2pkh.html#getlockscripthash" class="tsd-kind-icon">get<wbr>Lock<wbr>Script<wbr>Hash</a>
 							</li>
 						</ul>
 					</li>

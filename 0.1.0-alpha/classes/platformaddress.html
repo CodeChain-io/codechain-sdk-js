@@ -69,12 +69,12 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Substitutes for platform token owner which consists of network id and account
-							id. . The network id is represented with prefix &quot;ccc&quot;(mainnet) or
-						&quot;tcc&quot;(testnet). Currently version 0 exists only.</p>
+						<p>The bech32 form of account id. The human readable part(HRP) is used to
+							represent the network. For platform address, the HRP is &quot;ccc&quot; for mainnet or
+						&quot;tcc&quot; for testnet.</p>
 					</div>
-					<p>Refer to the wiki for the details about PlatformAddress.
-					<a href="https://github.com/CodeChain-io/codechain/wiki/CodeChain-Address">https://github.com/CodeChain-io/codechain/wiki/CodeChain-Address</a></p>
+					<p>Refer to the spec for the details about PlatformAddress.
+					<a href="https://github.com/CodeChain-io/codechain/blob/master/spec/CodeChain-Address.md">https://github.com/CodeChain-io/codechain/blob/master/spec/CodeChain-Address.md</a></p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -99,8 +99,12 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="platformaddress.html#getaccountid" class="tsd-kind-icon">get<wbr>Account<wbr>Id</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="platformaddress.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="platformaddress.html#ensure" class="tsd-kind-icon">ensure</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="platformaddress.html#ensureaccount" class="tsd-kind-icon">ensure<wbr>Account</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="platformaddress.html#fromaccountid" class="tsd-kind-icon">from<wbr>Account<wbr>Id</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="platformaddress.html#fromaddress" class="tsd-kind-icon">from<wbr>Address</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="platformaddress.html#fromstring" class="tsd-kind-icon">from<wbr>String</a></li>
 							</ul>
 						</section>
 					</div>
@@ -114,7 +118,7 @@
 					<div class="tsd-signature tsd-kind-icon">account<wbr>Id<span class="tsd-signature-symbol">:</span> <a href="h160.html" class="tsd-signature-type">H160</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/key/PlatformAddress.ts#L17">key/PlatformAddress.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/PlatformAddress.ts#L17">key/PlatformAddress.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -124,30 +128,110 @@
 					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/key/PlatformAddress.ts#L19">key/PlatformAddress.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/PlatformAddress.ts#L18">key/PlatformAddress.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="fromaccountid" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Account<wbr>Id</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Account<wbr>Id<span class="tsd-signature-symbol">(</span>accountId<span class="tsd-signature-symbol">: </span><a href="h160.html" class="tsd-signature-type">H160</a>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="platformaddress.html" class="tsd-signature-type">PlatformAddress</a></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getaccountid" class="tsd-anchor"></a>
+					<h3>get<wbr>Account<wbr>Id</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Account<wbr>Id<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="h160.html" class="tsd-signature-type">H160</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/key/PlatformAddress.ts#L26">key/PlatformAddress.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/PlatformAddress.ts#L57">key/PlatformAddress.ts:57</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="h160.html" class="tsd-signature-type">H160</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="tostring" class="tsd-anchor"></a>
+					<h3>to<wbr>String</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/PlatformAddress.ts#L53">key/PlatformAddress.ts:53</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="ensure" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> ensure</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">ensure<span class="tsd-signature-symbol">(</span>address<span class="tsd-signature-symbol">: </span><a href="platformaddress.html" class="tsd-signature-type">PlatformAddress</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="platformaddress.html" class="tsd-signature-type">PlatformAddress</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/PlatformAddress.ts#L61">key/PlatformAddress.ts:61</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>accountId: <a href="h160.html" class="tsd-signature-type">H160</a></h5>
+									<h5>address: <a href="platformaddress.html" class="tsd-signature-type">PlatformAddress</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="platformaddress.html" class="tsd-signature-type">PlatformAddress</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="ensureaccount" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> ensure<wbr>Account</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">ensure<wbr>Account<span class="tsd-signature-symbol">(</span>address<span class="tsd-signature-symbol">: </span><a href="platformaddress.html" class="tsd-signature-type">PlatformAddress</a><span class="tsd-signature-symbol"> | </span><a href="h160.html" class="tsd-signature-type">H160</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="h160.html" class="tsd-signature-type">H160</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/PlatformAddress.ts#L65">key/PlatformAddress.ts:65</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>address: <a href="platformaddress.html" class="tsd-signature-type">PlatformAddress</a><span class="tsd-signature-symbol"> | </span><a href="h160.html" class="tsd-signature-type">H160</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="h160.html" class="tsd-signature-type">H160</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="fromaccountid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Account<wbr>Id</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Account<wbr>Id<span class="tsd-signature-symbol">(</span>accountId<span class="tsd-signature-symbol">: </span><a href="h160.html" class="tsd-signature-type">H160</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="platformaddress.html" class="tsd-signature-type">PlatformAddress</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/PlatformAddress.ts#L25">key/PlatformAddress.ts:25</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>accountId: <a href="h160.html" class="tsd-signature-type">H160</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
@@ -166,16 +250,16 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="fromaddress" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Address</h3>
+					<a name="fromstring" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>String</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Address<span class="tsd-signature-symbol">(</span>address<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="platformaddress.html" class="tsd-signature-type">PlatformAddress</a></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>String<span class="tsd-signature-symbol">(</span>address<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="platformaddress.html" class="tsd-signature-type">PlatformAddress</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/key/PlatformAddress.ts#L37">key/PlatformAddress.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/PlatformAddress.ts#L36">key/PlatformAddress.ts:36</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -211,11 +295,23 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="platformaddress.html#value" class="tsd-kind-icon">value</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="platformaddress.html#getaccountid" class="tsd-kind-icon">get<wbr>Account<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="platformaddress.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="platformaddress.html#ensure" class="tsd-kind-icon">ensure</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="platformaddress.html#ensureaccount" class="tsd-kind-icon">ensure<wbr>Account</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="platformaddress.html#fromaccountid" class="tsd-kind-icon">from<wbr>Account<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="platformaddress.html#fromaddress" class="tsd-kind-icon">from<wbr>Address</a>
+								<a href="platformaddress.html#fromstring" class="tsd-kind-icon">from<wbr>String</a>
 							</li>
 						</ul>
 					</li>

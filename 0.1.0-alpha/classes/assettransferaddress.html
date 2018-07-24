@@ -73,8 +73,8 @@
 							lockScriptHash, parameters. The network id is represented with prefix
 						&quot;cca&quot;(mainnet) or &quot;tca&quot;(testnet). Currently version 0 exists only.</p>
 					</div>
-					<p>Refer to the wiki for the details about AssetTransferAddress.
-					<a href="https://github.com/CodeChain-io/codechain/wiki/CodeChain-Address">https://github.com/CodeChain-io/codechain/wiki/CodeChain-Address</a></p>
+					<p>Refer to the spec for the details about AssetTransferAddress.
+					<a href="https://github.com/CodeChain-io/codechain/blob/master/spec/CodeChain-Address.md">https://github.com/CodeChain-io/codechain/blob/master/spec/CodeChain-Address.md</a></p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -101,9 +101,12 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assettransferaddress.html#getlockscripthashandparameters" class="tsd-kind-icon">get<wbr>Lock<wbr>Script<wbr>Hash<wbr>And<wbr>Parameters</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="assettransferaddress.html#fromaddress" class="tsd-kind-icon">from<wbr>Address</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assettransferaddress.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="assettransferaddress.html#ensure" class="tsd-kind-icon">ensure</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="assettransferaddress.html#fromlockscripthash" class="tsd-kind-icon">from<wbr>Lock<wbr>Script<wbr>Hash</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="assettransferaddress.html#fromlockscripthashandparameters" class="tsd-kind-icon">from<wbr>Lock<wbr>Script<wbr>Hash<wbr>And<wbr>Parameters</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="assettransferaddress.html#frompublickeyhash" class="tsd-kind-icon">from<wbr>Public<wbr>Key<wbr>Hash</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="assettransferaddress.html#fromstring" class="tsd-kind-icon">from<wbr>String</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="assettransferaddress.html#fromtypeandpayload" class="tsd-kind-icon">from<wbr>Type<wbr>And<wbr>Payload</a></li>
 							</ul>
 						</section>
@@ -118,7 +121,7 @@
 					<div class="tsd-signature tsd-kind-icon">payload<span class="tsd-signature-symbol">:</span> <a href="h256.html" class="tsd-signature-type">H256</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/key/AssetTransferAddress.ts#L28">key/AssetTransferAddress.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/AssetTransferAddress.ts#L28">key/AssetTransferAddress.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -128,7 +131,7 @@
 					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/key/AssetTransferAddress.ts#L27">key/AssetTransferAddress.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/AssetTransferAddress.ts#L27">key/AssetTransferAddress.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -138,7 +141,7 @@
 					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/key/AssetTransferAddress.ts#L30">key/AssetTransferAddress.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/AssetTransferAddress.ts#L30">key/AssetTransferAddress.ts:30</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -155,7 +158,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/key/AssetTransferAddress.ts#L103">key/AssetTransferAddress.ts:103</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/AssetTransferAddress.ts#L124">key/AssetTransferAddress.ts:124</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
@@ -170,23 +173,40 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="fromaddress" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Address</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Address<span class="tsd-signature-symbol">(</span>address<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="assettransferaddress.html" class="tsd-signature-type">AssetTransferAddress</a></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="tostring" class="tsd-anchor"></a>
+					<h3>to<wbr>String</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/key/AssetTransferAddress.ts#L80">key/AssetTransferAddress.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/AssetTransferAddress.ts#L103">key/AssetTransferAddress.ts:103</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="ensure" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> ensure</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">ensure<span class="tsd-signature-symbol">(</span>address<span class="tsd-signature-symbol">: </span><a href="assettransferaddress.html" class="tsd-signature-type">AssetTransferAddress</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="assettransferaddress.html" class="tsd-signature-type">AssetTransferAddress</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/AssetTransferAddress.ts#L107">key/AssetTransferAddress.ts:107</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>address: <span class="tsd-signature-type">string</span></h5>
+									<h5>address: <a href="assettransferaddress.html" class="tsd-signature-type">AssetTransferAddress</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="assettransferaddress.html" class="tsd-signature-type">AssetTransferAddress</a></h4>
@@ -203,7 +223,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/key/AssetTransferAddress.ts#L54">key/AssetTransferAddress.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/AssetTransferAddress.ts#L54">key/AssetTransferAddress.ts:54</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -228,6 +248,37 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="fromlockscripthashandparameters" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Lock<wbr>Script<wbr>Hash<wbr>And<wbr>Parameters</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Lock<wbr>Script<wbr>Hash<wbr>And<wbr>Parameters<span class="tsd-signature-symbol">(</span>params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="assettransferaddress.html" class="tsd-signature-type">AssetTransferAddress</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/AssetTransferAddress.ts#L111">key/AssetTransferAddress.ts:111</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>params: <span class="tsd-signature-type">object</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>lock<wbr>Script<wbr>Hash<span class="tsd-signature-symbol">: </span><a href="h256.html" class="tsd-signature-type">H256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>parameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">[]</span></h5>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="assettransferaddress.html" class="tsd-signature-type">AssetTransferAddress</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
 					<a name="frompublickeyhash" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Public<wbr>Key<wbr>Hash</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
@@ -237,7 +288,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/key/AssetTransferAddress.ts#L67">key/AssetTransferAddress.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/AssetTransferAddress.ts#L67">key/AssetTransferAddress.ts:67</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -262,16 +313,39 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="fromtypeandpayload" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Type<wbr>And<wbr>Payload</h3>
+					<a name="fromstring" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>String</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Type<wbr>And<wbr>Payload<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, payload<span class="tsd-signature-symbol">: </span><a href="h256.html" class="tsd-signature-type">H256</a>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="assettransferaddress.html" class="tsd-signature-type">AssetTransferAddress</a></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>String<span class="tsd-signature-symbol">(</span>address<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="assettransferaddress.html" class="tsd-signature-type">AssetTransferAddress</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/3a9ee1b/src/key/AssetTransferAddress.ts#L38">key/AssetTransferAddress.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/AssetTransferAddress.ts#L80">key/AssetTransferAddress.ts:80</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>address: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="assettransferaddress.html" class="tsd-signature-type">AssetTransferAddress</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="fromtypeandpayload" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Type<wbr>And<wbr>Payload</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Type<wbr>And<wbr>Payload<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, payload<span class="tsd-signature-symbol">: </span><a href="h256.html" class="tsd-signature-type">H256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="assettransferaddress.html" class="tsd-signature-type">AssetTransferAddress</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/6bc4737/src/key/AssetTransferAddress.ts#L38">key/AssetTransferAddress.ts:38</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -280,7 +354,7 @@
 									<h5>type: <span class="tsd-signature-type">number</span></h5>
 								</li>
 								<li>
-									<h5>payload: <a href="h256.html" class="tsd-signature-type">H256</a></h5>
+									<h5>payload: <a href="h256.html" class="tsd-signature-type">H256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
@@ -327,14 +401,23 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="assettransferaddress.html#getlockscripthashandparameters" class="tsd-kind-icon">get<wbr>Lock<wbr>Script<wbr>Hash<wbr>And<wbr>Parameters</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="assettransferaddress.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="assettransferaddress.html#fromaddress" class="tsd-kind-icon">from<wbr>Address</a>
+								<a href="assettransferaddress.html#ensure" class="tsd-kind-icon">ensure</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="assettransferaddress.html#fromlockscripthash" class="tsd-kind-icon">from<wbr>Lock<wbr>Script<wbr>Hash</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="assettransferaddress.html#fromlockscripthashandparameters" class="tsd-kind-icon">from<wbr>Lock<wbr>Script<wbr>Hash<wbr>And<wbr>Parameters</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="assettransferaddress.html#frompublickeyhash" class="tsd-kind-icon">from<wbr>Public<wbr>Key<wbr>Hash</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="assettransferaddress.html#fromstring" class="tsd-kind-icon">from<wbr>String</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="assettransferaddress.html#fromtypeandpayload" class="tsd-kind-icon">from<wbr>Type<wbr>And<wbr>Payload</a>

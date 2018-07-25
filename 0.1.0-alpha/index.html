@@ -174,7 +174,7 @@ p2pkh.createAddress().then(<span class="hljs-function"><span class="hljs-keyword
 				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
 <span class="hljs-keyword">var</span> sdk = <span class="hljs-keyword">new</span> SDK({ <span class="hljs-attr">server</span>: <span class="hljs-string">"http://localhost:8080"</span> });
 
-<span class="hljs-comment">// If you want to know how to create an address, See the example "Create an</span>
+<span class="hljs-comment">// If you want to know how to create an address, see the example "Create an</span>
 <span class="hljs-comment">// asset transfer address".</span>
 <span class="hljs-keyword">var</span> address = <span class="hljs-string">"ccaqqqk7n0a0w69tjfza9svdjzhvu95cpl29ssnyn99ml8nvl8q6sd2c7qgjejfc"</span>;
 
@@ -199,11 +199,11 @@ sdk.rpc.chain.sendParcel(parcel, {
 }).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">parcelHash</span>) </span>{
     <span class="hljs-comment">// Get the invoice of the parcel.</span>
     <span class="hljs-keyword">return</span> sdk.rpc.chain.getParcelInvoice(parcelHash, {
-        <span class="hljs-comment">// Wait up to 120 seconds to get the invoice</span>
+        <span class="hljs-comment">// Wait up to 120 seconds to get the invoice.</span>
         timeout: <span class="hljs-number">120</span> * <span class="hljs-number">1000</span>
     });
 }).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">invoice</span>) </span>{
-    <span class="hljs-comment">// The invoice of ChangeShardState parcel is an array of the object that has</span>
+    <span class="hljs-comment">// The invoice of change-shard-state parcel is an array of the object that has</span>
     <span class="hljs-comment">// type { success: boolean }. Each object represents the result of each</span>
     <span class="hljs-comment">// transaction.</span>
     <span class="hljs-built_in">console</span>.log(invoice); <span class="hljs-comment">// [{ success: true }]</span>
@@ -211,7 +211,7 @@ sdk.rpc.chain.sendParcel(parcel, {
 </code></pre>
 				<hr>
 				<h2 id="transfer-assets">Transfer assets</h2>
-				<p>The brief version of example will be appeared soon. The entire example can be viewed <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/master/examples/mint-and-transfer.js">here</a>.</p>
+				<p>A brief version of the example will be uploaded soon. The entire example can be viewed <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/master/examples/mint-and-transfer.js">here</a>.</p>
 				<hr>
 				<h1 id="sdk-modules">SDK modules</h1>
 				<ul>

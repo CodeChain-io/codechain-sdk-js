@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SetRegularKey | CodeChain JavaScript SDK</title>
+	<title>ChangeShardOwners | CodeChain JavaScript SDK</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="setregularkey.html">SetRegularKey</a>
+					<a href="changeshardowners.html">ChangeShardOwners</a>
 				</li>
 			</ul>
-			<h1>Class SetRegularKey</h1>
+			<h1>Class ChangeShardOwners</h1>
 		</div>
 	</div>
 </header>
@@ -70,7 +70,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">SetRegularKey</span>
+						<span class="target">ChangeShardOwners</span>
 					</li>
 				</ul>
 			</section>
@@ -81,20 +81,21 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="setregularkey.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="changeshardowners.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="setregularkey.html#key" class="tsd-kind-icon">key</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="changeshardowners.html#owners" class="tsd-kind-icon">owners</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="changeshardowners.html#shardid" class="tsd-kind-icon">shard<wbr>Id</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="setregularkey.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="setregularkey.html#tojson" class="tsd-kind-icon">toJSON</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="changeshardowners.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="changeshardowners.html#tojson" class="tsd-kind-icon">toJSON</a></li>
 							</ul>
 						</section>
 					</div>
@@ -106,22 +107,30 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Set<wbr>Regular<wbr>Key<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><a href="h512.html" class="tsd-signature-type">H512</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="setregularkey.html" class="tsd-signature-type">SetRegularKey</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Change<wbr>Shard<wbr>Owners<span class="tsd-signature-symbol">(</span>params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="changeshardowners.html" class="tsd-signature-type">ChangeShardOwners</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/action/SetReulgarKey.ts#L4">core/action/SetReulgarKey.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/action/ChangeShardOwners.ts#L5">core/action/ChangeShardOwners.ts:5</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>key: <a href="h512.html" class="tsd-signature-type">H512</a></h5>
+									<h5>params: <span class="tsd-signature-type">object</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>owners<span class="tsd-signature-symbol">: </span><a href="h160.html" class="tsd-signature-type">H160</a><span class="tsd-signature-symbol">[]</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>shard<wbr>Id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="setregularkey.html" class="tsd-signature-type">SetRegularKey</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="changeshardowners.html" class="tsd-signature-type">ChangeShardOwners</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -129,12 +138,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="key" class="tsd-anchor"></a>
-					<h3>key</h3>
-					<div class="tsd-signature tsd-kind-icon">key<span class="tsd-signature-symbol">:</span> <a href="h512.html" class="tsd-signature-type">H512</a></div>
+					<a name="owners" class="tsd-anchor"></a>
+					<h3>owners</h3>
+					<div class="tsd-signature tsd-kind-icon">owners<span class="tsd-signature-symbol">:</span> <a href="h160.html" class="tsd-signature-type">H160</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/action/SetReulgarKey.ts#L4">core/action/SetReulgarKey.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/action/ChangeShardOwners.ts#L5">core/action/ChangeShardOwners.ts:5</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="shardid" class="tsd-anchor"></a>
+					<h3>shard<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">shard<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/action/ChangeShardOwners.ts#L4">core/action/ChangeShardOwners.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -151,7 +170,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/action/SetReulgarKey.ts#L10">core/action/SetReulgarKey.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/action/ChangeShardOwners.ts#L12">core/action/ChangeShardOwners.ts:12</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -168,7 +187,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/action/SetReulgarKey.ts#L14">core/action/SetReulgarKey.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/action/ChangeShardOwners.ts#L17">core/action/ChangeShardOwners.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
@@ -177,7 +196,10 @@
 									<h5>action<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li class="tsd-parameter">
-									<h5>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+									<h5>owners<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>shard<wbr>Id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 						</li>
@@ -198,19 +220,22 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="setregularkey.html" class="tsd-kind-icon">Set<wbr>Regular<wbr>Key</a>
+						<a href="changeshardowners.html" class="tsd-kind-icon">Change<wbr>Shard<wbr>Owners</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="setregularkey.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="changeshardowners.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="setregularkey.html#key" class="tsd-kind-icon">key</a>
+								<a href="changeshardowners.html#owners" class="tsd-kind-icon">owners</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="changeshardowners.html#shardid" class="tsd-kind-icon">shard<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="setregularkey.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a>
+								<a href="changeshardowners.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="setregularkey.html#tojson" class="tsd-kind-icon">toJSON</a>
+								<a href="changeshardowners.html#tojson" class="tsd-kind-icon">toJSON</a>
 							</li>
 						</ul>
 					</li>

@@ -71,13 +71,19 @@
 					<div class="lead">
 						<p>Spends the existing asset and creates a new asset. Ownership can be transferred during this process.</p>
 					</div>
+					<p>An AssetTransferTransaction consists of:</p>
 					<ul>
-						<li>AssetTransfer consists of AssetTransferInput&#39;s list to spend and AssetTransferOutput&#39;s list to create.</li>
-						<li>All inputs must be valid for the transaction to be valid.</li>
-						<li>When each asset types&#39; amount have been summed, the sum of inputs and the sum of outputs must be identical.</li>
-						<li>It contains the network ID. This must be identical to the network ID to which the transaction is being sent to.</li>
-						<li>If an identical transaction hash already exists, then the change fails. In this situation, a transaction can be created again by arbitrarily changing the nonce.</li>
+						<li>A list of AssetTransferInput to burn.</li>
+						<li>A list of AssetTransferInput to spend.</li>
+						<li>A list of AssetTransferOutput to create.</li>
+						<li>A network ID. This must be identical to the network ID of which the
+						transaction is being sent to.</li>
 					</ul>
+					<p>All inputs must be valid for the transaction to be valid. When each asset
+						types&#39; amount have been summed, the sum of inputs and the sum of outputs
+						must be identical. If an identical transaction hash already exists, then the
+						change fails. In this situation, a transaction can be created again by
+					arbitrarily changing the nonce.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -121,9 +127,8 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assettransfertransaction.html#hash" class="tsd-kind-icon">hash</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assettransfertransaction.html#hashwithoutscript" class="tsd-kind-icon">hash<wbr>Without<wbr>Script</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assettransfertransaction.html#rlpbytes" class="tsd-kind-icon">rlp<wbr>Bytes</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assettransfertransaction.html#setlockscript" class="tsd-kind-icon">set<wbr>Lock<wbr>Script</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assettransfertransaction.html#setunlockscript" class="tsd-kind-icon">set<wbr>Unlock<wbr>Script</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assettransfertransaction.html#sign" class="tsd-kind-icon">sign</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assettransfertransaction.html#signburn" class="tsd-kind-icon">sign<wbr>Burn</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assettransfertransaction.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assettransfertransaction.html#tojson" class="tsd-kind-icon">toJSON</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="assettransfertransaction.html#fromjson" class="tsd-kind-icon">fromJSON</a></li>
@@ -138,36 +143,21 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Asset<wbr>Transfer<wbr>Transaction<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Asset<wbr>Transfer<wbr>Transaction<span class="tsd-signature-symbol">(</span>params<span class="tsd-signature-symbol">: </span><a href="../globals.html#assettransfertransactiondata" class="tsd-signature-type">AssetTransferTransactionData</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L42">core/transaction/AssetTransferTransaction.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L55">core/transaction/AssetTransferTransaction.ts:55</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>__namedParameters: <span class="tsd-signature-type">object</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>burns<span class="tsd-signature-symbol">: </span><a href="assettransferinput.html" class="tsd-signature-type">AssetTransferInput</a><span class="tsd-signature-symbol">[]</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>inputs<span class="tsd-signature-symbol">: </span><a href="assettransferinput.html" class="tsd-signature-type">AssetTransferInput</a><span class="tsd-signature-symbol">[]</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>network<wbr>Id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>nonce<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>outputs<span class="tsd-signature-symbol">: </span><a href="assettransferoutput.html" class="tsd-signature-type">AssetTransferOutput</a><span class="tsd-signature-symbol">[]</span></h5>
-										</li>
-									</ul>
+									<h5>params: <a href="../globals.html#assettransfertransactiondata" class="tsd-signature-type">AssetTransferTransactionData</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a></h4>
@@ -183,7 +173,7 @@
 					<div class="tsd-signature tsd-kind-icon">burns<span class="tsd-signature-symbol">:</span> <a href="assettransferinput.html" class="tsd-signature-type">AssetTransferInput</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L37">core/transaction/AssetTransferTransaction.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L50">core/transaction/AssetTransferTransaction.ts:50</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -193,17 +183,17 @@
 					<div class="tsd-signature tsd-kind-icon">inputs<span class="tsd-signature-symbol">:</span> <a href="assettransferinput.html" class="tsd-signature-type">AssetTransferInput</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L38">core/transaction/AssetTransferTransaction.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L51">core/transaction/AssetTransferTransaction.ts:51</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="networkid" class="tsd-anchor"></a>
 					<h3>network<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">network<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<div class="tsd-signature tsd-kind-icon">network<wbr>Id<span class="tsd-signature-symbol">:</span> <a href="../globals.html#networkid" class="tsd-signature-type">NetworkId</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L40">core/transaction/AssetTransferTransaction.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L53">core/transaction/AssetTransferTransaction.ts:53</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -213,7 +203,7 @@
 					<div class="tsd-signature tsd-kind-icon">nonce<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L41">core/transaction/AssetTransferTransaction.ts:41</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L54">core/transaction/AssetTransferTransaction.ts:54</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -223,7 +213,7 @@
 					<div class="tsd-signature tsd-kind-icon">outputs<span class="tsd-signature-symbol">:</span> <a href="assettransferoutput.html" class="tsd-signature-type">AssetTransferOutput</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L39">core/transaction/AssetTransferTransaction.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L52">core/transaction/AssetTransferTransaction.ts:52</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -233,7 +223,7 @@
 					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"assetTransfer"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;assetTransfer&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L42">core/transaction/AssetTransferTransaction.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L55">core/transaction/AssetTransferTransaction.ts:55</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -250,16 +240,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L71">core/transaction/AssetTransferTransaction.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L107">core/transaction/AssetTransferTransaction.ts:107</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Add an AssetTransferInput to burn.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>burns: <span class="tsd-signature-symbol">(</span><a href="assettransferinput.html" class="tsd-signature-type">AssetTransferInput</a><span class="tsd-signature-symbol"> | </span><a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An array of either an AssetTransferInput or an Asset.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a></h4>
+							<p>The AssetTransferTransaction, which is modified by adding them.</p>
 						</li>
 					</ul>
 				</section>
@@ -273,16 +272,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L82">core/transaction/AssetTransferTransaction.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L123">core/transaction/AssetTransferTransaction.ts:123</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Add an AssetTransferInput to spend.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>inputs: <span class="tsd-signature-symbol">(</span><a href="assettransferinput.html" class="tsd-signature-type">AssetTransferInput</a><span class="tsd-signature-symbol"> | </span><a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An array of either an AssetTransferInput or an Asset.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a></h4>
+							<p>The AssetTransferTransaction, which is modified by adding them.</p>
 						</li>
 					</ul>
 				</section>
@@ -296,13 +304,22 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L93">core/transaction/AssetTransferTransaction.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L142">core/transaction/AssetTransferTransaction.ts:142</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Add an AssetTransferOutput to create.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>outputs: <span class="tsd-signature-symbol">(</span><a href="assettransferoutput.html" class="tsd-signature-type">AssetTransferOutput</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An array of either an AssetTransferOutput or an object
+										that has amount, assetType and recipient values.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a></h4>
@@ -319,16 +336,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L168">core/transaction/AssetTransferTransaction.ts:168</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L247">core/transaction/AssetTransferTransaction.ts:247</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the asset address of an output.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An index indicating the output.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="h256.html" class="tsd-signature-type">H256</a></h4>
+							<p>An asset address which is H256.</p>
 						</li>
 					</ul>
 				</section>
@@ -342,16 +368,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L113">core/transaction/AssetTransferTransaction.ts:113</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L167">core/transaction/AssetTransferTransaction.ts:167</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the output of the given index, of this transaction.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An index indicating an output.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="asset.html" class="tsd-signature-type">Asset</a></h4>
+							<p>An Asset.</p>
 						</li>
 					</ul>
 				</section>
@@ -365,10 +400,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L129">core/transaction/AssetTransferTransaction.ts:129</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L187">core/transaction/AssetTransferTransaction.ts:187</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the outputs of this transaction.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">[]</span></h4>
+							<p>An array of an Asset.</p>
 						</li>
 					</ul>
 				</section>
@@ -382,10 +423,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L67">core/transaction/AssetTransferTransaction.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L98">core/transaction/AssetTransferTransaction.ts:98</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the hash of an AssetTransferTransaction.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="h256.html" class="tsd-signature-type">H256</a></h4>
+							<p>A transaction hash.</p>
 						</li>
 					</ul>
 				</section>
@@ -399,10 +446,17 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L133">core/transaction/AssetTransferTransaction.ts:133</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L196">core/transaction/AssetTransferTransaction.ts:196</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get a hash of the transaction that doesn&#39;t contain the scripts. The hash
+									is used as a message to create a signature for a transaction.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="h256.html" class="tsd-signature-type">H256</a></h4>
+							<p>A hash.</p>
 						</li>
 					</ul>
 				</section>
@@ -416,62 +470,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L63">core/transaction/AssetTransferTransaction.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L90">core/transaction/AssetTransferTransaction.ts:90</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Convert to RLP bytes.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Buffer</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="setlockscript" class="tsd-anchor"></a>
-					<h3>set<wbr>Lock<wbr>Script</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Lock<wbr>Script<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, lockScript<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L154">core/transaction/AssetTransferTransaction.ts:154</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>index: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>lockScript: <span class="tsd-signature-type">Buffer</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="setunlockscript" class="tsd-anchor"></a>
-					<h3>set<wbr>Unlock<wbr>Script</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Unlock<wbr>Script<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, unlockScript<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L161">core/transaction/AssetTransferTransaction.ts:161</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>index: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>unlockScript: <span class="tsd-signature-type">Buffer</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -485,24 +492,81 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L144">core/transaction/AssetTransferTransaction.ts:144</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L232">core/transaction/AssetTransferTransaction.ts:232</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set an input&#39;s lock script and an input&#39;s unlock script so that the
+									input become spendable.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An index indicating the input to sign.</p>
+									</div>
 								</li>
 								<li>
 									<h5>params: <span class="tsd-signature-type">object</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter">
 											<h5>signer<span class="tsd-signature-symbol">: </span><a href="../interfaces/transactionsigner.html" class="tsd-signature-type">TransactionSigner</a></h5>
+											<div class="tsd-comment tsd-typography">
+												<p>A TransactionSigner. Currently, P2PKH is available.</p>
+											</div>
 										</li>
 									</ul>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A promise that resolves when setting is done.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="signburn" class="tsd-anchor"></a>
+					<h3>sign<wbr>Burn</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">sign<wbr>Burn<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L214">core/transaction/AssetTransferTransaction.ts:214</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set a burn&#39;s lock script and an input&#39;s unlock script so that the
+									burn become burnable.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An index indicating the burn to sign.</p>
+									</div>
+								</li>
+								<li>
+									<h5>params: <span class="tsd-signature-type">object</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>signer<span class="tsd-signature-symbol">: </span><a href="../interfaces/transactionsigner.html" class="tsd-signature-type">TransactionSigner</a></h5>
+											<div class="tsd-comment tsd-typography">
+												<p>A TransactionSigner. Currently, P2PKH is available.</p>
+											</div>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A promise that resolves when setting is done.</p>
 						</li>
 					</ul>
 				</section>
@@ -510,16 +574,21 @@
 					<a name="toencodeobject" class="tsd-anchor"></a>
 					<h3>to<wbr>Encode<wbr>Object</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">to<wbr>Encode<wbr>Object<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Encode<wbr>Object<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L52">core/transaction/AssetTransferTransaction.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L76">core/transaction/AssetTransferTransaction.ts:76</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Convert to an object for RLP encoding.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -533,10 +602,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L190">core/transaction/AssetTransferTransaction.ts:190</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L281">core/transaction/AssetTransferTransaction.ts:281</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Convert to an AssetTransferTransaction JSON object.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
+							<p>An AssetTransferTransaction JSON object.</p>
 							<ul class="tsd-parameters">
 								<li class="tsd-parameter">
 									<h5>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
@@ -548,13 +623,10 @@
 											<h5>burns<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">[]</span></h5>
 										</li>
 										<li class="tsd-parameter">
-											<h5>hash<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
-										</li>
-										<li class="tsd-parameter">
 											<h5>inputs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">[]</span></h5>
 										</li>
 										<li class="tsd-parameter">
-											<h5>network<wbr>Id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+											<h5>network<wbr>Id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
 										</li>
 										<li class="tsd-parameter">
 											<h5>nonce<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
@@ -578,16 +650,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetTransferTransaction.ts#L179">core/transaction/AssetTransferTransaction.ts:179</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L266">core/transaction/AssetTransferTransaction.ts:266</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create an AssetTransferTransaction from an AssetTransferTransaction JSON object.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An AssetTransferTransaction JSON object.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a></h4>
+							<p>An AssetTransferTransaction.</p>
 						</li>
 					</ul>
 				</section>
@@ -657,13 +738,10 @@
 								<a href="assettransfertransaction.html#rlpbytes" class="tsd-kind-icon">rlp<wbr>Bytes</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="assettransfertransaction.html#setlockscript" class="tsd-kind-icon">set<wbr>Lock<wbr>Script</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="assettransfertransaction.html#setunlockscript" class="tsd-kind-icon">set<wbr>Unlock<wbr>Script</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="assettransfertransaction.html#sign" class="tsd-kind-icon">sign</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="assettransfertransaction.html#signburn" class="tsd-kind-icon">sign<wbr>Burn</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="assettransfertransaction.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a>

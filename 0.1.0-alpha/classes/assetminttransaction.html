@@ -71,13 +71,17 @@
 					<div class="lead">
 						<p>Creates a new asset type and that asset itself.</p>
 					</div>
-					<p>The owner of the new asset created can be assigned by lockScriptHash and parameters.</p>
+					<p>The owner of the new asset created can be assigned by a lock script hash and parameters.</p>
 					<ul>
-						<li>metadata is a string that explains the asset&#39;s type.</li>
-						<li>amount defines the quantity of asset to be created. If set as null, it will be set as the maximum value of a 64-bit unsigned integer by default.</li>
-						<li>If registrar exists, the registrar must be the Signer of the Parcel when sending the created asset through AssetTransferTransaction.</li>
-						<li>Transaction hash can be changed by changing nonce.</li>
-						<li>If an identical transaction hash already exists, then the change fails. In this situation, a transaction can be created again by arbitrarily changing the nonce.</li>
+						<li>A metadata is a string that explains the asset&#39;s type.</li>
+						<li>Amount defines the quantity of asset to be created. If set as null, it
+						will be set as the maximum value of a 64-bit unsigned integer by default.</li>
+						<li>If registrar exists, the registrar must be the Signer of the Parcel when
+						sending the created asset through AssetTransferTransaction.</li>
+						<li>A transaction hash can be changed by changing nonce.</li>
+						<li>If an identical transaction hash already exists, then the change fails. In
+							this situation, a transaction can be created again by arbitrarily changing
+						the nonce.</li>
 					</ul>
 				</div>
 			</section>
@@ -109,6 +113,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="assetminttransaction.html#registrar" class="tsd-kind-icon">registrar</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="assetminttransaction.html#shardid" class="tsd-kind-icon">shard<wbr>Id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="assetminttransaction.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="assetminttransaction.html#worldid" class="tsd-kind-icon">world<wbr>Id</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -140,9 +145,11 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetMintTransaction.ts#L47">core/transaction/AssetMintTransaction.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetMintTransaction.ts#L55">core/transaction/AssetMintTransaction.ts:55</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -162,17 +169,17 @@
 					<div class="tsd-signature tsd-kind-icon">metadata<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetMintTransaction.ts#L39">core/transaction/AssetMintTransaction.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetMintTransaction.ts#L47">core/transaction/AssetMintTransaction.ts:47</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="networkid" class="tsd-anchor"></a>
 					<h3>network<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">network<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<div class="tsd-signature tsd-kind-icon">network<wbr>Id<span class="tsd-signature-symbol">:</span> <a href="../globals.html#networkid" class="tsd-signature-type">NetworkId</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetMintTransaction.ts#L37">core/transaction/AssetMintTransaction.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetMintTransaction.ts#L44">core/transaction/AssetMintTransaction.ts:44</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -182,7 +189,7 @@
 					<div class="tsd-signature tsd-kind-icon">nonce<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetMintTransaction.ts#L46">core/transaction/AssetMintTransaction.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetMintTransaction.ts#L54">core/transaction/AssetMintTransaction.ts:54</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -192,7 +199,7 @@
 					<div class="tsd-signature tsd-kind-icon">output<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetMintTransaction.ts#L40">core/transaction/AssetMintTransaction.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetMintTransaction.ts#L48">core/transaction/AssetMintTransaction.ts:48</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -216,7 +223,7 @@
 					<div class="tsd-signature tsd-kind-icon">registrar<span class="tsd-signature-symbol">:</span> <a href="h160.html" class="tsd-signature-type">H160</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetMintTransaction.ts#L45">core/transaction/AssetMintTransaction.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetMintTransaction.ts#L53">core/transaction/AssetMintTransaction.ts:53</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -226,7 +233,7 @@
 					<div class="tsd-signature tsd-kind-icon">shard<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetMintTransaction.ts#L38">core/transaction/AssetMintTransaction.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetMintTransaction.ts#L45">core/transaction/AssetMintTransaction.ts:45</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -236,7 +243,17 @@
 					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"assetMint"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;assetMint&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetMintTransaction.ts#L47">core/transaction/AssetMintTransaction.ts:47</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetMintTransaction.ts#L55">core/transaction/AssetMintTransaction.ts:55</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="worldid" class="tsd-anchor"></a>
+					<h3>world<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">world<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetMintTransaction.ts#L46">core/transaction/AssetMintTransaction.ts:46</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -253,10 +270,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetMintTransaction.ts#L160">core/transaction/AssetMintTransaction.ts:160</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetMintTransaction.ts#L219">core/transaction/AssetMintTransaction.ts:219</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the asset address of the output.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="h256.html" class="tsd-signature-type">H256</a></h4>
+							<p>An asset address which is H256.</p>
 						</li>
 					</ul>
 				</section>
@@ -270,10 +293,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetMintTransaction.ts#L134">core/transaction/AssetMintTransaction.ts:134</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetMintTransaction.ts#L182">core/transaction/AssetMintTransaction.ts:182</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the asset scheme of this transaction.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="assetscheme.html" class="tsd-signature-type">AssetScheme</a></h4>
+							<p>An AssetScheme.</p>
 						</li>
 					</ul>
 				</section>
@@ -287,10 +316,17 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetMintTransaction.ts#L149">core/transaction/AssetMintTransaction.ts:149</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetMintTransaction.ts#L203">core/transaction/AssetMintTransaction.ts:203</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the address of the asset scheme. An asset scheme address equals to an
+									asset type value.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="h256.html" class="tsd-signature-type">H256</a></h4>
+							<p>An asset scheme address which is H256.</p>
 						</li>
 					</ul>
 				</section>
@@ -304,10 +340,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetMintTransaction.ts#L118">core/transaction/AssetMintTransaction.ts:118</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetMintTransaction.ts#L162">core/transaction/AssetMintTransaction.ts:162</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the output of this transaction.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="asset.html" class="tsd-signature-type">Asset</a></h4>
+							<p>An Asset.</p>
 						</li>
 					</ul>
 				</section>
@@ -321,10 +363,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetMintTransaction.ts#L114">core/transaction/AssetMintTransaction.ts:114</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetMintTransaction.ts#L154">core/transaction/AssetMintTransaction.ts:154</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the hash of an AssetMintTransaction.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="h256.html" class="tsd-signature-type">H256</a></h4>
+							<p>A transaction hash.</p>
 						</li>
 					</ul>
 				</section>
@@ -338,9 +386,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetMintTransaction.ts#L110">core/transaction/AssetMintTransaction.ts:110</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetMintTransaction.ts#L146">core/transaction/AssetMintTransaction.ts:146</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Convert to RLP bytes.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Buffer</span></h4>
 						</li>
 					</ul>
@@ -355,9 +408,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetMintTransaction.ts#L95">core/transaction/AssetMintTransaction.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetMintTransaction.ts#L127">core/transaction/AssetMintTransaction.ts:127</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Convert to an object for RLP encoding.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
@@ -372,10 +430,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetMintTransaction.ts#L75">core/transaction/AssetMintTransaction.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetMintTransaction.ts#L104">core/transaction/AssetMintTransaction.ts:104</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Convert to an AssetMintTransaction JSON object.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
+							<p>An AssetMintTransaction JSON object.</p>
 							<ul class="tsd-parameters">
 								<li class="tsd-parameter">
 									<h5>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
@@ -384,13 +448,10 @@
 									<h5>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter">
-											<h5>hash<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
-										</li>
-										<li class="tsd-parameter">
 											<h5>metadata<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
 										</li>
 										<li class="tsd-parameter">
-											<h5>network<wbr>Id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+											<h5>network<wbr>Id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
 										</li>
 										<li class="tsd-parameter">
 											<h5>nonce<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
@@ -402,6 +463,9 @@
 											<h5>shard<wbr>Id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
 										</li>
 										<li class="tsd-parameter">
+											<h5>world<wbr>Id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+										<li class="tsd-parameter">
 											<h5>output<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h5>
 											<ul class="tsd-parameters">
 												<li class="tsd-parameter">
@@ -411,7 +475,7 @@
 													<h5>lock<wbr>Script<wbr>Hash<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
 												</li>
 												<li class="tsd-parameter">
-													<h5>parameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">[]</span></h5>
+													<h5>parameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></h5>
 												</li>
 											</ul>
 										</li>
@@ -425,22 +489,31 @@
 					<a name="fromjson" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> fromJSON</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">fromJSON<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="assetminttransaction.html" class="tsd-signature-type">AssetMintTransaction</a></li>
+						<li class="tsd-signature tsd-kind-icon">fromJSON<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="assetminttransaction.html" class="tsd-signature-type">AssetMintTransaction</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/transaction/AssetMintTransaction.ts#L59">core/transaction/AssetMintTransaction.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetMintTransaction.ts#L83">core/transaction/AssetMintTransaction.ts:83</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create an AssetMintTransaction from an AssetMintTransaction JSON object.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>obj: <span class="tsd-signature-type">any</span></h5>
+									<h5>data: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An AssetMintTransaction JSON object.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="assetminttransaction.html" class="tsd-signature-type">AssetMintTransaction</a></h4>
+							<p>An AssetMintTransaction.</p>
 						</li>
 					</ul>
 				</section>
@@ -484,6 +557,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="assetminttransaction.html#type" class="tsd-kind-icon">type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="assetminttransaction.html#worldid" class="tsd-kind-icon">world<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="assetminttransaction.html#getassetaddress" class="tsd-kind-icon">get<wbr>Asset<wbr>Address</a>

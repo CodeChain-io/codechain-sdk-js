@@ -93,7 +93,9 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="chainrpc.html#getparcelinvoice" class="tsd-kind-icon">get<wbr>Parcel<wbr>Invoice</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="chainrpc.html#getpendingparcels" class="tsd-kind-icon">get<wbr>Pending<wbr>Parcels</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="chainrpc.html#getregularkey" class="tsd-kind-icon">get<wbr>Regular<wbr>Key</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="chainrpc.html#gettransaction" class="tsd-kind-icon">get<wbr>Transaction</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="chainrpc.html#gettransactioninvoice" class="tsd-kind-icon">get<wbr>Transaction<wbr>Invoice</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="chainrpc.html#isassetspent" class="tsd-kind-icon">is<wbr>Asset<wbr>Spent</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="chainrpc.html#sendparcel" class="tsd-kind-icon">send<wbr>Parcel</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="chainrpc.html#sendsignedparcel" class="tsd-kind-icon">send<wbr>Signed<wbr>Parcel</a></li>
 							</ul>
@@ -113,7 +115,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/rpc/chain.ts#L259">rpc/chain.ts:259</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/rpc/chain.ts#L274">rpc/chain.ts:274</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -151,13 +153,13 @@
 					<a name="getassetschemebyhash" class="tsd-anchor"></a>
 					<h3>get<wbr>Asset<wbr>Scheme<wbr>ByHash</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Asset<wbr>Scheme<wbr>ByHash<span class="tsd-signature-symbol">(</span>txhash<span class="tsd-signature-symbol">: </span><a href="h256.html" class="tsd-signature-type">H256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, shardId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="assetscheme.html" class="tsd-signature-type">AssetScheme</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Asset<wbr>Scheme<wbr>ByHash<span class="tsd-signature-symbol">(</span>txhash<span class="tsd-signature-symbol">: </span><a href="h256.html" class="tsd-signature-type">H256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, shardId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, worldId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="assetscheme.html" class="tsd-signature-type">AssetScheme</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/rpc/chain.ts#L233">rpc/chain.ts:233</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/rpc/chain.ts#L248">rpc/chain.ts:248</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -179,6 +181,12 @@
 										<p>The shard id of Asset Scheme.</p>
 									</div>
 								</li>
+								<li>
+									<h5>worldId: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The world id of Asset Scheme.</p>
+									</div>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="assetscheme.html" class="tsd-signature-type">AssetScheme</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>AssetScheme, if asset scheme exists. Else, returns null.</p>
@@ -195,7 +203,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/rpc/chain.ts#L245">rpc/chain.ts:245</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/rpc/chain.ts#L260">rpc/chain.ts:260</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -227,7 +235,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/rpc/chain.ts#L165">rpc/chain.ts:165</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/rpc/chain.ts#L179">rpc/chain.ts:179</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -265,7 +273,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/rpc/chain.ts#L189">rpc/chain.ts:189</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/rpc/chain.ts#L203">rpc/chain.ts:203</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -288,7 +296,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/rpc/chain.ts#L213">rpc/chain.ts:213</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/rpc/chain.ts#L227">rpc/chain.ts:227</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -320,7 +328,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/rpc/chain.ts#L201">rpc/chain.ts:201</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/rpc/chain.ts#L215">rpc/chain.ts:215</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -352,7 +360,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/rpc/chain.ts#L178">rpc/chain.ts:178</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/rpc/chain.ts#L192">rpc/chain.ts:192</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -390,7 +398,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/rpc/chain.ts#L85">rpc/chain.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/rpc/chain.ts#L87">rpc/chain.ts:87</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -422,7 +430,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/rpc/chain.ts#L98">rpc/chain.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/rpc/chain.ts#L100">rpc/chain.ts:100</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -465,7 +473,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/rpc/chain.ts#L279">rpc/chain.ts:279</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/rpc/chain.ts#L314">rpc/chain.ts:314</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -488,7 +496,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/rpc/chain.ts#L129">rpc/chain.ts:129</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/rpc/chain.ts#L131">rpc/chain.ts:131</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -517,6 +525,38 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="gettransaction" class="tsd-anchor"></a>
+					<h3>get<wbr>Transaction</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Transaction<span class="tsd-signature-symbol">(</span>txhash<span class="tsd-signature-symbol">: </span><a href="h256.html" class="tsd-signature-type">H256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#transaction" class="tsd-signature-type">Transaction</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/rpc/chain.ts#L143">rpc/chain.ts:143</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets a transaction of given hash.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>txhash: <a href="h256.html" class="tsd-signature-type">H256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The transaction hash of which to get the corresponding transaction of.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#transaction" class="tsd-signature-type">Transaction</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A transaction, or null when transaction of given hash not exists.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="gettransactioninvoice" class="tsd-anchor"></a>
 					<h3>get<wbr>Transaction<wbr>Invoice</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -526,7 +566,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/rpc/chain.ts#L142">rpc/chain.ts:142</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/rpc/chain.ts#L156">rpc/chain.ts:156</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -560,6 +600,56 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="isassetspent" class="tsd-anchor"></a>
+					<h3>is<wbr>Asset<wbr>Spent</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Asset<wbr>Spent<span class="tsd-signature-symbol">(</span>txhash<span class="tsd-signature-symbol">: </span><a href="h256.html" class="tsd-signature-type">H256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, shardId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, blockNumber<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/rpc/chain.ts#L298">rpc/chain.ts:298</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks whether an asset is spent or not.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>txhash: <a href="h256.html" class="tsd-signature-type">H256</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The tx hash of AssetMintTransaction or AssetTransferTransaction.</p>
+									</div>
+								</li>
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The index of output in the transaction.</p>
+									</div>
+								</li>
+								<li>
+									<h5>shardId: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The shard id of an Asset.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> blockNumber: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The specific block number to get the asset from.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>True, if the asset is spent. False, if the asset is not spent. Null, if no such asset exists.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="sendparcel" class="tsd-anchor"></a>
 					<h3>send<wbr>Parcel</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -569,7 +659,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/rpc/chain.ts#L56">rpc/chain.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/rpc/chain.ts#L57">rpc/chain.ts:57</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -621,7 +711,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/rpc/chain.ts#L34">rpc/chain.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/rpc/chain.ts#L35">rpc/chain.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -697,7 +787,13 @@
 								<a href="chainrpc.html#getregularkey" class="tsd-kind-icon">get<wbr>Regular<wbr>Key</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="chainrpc.html#gettransaction" class="tsd-kind-icon">get<wbr>Transaction</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="chainrpc.html#gettransactioninvoice" class="tsd-kind-icon">get<wbr>Transaction<wbr>Invoice</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="chainrpc.html#isassetspent" class="tsd-kind-icon">is<wbr>Asset<wbr>Spent</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="chainrpc.html#sendparcel" class="tsd-kind-icon">send<wbr>Parcel</a>

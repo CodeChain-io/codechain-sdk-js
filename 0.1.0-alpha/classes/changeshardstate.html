@@ -88,12 +88,14 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="changeshardstate.html#changes" class="tsd-kind-icon">changes</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="changeshardstate.html#signatures" class="tsd-kind-icon">signatures</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="changeshardstate.html#transactions" class="tsd-kind-icon">transactions</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="changeshardstate.html#addsignature" class="tsd-kind-icon">add<wbr>Signature</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="changeshardstate.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="changeshardstate.html#tojson" class="tsd-kind-icon">toJSON</a></li>
 							</ul>
@@ -113,7 +115,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/action/ChangeShardState.ts#L32">core/action/ChangeShardState.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/action/ChangeShardState.ts#L33">core/action/ChangeShardState.ts:33</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -140,7 +142,17 @@
 					<div class="tsd-signature tsd-kind-icon">changes<span class="tsd-signature-symbol">:</span> <a href="changeshard.html" class="tsd-signature-type">ChangeShard</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/action/ChangeShardState.ts#L32">core/action/ChangeShardState.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/action/ChangeShardState.ts#L32">core/action/ChangeShardState.ts:32</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="signatures" class="tsd-anchor"></a>
+					<h3>signatures</h3>
+					<div class="tsd-signature tsd-kind-icon">signatures<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/action/ChangeShardState.ts#L33">core/action/ChangeShardState.ts:33</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -150,13 +162,36 @@
 					<div class="tsd-signature tsd-kind-icon">transactions<span class="tsd-signature-symbol">:</span> <a href="../globals.html#transaction" class="tsd-signature-type">Transaction</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/action/ChangeShardState.ts#L31">core/action/ChangeShardState.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/action/ChangeShardState.ts#L31">core/action/ChangeShardState.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="addsignature" class="tsd-anchor"></a>
+					<h3>add<wbr>Signature</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Signature<span class="tsd-signature-symbol">(</span>signature<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/action/ChangeShardState.ts#L42">core/action/ChangeShardState.ts:42</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>signature: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="toencodeobject" class="tsd-anchor"></a>
 					<h3>to<wbr>Encode<wbr>Object</h3>
@@ -167,7 +202,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/action/ChangeShardState.ts#L40">core/action/ChangeShardState.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/action/ChangeShardState.ts#L46">core/action/ChangeShardState.ts:46</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -184,7 +219,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/25319c4/src/core/action/ChangeShardState.ts#L46">core/action/ChangeShardState.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/action/ChangeShardState.ts#L53">core/action/ChangeShardState.ts:53</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
@@ -196,7 +231,10 @@
 									<h5>changes<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 								<li class="tsd-parameter">
-									<h5>transactions<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>signatures<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>transactions<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
 						</li>
@@ -226,7 +264,13 @@
 								<a href="changeshardstate.html#changes" class="tsd-kind-icon">changes</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="changeshardstate.html#signatures" class="tsd-kind-icon">signatures</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="changeshardstate.html#transactions" class="tsd-kind-icon">transactions</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="changeshardstate.html#addsignature" class="tsd-kind-icon">add<wbr>Signature</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="changeshardstate.html#toencodeobject" class="tsd-kind-icon">to<wbr>Encode<wbr>Object</a>

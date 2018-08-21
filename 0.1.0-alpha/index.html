@@ -150,17 +150,19 @@ sdk.rpc.chain.sendParcel(parcel, {
 				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
 <span class="hljs-keyword">var</span> sdk = <span class="hljs-keyword">new</span> SDK({ <span class="hljs-attr">server</span>: <span class="hljs-string">"http://localhost:8080"</span> });
 
-<span class="hljs-comment">// MemoryKeyStore is a key store for testing purposes. Do not use this code in</span>
-<span class="hljs-comment">// production.</span>
-<span class="hljs-keyword">var</span> keyStore = sdk.key.createMemoryKeyStore();
-<span class="hljs-comment">// P2PKH supports P2PKH(Pay to Public Key Hash) lock/unlock scripts.</span>
-<span class="hljs-keyword">var</span> p2pkh = sdk.key.createP2PKH({ keyStore });
-
-p2pkh.createAddress().then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">address</span>) </span>{
-    <span class="hljs-comment">// This type of address is used to receive assets when minting or transferring them.</span>
-    <span class="hljs-comment">// Example: tcaqqq9pgkq69z488qlkvhkpcxcgfd3cqlkzgxyq9cewxuda8qqz7jtlvctt5eze</span>
-    <span class="hljs-built_in">console</span>.log(address.toString());
-});</code></pre>
+<span class="hljs-comment">// If you want to know how to set up the external key store, go to</span>
+<span class="hljs-comment">// https://codechain.readthedocs.io/en/latest/asset-management.html#use-externalkeystore-to-save-asset-address-private-key</span>
+sdk.key.createExternalKeyStore(<span class="hljs-string">"http://localhost:7007"</span>)
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">keyStore</span>) </span>{
+        <span class="hljs-comment">// P2PKH supports P2PKH(Pay to Public Key Hash) lock/unlock scripts.</span>
+        <span class="hljs-keyword">var</span> p2pkh = sdk.key.createP2PKH({ keyStore });
+        <span class="hljs-keyword">return</span> p2pkh.createAddress();
+    })
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">address</span>) </span>{
+        <span class="hljs-comment">// This type of address is used to receive assets when minting or transferring them.</span>
+        <span class="hljs-comment">// Example: tcaqqq9pgkq69z488qlkvhkpcxcgfd3cqlkzgxyq9cewxuda8qqz7jtlvctt5eze</span>
+        <span class="hljs-built_in">console</span>.log(address.toString());
+    })</code></pre>
 				<hr>
 				<h2 id="mint-a-new-asset">Mint a new asset</h2>
 				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
@@ -296,9 +298,6 @@ sdk.rpc.chain.sendParcel(parcel, {
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/key.html" class="tsd-kind-icon">Key</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/memorykeystore.html" class="tsd-kind-icon">Memory<wbr>Key<wbr>Store</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/networkrpc.html" class="tsd-kind-icon">Network<wbr>Rpc</a>

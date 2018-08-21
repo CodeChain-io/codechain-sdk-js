@@ -1,6 +1,10 @@
 var SDK = require("codechain-sdk");
 
-var sdk = new SDK({ server: "http://localhost:8080" });
+const SERVER_URL = process.env.CODECHAIN_RPC_HTTP || "http://localhost:8080";
+const sdk = new SDK({ server: SERVER_URL });
+
+const ACCOUNT_ADDRESS = process.env.ACCOUNT || "tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78";
+const ACCOUNT_PASSPHRASE = process.env.PASSPHRASE || "satoshi";
 
 // If you want to know how to create an address, see the example "Create an
 // asset transfer address".
@@ -23,8 +27,8 @@ var assetMintTransaction = sdk.core.createAssetMintTransaction({
 // Send a change-shard-state parcel to process the transaction.
 var parcel = sdk.core.createChangeShardStateParcel({ transactions: [assetMintTransaction] });
 sdk.rpc.chain.sendParcel(parcel, {
-    account: "tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78",
-    passphrase: "satoshi"
+    account: ACCOUNT_ADDRESS,
+    passphrase: ACCOUNT_PASSPHRASE
 }).then(function (parcelHash) {
     // Get the invoice of the parcel.
     return sdk.rpc.chain.getParcelInvoice(parcelHash, {

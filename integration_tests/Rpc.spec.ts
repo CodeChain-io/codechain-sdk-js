@@ -3,6 +3,8 @@ import { H256, SignedParcel, Invoice, AssetMintTransaction, Asset, AssetScheme, 
 import { PlatformAddress } from "../lib/key/classes";
 import { getAccountIdFromPrivate, generatePrivateKey, signEcdsa } from "../lib/utils";
 
+const ACCOUNT_ADDRESS = process.env.ACCOUNT || "tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78";
+
 // FIXME:
 const ERROR = {
     VERIFICATION_FAILED: {
@@ -76,10 +78,11 @@ describe("rpc", () => {
     const invalidHash = "0x0000000000000000000000000000000000000000000000000000000000000000";
     const signerSecret = "ede1d4ccb4ec9a8bbbae9a13db3f4a7b56ea04189be86ac3a6a439d9a0a1addd";
     const signerAccount = "0xa6594b7196808d161b6fb137e781abbc251385d9";
-    const signerAddress = "tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78";
+    const signerAddress = ACCOUNT_ADDRESS;
 
     beforeAll(async () => {
-        sdk = new SDK({ server: "http://localhost:8080" });
+        const SERVER_URL = process.env.CODECHAIN_RPC_HTTP || "http://localhost:8080";
+        sdk = new SDK({ server: SERVER_URL });
     });
 
     test("PlatformAddress", () => {
@@ -122,7 +125,7 @@ describe("rpc", () => {
 
         describe("with account", () => {
             const account = "0xa6594b7196808d161b6fb137e781abbc251385d9";
-            const address = "tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78";
+            const address = ACCOUNT_ADDRESS;
 
             test("PlatformAddress", () => {
                 expect(sdk.key.classes.PlatformAddress.fromAccountId(account).value).toEqual(address);

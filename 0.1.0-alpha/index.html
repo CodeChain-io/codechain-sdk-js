@@ -64,11 +64,10 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h1 id="table-of-contents">Table of Contents</h1>
-				<ol>
+				<h2 id="table-of-contents">Table of Contents</h2>
+				<ul>
 					<li><a href="#install-package">Install package</a></li>
-					<li><p><a href="#usage-examples">Usage examples</a></p>
-						<ol>
+					<li><a href="#usage-examples">Usage examples</a><ul>
 							<li><a href="#setup-the-test-account">Setup the test account</a></li>
 							<li><a href="#get-the-latest-block-number">Get the latest block number</a></li>
 							<li><a href="#create-a-new-account">Create a new account</a></li>
@@ -76,85 +75,79 @@
 							<li><a href="#send-a-payment-parcel">Send a payment parcel</a></li>
 							<li><a href="#create-an-asset-transfer-address">Create an asset transfer address</a></li>
 							<li><a href="#mint-a-new-asset">Mint a new asset</a></li>
-						</ol>
+							<li><a href="#transfer-assets">Transfer assets</a></li>
+						</ul>
 					</li>
-					<li><p><a href="#sdk-modules">SDK modules</a></p>
-					</li>
-				</ol>
+					<li><a href="#sdk-modules">SDK modules</a></li>
+				</ul>
 				<h1 id="install-package">Install package</h1>
-				<pre><code class="lang-sh"><span class="hljs-comment"># npm</span>
+				<pre><code class="language-sh"><span class="hljs-comment"># npm</span>
 npm install codechain-sdk
 <span class="hljs-comment"># yarn</span>
-yarn add codechain-sdk
-</code></pre>
+yarn add codechain-sdk</code></pre>
 				<h1 id="usage-examples">Usage examples</h1>
 				<p>Make sure that your CodeChain RPC server is listening. In the examples, we assume that it is localhost:8080</p>
 				<h2 id="setup-the-test-account">Setup the test account</h2>
-				<p>Before you begin to meet various examples, you need to setup the account. The given account below(<code>cccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9myd6c4d7</code>) holds 100000 CCC at the genesis block. It&#39;s a sufficient amount to pay for the parcel fee.</p>
-				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
+				<p>Before you begin to meet various examples, you need to setup the account. The given account below(<code>tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78</code>) holds 100000 CCC at the genesis block. It&#39;s a sufficient amount to pay for the parcel fee.</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
 <span class="hljs-keyword">var</span> sdk = <span class="hljs-keyword">new</span> SDK({ <span class="hljs-attr">server</span>: <span class="hljs-string">"http://localhost:8080"</span> });
 
 <span class="hljs-keyword">var</span> secret = <span class="hljs-string">"ede1d4ccb4ec9a8bbbae9a13db3f4a7b56ea04189be86ac3a6a439d9a0a1addd"</span>;
 <span class="hljs-keyword">var</span> passphrase = <span class="hljs-string">"satoshi"</span>;
 sdk.rpc.account.importRaw(secret, passphrase).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">account</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(account); <span class="hljs-comment">// cccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9myd6c4d7</span>
-});
-</code></pre>
+    <span class="hljs-built_in">console</span>.log(account); <span class="hljs-comment">// tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78</span>
+});</code></pre>
 				<hr>
 				<h2 id="get-the-latest-block-number">Get the latest block number</h2>
 				<p>You can retrieve the chain information using methods in <code>sdk.rpc.chain</code>.</p>
-				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
+				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
 <span class="hljs-keyword">var</span> sdk = <span class="hljs-keyword">new</span> SDK({ <span class="hljs-attr">server</span>: <span class="hljs-string">"http://localhost:8080"</span> });
 
 sdk.rpc.chain.getBestBlockNumber().then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">num</span>) </span>{
     <span class="hljs-built_in">console</span>.log(num);
-});
-</code></pre>
+});</code></pre>
 				<hr>
 				<h2 id="create-a-new-account">Create a new account</h2>
 				<p>You can manage accounts and create their signatures using methods in <code>sdk.rpc.account</code>.</p>
-				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
+				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
 <span class="hljs-keyword">var</span> sdk = <span class="hljs-keyword">new</span> SDK({ <span class="hljs-attr">server</span>: <span class="hljs-string">"http://localhost:8080"</span> });
 
 <span class="hljs-keyword">var</span> passphrase = <span class="hljs-string">"my-secret"</span>;
 sdk.rpc.account.create(passphrase).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">account</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(account); <span class="hljs-comment">// string that starts with "ccc". For example: cccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9myd6c4d7</span>
-});
-</code></pre>
+    <span class="hljs-built_in">console</span>.log(account); <span class="hljs-comment">// string that starts with "ccc". For example: tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78</span>
+});</code></pre>
 				<hr>
 				<h2 id="get-the-balance-of-an-account">Get the balance of an account</h2>
 				<p>You can get the balance of an account using <code>getBalance</code> method in <code>sdk.rpc.chain</code>. See also <code>getNonce</code>, <code>getRegularKey</code>.</p>
-				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
+				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
 <span class="hljs-keyword">var</span> sdk = <span class="hljs-keyword">new</span> SDK({ <span class="hljs-attr">server</span>: <span class="hljs-string">"http://localhost:8080"</span> });
 
-sdk.rpc.chain.getBalance(<span class="hljs-string">"cccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9myd6c4d7"</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">balance</span>) </span>{
+sdk.rpc.chain.getBalance(<span class="hljs-string">"tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78"</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">balance</span>) </span>{
     <span class="hljs-comment">// the balance is a U256 instance at this moment. Use toString() to print it out.</span>
     <span class="hljs-built_in">console</span>.log(balance.toString()); <span class="hljs-comment">// the amount of CCC that the account has.</span>
-});
-</code></pre>
+});</code></pre>
 				<hr>
 				<h2 id="send-a-payment-parcel">Send a payment parcel</h2>
-				<p>When you create an account, the CCC balance is 0. CCC is needed to pay for the parcel&#39;s fee. The fee must be at least 10 for any parcel. The example below shows the sending of 10000 CCC from the test account(<code>cccqzn..d6c4d7</code>) to the account(<code>cccqrj..0ys4jg</code>).</p>
-				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
+				<p>When you create an account, the CCC balance is 0. CCC is needed to pay for the parcel&#39;s fee. The fee must be at least 10 for any parcel. The example below shows the sending of 10000 CCC from the test account(<code>tccqzn..9a2k78</code>) to the account(<code>tccqru..7vzngg</code>).</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
 <span class="hljs-keyword">var</span> sdk = <span class="hljs-keyword">new</span> SDK({ <span class="hljs-attr">server</span>: <span class="hljs-string">"http://localhost:8080"</span> });
 
 <span class="hljs-keyword">var</span> parcel = sdk.core.createPaymentParcel({
-    <span class="hljs-attr">recipient</span>: <span class="hljs-string">"cccqrjgmsqfcj9xx2frftwq5w3esgwahtkf5q0ys4jg"</span>,
+    <span class="hljs-attr">recipient</span>: <span class="hljs-string">"tccqruq09sfgax77nj4gukjcuq69uzeyv0jcs7vzngg"</span>,
     <span class="hljs-attr">amount</span>: <span class="hljs-number">10000</span>
 });
 
 sdk.rpc.chain.sendParcel(parcel, {
-    <span class="hljs-attr">account</span>: <span class="hljs-string">"cccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9myd6c4d7"</span>,
+    <span class="hljs-attr">account</span>: <span class="hljs-string">"tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78"</span>,
     <span class="hljs-attr">passphrase</span>: <span class="hljs-string">"satoshi"</span>
 }).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">parcelHash</span>) </span>{
     <span class="hljs-keyword">return</span> sdk.rpc.chain.getParcelInvoice(parcelHash, { <span class="hljs-attr">timeout</span>: <span class="hljs-number">5</span> * <span class="hljs-number">60</span> * <span class="hljs-number">1000</span> });
 }).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">parcelInvoice</span>) </span>{
     <span class="hljs-built_in">console</span>.log(parcelInvoice) <span class="hljs-comment">// { success: true }</span>
-});
-</code></pre>
+});</code></pre>
 				<hr>
 				<h2 id="create-an-asset-transfer-address">Create an asset transfer address</h2>
-				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">".."</span>);
+				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
 <span class="hljs-keyword">var</span> sdk = <span class="hljs-keyword">new</span> SDK({ <span class="hljs-attr">server</span>: <span class="hljs-string">"http://localhost:8080"</span> });
 
 <span class="hljs-comment">// MemoryKeyStore is a key store for testing purposes. Do not use this code in</span>
@@ -165,18 +158,17 @@ sdk.rpc.chain.sendParcel(parcel, {
 
 p2pkh.createAddress().then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">address</span>) </span>{
     <span class="hljs-comment">// This type of address is used to receive assets when minting or transferring them.</span>
-    <span class="hljs-comment">// Example: ccaqqqk7n0a0w69tjfza9svdjzhvu95cpl29ssnyn99ml8nvl8q6sd2c7qgjejfc</span>
+    <span class="hljs-comment">// Example: tcaqqq9pgkq69z488qlkvhkpcxcgfd3cqlkzgxyq9cewxuda8qqz7jtlvctt5eze</span>
     <span class="hljs-built_in">console</span>.log(address.toString());
-});
-</code></pre>
+});</code></pre>
 				<hr>
 				<h2 id="mint-a-new-asset">Mint a new asset</h2>
-				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
+				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
 <span class="hljs-keyword">var</span> sdk = <span class="hljs-keyword">new</span> SDK({ <span class="hljs-attr">server</span>: <span class="hljs-string">"http://localhost:8080"</span> });
 
 <span class="hljs-comment">// If you want to know how to create an address, see the example "Create an</span>
 <span class="hljs-comment">// asset transfer address".</span>
-<span class="hljs-keyword">var</span> address = <span class="hljs-string">"ccaqqqk7n0a0w69tjfza9svdjzhvu95cpl29ssnyn99ml8nvl8q6sd2c7qgjejfc"</span>;
+<span class="hljs-keyword">var</span> address = <span class="hljs-string">"tcaqqq9pgkq69z488qlkvhkpcxcgfd3cqlkzgxyq9cewxuda8qqz7jtlvctt5eze"</span>;
 
 <span class="hljs-keyword">var</span> assetMintTransaction = sdk.core.createAssetMintTransaction({
     <span class="hljs-attr">scheme</span>: {
@@ -194,7 +186,7 @@ p2pkh.createAddress().then(<span class="hljs-function"><span class="hljs-keyword
 <span class="hljs-comment">// Send a change-shard-state parcel to process the transaction.</span>
 <span class="hljs-keyword">var</span> parcel = sdk.core.createChangeShardStateParcel({ <span class="hljs-attr">transactions</span>: [assetMintTransaction] });
 sdk.rpc.chain.sendParcel(parcel, {
-    <span class="hljs-attr">account</span>: <span class="hljs-string">"cccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9myd6c4d7"</span>,
+    <span class="hljs-attr">account</span>: <span class="hljs-string">"tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78"</span>,
     <span class="hljs-attr">passphrase</span>: <span class="hljs-string">"satoshi"</span>
 }).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">parcelHash</span>) </span>{
     <span class="hljs-comment">// Get the invoice of the parcel.</span>
@@ -207,8 +199,7 @@ sdk.rpc.chain.sendParcel(parcel, {
     <span class="hljs-comment">// type { success: boolean }. Each object represents the result of each</span>
     <span class="hljs-comment">// transaction.</span>
     <span class="hljs-built_in">console</span>.log(invoice); <span class="hljs-comment">// [{ success: true }]</span>
-});
-</code></pre>
+});</code></pre>
 				<hr>
 				<h2 id="transfer-assets">Transfer assets</h2>
 				<p>A brief version of the example will be uploaded soon. The entire example can be viewed <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/master/examples/mint-and-transfer.js">here</a>.</p>
@@ -277,9 +268,6 @@ sdk.rpc.chain.sendParcel(parcel, {
 						<a href="classes/changeshard.html" class="tsd-kind-icon">Change<wbr>Shard</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/changeshardowners.html" class="tsd-kind-icon">Change<wbr>Shard<wbr>Owners</a>
-					</li>
-					<li class=" tsd-kind-class">
 						<a href="classes/changeshardstate.html" class="tsd-kind-icon">Change<wbr>Shard<wbr>State</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -290,6 +278,9 @@ sdk.rpc.chain.sendParcel(parcel, {
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/createworldtransaction.html" class="tsd-kind-icon">Create<wbr>World<wbr>Transaction</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/externalkeystore.html" class="tsd-kind-icon">External<wbr>Key<wbr>Store</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/h160.html" class="tsd-kind-icon">H160</a>
@@ -319,6 +310,9 @@ sdk.rpc.chain.sendParcel(parcel, {
 						<a href="classes/p2pkh.html" class="tsd-kind-icon">P2PKH</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/p2pkhburn.html" class="tsd-kind-icon">P2PKHBurn</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/parcel.html" class="tsd-kind-icon">Parcel</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -340,7 +334,16 @@ sdk.rpc.chain.sendParcel(parcel, {
 						<a href="classes/setregularkey.html" class="tsd-kind-icon">Set<wbr>Regular<wbr>Key</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/setshardowners.html" class="tsd-kind-icon">Set<wbr>Shard<wbr>Owners</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/setshardusers.html" class="tsd-kind-icon">Set<wbr>Shard<wbr>Users</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/setworldownerstransaction.html" class="tsd-kind-icon">Set<wbr>World<wbr>Owners<wbr>Transaction</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/setworlduserstransaction.html" class="tsd-kind-icon">Set<wbr>World<wbr>Users<wbr>Transaction</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/signedparcel.html" class="tsd-kind-icon">Signed<wbr>Parcel</a>
@@ -349,7 +352,16 @@ sdk.rpc.chain.sendParcel(parcel, {
 						<a href="classes/u256.html" class="tsd-kind-icon">U256</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/transactionsigner.html" class="tsd-kind-icon">Transaction<wbr>Signer</a>
+						<a href="interfaces/keystore.html" class="tsd-kind-icon">Key<wbr>Store</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/rlpdecodable.html" class="tsd-kind-icon">Rlp<wbr>Decodable</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/transactionburnsigner.html" class="tsd-kind-icon">Transaction<wbr>Burn<wbr>Signer</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/transactioninputsigner.html" class="tsd-kind-icon">Transaction<wbr>Input<wbr>Signer</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#action" class="tsd-kind-icon">Action</a>
@@ -378,14 +390,14 @@ sdk.rpc.chain.sendParcel(parcel, {
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#blockdata" class="tsd-kind-icon">Block<wbr>Data</a>
 					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter tsd-is-not-exported">
+						<a href="globals.html#constructor" class="tsd-kind-icon">Constructor</a>
+					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#createworlddata" class="tsd-kind-icon">Create<wbr>World<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#ecdsasignature" class="tsd-kind-icon">Ecdsa<wbr>Signature</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-is-not-exported">
-						<a href="globals.html#keystore" class="tsd-kind-icon">Key<wbr>Store</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-is-not-exported">
 						<a href="globals.html#networkid" class="tsd-kind-icon">Network<wbr>Id</a>
@@ -394,10 +406,16 @@ sdk.rpc.chain.sendParcel(parcel, {
 						<a href="globals.html#setworldownersdata" class="tsd-kind-icon">Set<wbr>World<wbr>Owners<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#setworldusersdata" class="tsd-kind-icon">Set<wbr>World<wbr>Users<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#transaction" class="tsd-kind-icon">Transaction</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#rlp" class="tsd-kind-icon">RLP</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#rlpencodable" class="tsd-kind-icon">Rlp<wbr>Encodable</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#blake256" class="tsd-kind-icon">blake256</a>

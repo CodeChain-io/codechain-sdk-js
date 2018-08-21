@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>TransactionSigner | CodeChain JavaScript SDK</title>
+	<title>RlpDecodable | CodeChain JavaScript SDK</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,28 +56,30 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="transactionsigner.html">TransactionSigner</a>
+					<a href="rlpdecodable.html">RlpDecodable</a>
 				</li>
 			</ul>
-			<h1>Interface TransactionSigner</h1>
+			<h1>Interface RlpDecodable&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>T</h4>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">TransactionSigner</span>
+						<span class="target">RlpDecodable</span>
 					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implemented by</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="../classes/p2pkh.html" class="tsd-signature-type">P2PKH</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -85,84 +87,38 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="transactionsigner.html#sign" class="tsd-kind-icon">sign</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="transactionsigner.html#signburn" class="tsd-kind-icon">sign<wbr>Burn</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="rlpdecodable.html#frombytes" class="tsd-kind-icon">from<wbr>Bytes</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="sign" class="tsd-anchor"></a>
-					<h3>sign</h3>
-					<div class="tsd-signature tsd-kind-icon">sign<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L18">core/transaction/AssetTransferTransaction.ts:18</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-siganture">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>transaction<span class="tsd-signature-symbol">: </span><a href="../classes/assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="frombytes" class="tsd-anchor"></a>
+					<h3>from<wbr>Bytes</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Bytes<span class="tsd-signature-symbol">(</span>bytes<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in core/RlpDecodable.ts:2</li>
 								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>transaction: <a href="../classes/assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a></h5>
-											</li>
-											<li>
-												<h5>index: <span class="tsd-signature-type">number</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="signburn" class="tsd-anchor"></a>
-					<h3>sign<wbr>Burn</h3>
-					<div class="tsd-signature tsd-kind-icon">sign<wbr>Burn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/a868f7c/src/core/transaction/AssetTransferTransaction.ts#L14">core/transaction/AssetTransferTransaction.ts:14</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-siganture">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>transaction<span class="tsd-signature-symbol">: </span><a href="../classes/assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>transaction: <a href="../classes/assettransfertransaction.html" class="tsd-signature-type">AssetTransferTransaction</a></h5>
-											</li>
-											<li>
-												<h5>index: <span class="tsd-signature-type">number</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>bytes: <span class="tsd-signature-type">Buffer</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -178,14 +134,11 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="transactionsigner.html" class="tsd-kind-icon">Transaction<wbr>Signer</a>
+					<li class="current tsd-kind-interface tsd-has-type-parameter">
+						<a href="rlpdecodable.html" class="tsd-kind-icon">Rlp<wbr>Decodable</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="transactionsigner.html#sign" class="tsd-kind-icon">sign</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="transactionsigner.html#signburn" class="tsd-kind-icon">sign<wbr>Burn</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="rlpdecodable.html#frombytes" class="tsd-kind-icon">from<wbr>Bytes</a>
 							</li>
 						</ul>
 					</li>

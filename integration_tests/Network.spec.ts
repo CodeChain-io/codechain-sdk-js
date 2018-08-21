@@ -4,7 +4,8 @@ describe("network", () => {
     let sdk: SDK;
 
     beforeAll(async () => {
-        sdk = new SDK({ server: "http://localhost:8080" });
+        const SERVER_URL = process.env.CODECHAIN_RPC_HTTP || "http://localhost:8080";
+        sdk = new SDK({ server: SERVER_URL });
     });
 
     test("whitelist enabled", async () => {

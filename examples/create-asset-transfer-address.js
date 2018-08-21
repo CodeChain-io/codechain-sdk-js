@@ -1,6 +1,7 @@
 var SDK = require("..");
 
-var sdk = new SDK({ server: "http://localhost:8080" });
+const SERVER_URL = process.env.CODECHAIN_RPC_HTTP || "http://localhost:8080";
+const sdk = new SDK({ server: SERVER_URL });
 
 // MemoryKeyStore is a key store for testing purposes. Do not use this code in
 // production.

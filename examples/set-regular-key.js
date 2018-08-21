@@ -1,6 +1,7 @@
 const SDK = require("codechain-sdk");
 
-const sdk = new SDK({ server: "http://localhost:8080" });
+const SERVER_URL = process.env.CODECHAIN_RPC_HTTP || "http://localhost:8080";
+const sdk = new SDK({ server: SERVER_URL });
 const masterSecret = "ede1d4ccb4ec9a8bbbae9a13db3f4a7b56ea04189be86ac3a6a439d9a0a1addd";
 const masterAccountId = SDK.util.getAccountIdFromPrivate(masterSecret);
 const masterAddress = sdk.key.classes.PlatformAddress.fromAccountId(masterAccountId);

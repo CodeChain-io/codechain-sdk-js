@@ -1,14 +1,15 @@
 import { SDK } from "../";
 
+const SERVER_URL = process.env.CODECHAIN_RPC_HTTP || "http://localhost:8080";
 test("import", () => {
     expect(() => {
-        new SDK({ server: "http://localhost:8080" });
+        new SDK({ server: SERVER_URL });
     }).not.toThrow();
 });
 
 test("require", () => {
     const CodeChainSdk = require("../");
     expect(() => {
-        const sdk = new CodeChainSdk({ server: "http://localhost:8080" });
+        const sdk = new CodeChainSdk({ server: SERVER_URL });
     }).not.toThrow();
 });

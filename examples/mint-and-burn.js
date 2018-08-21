@@ -1,6 +1,10 @@
 const SDK = require("..");
 
-const sdk = new SDK({ server: "http://localhost:8080" });
+const SERVER_URL = process.env.CODECHAIN_RPC_HTTP || "http://localhost:8080";
+const sdk = new SDK({ server: SERVER_URL });
+
+const ACCOUNT_ADDRESS = process.env.ACCOUNT || "tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78";
+const ACCOUNT_PASSPHRASE = process.env.PASSPHRASE || "satoshi";
 
 (async () => {
     const keyStore = await sdk.key.createMemoryKeyStore();
@@ -36,8 +40,8 @@ const sdk = new SDK({ server: "http://localhost:8080" });
         transactions: [mintTx, transferTx]
     });
     await sdk.rpc.chain.sendParcel(parcel, {
-        account: "tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78",
-        passphrase: "satoshi",
+        account: ACCOUNT_ADDRESS,
+        passphrase: ACCOUNT_PASSPHRASE,
     });
 
     const mintTxInvoice = await sdk.rpc.chain.getTransactionInvoice(mintTx.hash(), {

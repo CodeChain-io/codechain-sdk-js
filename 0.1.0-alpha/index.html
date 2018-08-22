@@ -70,9 +70,11 @@
 					<li><a href="#usage-examples">Usage examples</a><ul>
 							<li><a href="#setup-the-test-account">Setup the test account</a></li>
 							<li><a href="#get-the-latest-block-number">Get the latest block number</a></li>
-							<li><a href="#create-a-new-account">Create a new account</a></li>
+							<li><a href="#create-a-new-account-with-a-private-key">Create a new account with a private key</a></li>
+							<li><a href="#create-a-new-account-with-rpc">Create a new account with RPC</a></li>
 							<li><a href="#get-the-balance-of-an-account">Get the balance of an account</a></li>
-							<li><a href="#send-a-payment-parcel">Send a payment parcel</a></li>
+							<li><a href="#send-a-payment-parcel-via-sendparcel">Send a payment parcel via sendParcel</a></li>
+							<li><a href="#send-a-payment-parcel-via-sendsignedparcel">Send a payment parcel via sendSignedParcel</a></li>
 							<li><a href="#create-an-asset-transfer-address">Create an asset transfer address</a></li>
 							<li><a href="#mint-a-new-asset">Mint a new asset</a></li>
 							<li><a href="#transfer-assets">Transfer assets</a></li>
@@ -107,7 +109,17 @@ sdk.rpc.chain.getBestBlockNumber().then(<span class="hljs-function"><span class=
     <span class="hljs-built_in">console</span>.log(num);
 });</code></pre>
 				<hr>
-				<h2 id="create-a-new-account">Create a new account</h2>
+				<h2 id="create-a-new-account-with-a-private-key">Create a new account with a private key</h2>
+				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
+
+<span class="hljs-keyword">var</span> secret = SDK.util.generatePrivateKey();
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your secret:"</span>, secret);
+
+<span class="hljs-keyword">var</span> account = SDK.util.getAccountIdFromPrivate(secret);
+<span class="hljs-keyword">var</span> address = SDK.Key.classes.PlatformAddress.fromAccountId(account);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your CodeChain address:"</span>, address.toString());</code></pre>
+				<hr>
+				<h2 id="create-a-new-account-with-rpc">Create a new account with RPC</h2>
 				<p>You can manage accounts and create their signatures using methods in <code>sdk.rpc.account</code>.</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
 <span class="hljs-keyword">var</span> sdk = <span class="hljs-keyword">new</span> SDK({ <span class="hljs-attr">server</span>: <span class="hljs-string">"http://localhost:8080"</span> });
@@ -127,7 +139,7 @@ sdk.rpc.chain.getBalance(<span class="hljs-string">"tccqzn9jjm3j6qg69smd7cn0eup4
     <span class="hljs-built_in">console</span>.log(balance.toString()); <span class="hljs-comment">// the amount of CCC that the account has.</span>
 });</code></pre>
 				<hr>
-				<h2 id="send-a-payment-parcel">Send a payment parcel</h2>
+				<h2 id="send-a-payment-parcel-via-sendparcel">Send a payment parcel via sendParcel</h2>
 				<p>When you create an account, the CCC balance is 0. CCC is needed to pay for the parcel&#39;s fee. The fee must be at least 10 for any parcel. The example below shows the sending of 10000 CCC from the test account(<code>tccqzn..9a2k78</code>) to the account(<code>tccqru..7vzngg</code>).</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
 <span class="hljs-keyword">var</span> sdk = <span class="hljs-keyword">new</span> SDK({ <span class="hljs-attr">server</span>: <span class="hljs-string">"http://localhost:8080"</span> });
@@ -141,7 +153,32 @@ sdk.rpc.chain.sendParcel(parcel, {
     <span class="hljs-attr">account</span>: <span class="hljs-string">"tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78"</span>,
     <span class="hljs-attr">passphrase</span>: <span class="hljs-string">"satoshi"</span>
 }).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">parcelHash</span>) </span>{
-    <span class="hljs-keyword">return</span> sdk.rpc.chain.getParcelInvoice(parcelHash, { <span class="hljs-attr">timeout</span>: <span class="hljs-number">5</span> * <span class="hljs-number">60</span> * <span class="hljs-number">1000</span> });
+    <span class="hljs-keyword">return</span> sdk.rpc.chain.getParcelInvoice(parcelHash, { <span class="hljs-attr">timeout</span>: <span class="hljs-number">300</span> * <span class="hljs-number">1000</span> });
+}).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">parcelInvoice</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(parcelInvoice) <span class="hljs-comment">// { success: true }</span>
+});</code></pre>
+				<hr>
+				<h2 id="send-a-payment-parcel-via-sendsignedparcel">Send a payment parcel via sendSignedParcel</h2>
+				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
+
+<span class="hljs-keyword">var</span> sdk = <span class="hljs-keyword">new</span> SDK({ <span class="hljs-attr">server</span>: <span class="hljs-string">"http://localhost:8080"</span> });
+
+<span class="hljs-keyword">var</span> parcel = sdk.core.createPaymentParcel({
+    <span class="hljs-attr">recipient</span>: <span class="hljs-string">"tccqruq09sfgax77nj4gukjcuq69uzeyv0jcs7vzngg"</span>,
+    <span class="hljs-attr">amount</span>: <span class="hljs-number">10000</span>,
+});
+
+<span class="hljs-keyword">var</span> account = <span class="hljs-string">"tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78"</span>;
+<span class="hljs-keyword">var</span> accountSecret = <span class="hljs-string">"ede1d4ccb4ec9a8bbbae9a13db3f4a7b56ea04189be86ac3a6a439d9a0a1addd"</span>;
+
+sdk.rpc.chain.getNonce(account).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">nonce</span>) </span>{
+    <span class="hljs-keyword">return</span> sdk.rpc.chain.sendSignedParcel(parcel.sign({
+        <span class="hljs-attr">secret</span>: accountSecret,
+        <span class="hljs-attr">fee</span>: <span class="hljs-number">10</span>,
+        <span class="hljs-attr">nonce</span>: nonce,
+    }));
+}).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">parcelHash</span>) </span>{
+    <span class="hljs-keyword">return</span> sdk.rpc.chain.getParcelInvoice(parcelHash, { <span class="hljs-attr">timeout</span>: <span class="hljs-number">300</span> * <span class="hljs-number">1000</span> });
 }).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">parcelInvoice</span>) </span>{
     <span class="hljs-built_in">console</span>.log(parcelInvoice) <span class="hljs-comment">// { success: true }</span>
 });</code></pre>

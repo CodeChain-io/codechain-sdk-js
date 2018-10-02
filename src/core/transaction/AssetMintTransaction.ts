@@ -1,5 +1,9 @@
 import { Buffer } from "buffer";
-import { AssetTransferAddress, PlatformAddress } from "codechain-primitives";
+import {
+    AssetTransferAddress,
+    H160,
+    PlatformAddress
+} from "codechain-primitives";
 
 import { P2PKH } from "../../key/P2PKH";
 import { P2PKHBurn } from "../../key/P2PKHBurn";
@@ -93,7 +97,7 @@ export class AssetMintTransaction {
     public readonly worldId: number;
     public readonly metadata: string;
     public readonly output: {
-        lockScriptHash: H256;
+        lockScriptHash: H160;
         parameters: Buffer[];
         amount: number | null;
     };

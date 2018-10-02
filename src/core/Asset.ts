@@ -1,5 +1,5 @@
 import { Buffer } from "buffer";
-import { AssetTransferAddress } from "codechain-primitives";
+import { AssetTransferAddress, H160 } from "codechain-primitives";
 
 import { H256 } from "./H256";
 import { AssetOutPoint } from "./transaction/AssetOutPoint";
@@ -10,7 +10,7 @@ import { NetworkId } from "./types";
 
 export interface AssetData {
     assetType: H256;
-    lockScriptHash: H256;
+    lockScriptHash: H160;
     parameters: Buffer[];
     amount: number;
     transactionHash: H256;
@@ -42,7 +42,7 @@ export class Asset {
         });
     }
     public assetType: H256;
-    public lockScriptHash: H256;
+    public lockScriptHash: H160;
     public parameters: Buffer[];
     public amount: number;
     public outPoint: AssetOutPoint;

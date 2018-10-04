@@ -3,6 +3,7 @@ import { NetworkId } from "./core/types";
 import { Key, KeyStoreType } from "./key";
 import { Rpc } from "./rpc";
 import {
+    blake160,
     blake256,
     blake256WithKey,
     generatePrivateKey,
@@ -19,6 +20,7 @@ class SDK {
     public static Core = Core;
     public static Key = Key;
     public static util = {
+        blake160,
         blake256,
         blake256WithKey,
         ripemd160,

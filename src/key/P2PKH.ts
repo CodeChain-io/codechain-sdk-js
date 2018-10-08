@@ -106,7 +106,7 @@ export class P2PKH implements TransactionInputSigner {
         const { PUSHB } = Script.Opcode;
         return Buffer.from([
             PUSHB,
-            65,
+            64,
             ...Buffer.from(signature, "hex"),
             PUSHB,
             encodedTag.byteLength,

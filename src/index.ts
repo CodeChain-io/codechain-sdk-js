@@ -12,10 +12,10 @@ import {
     generatePrivateKey,
     getAccountIdFromPrivate,
     getPublicFromPrivate,
-    recoverEcdsa,
+    recoverSchnorr,
     ripemd160,
-    signEcdsa,
-    verifyEcdsa
+    signSchnorr,
+    verifySchnorr
 } from "./utils";
 
 class SDK {
@@ -30,9 +30,9 @@ class SDK {
         blake256,
         blake256WithKey,
         ripemd160,
-        signEcdsa,
-        verifyEcdsa,
-        recoverEcdsa,
+        signSchnorr,
+        verifySchnorr,
+        recoverSchnorr,
         generatePrivateKey,
         getAccountIdFromPrivate,
         getPublicFromPrivate

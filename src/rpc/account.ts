@@ -158,13 +158,13 @@ export class AccountRpc {
                 .then(result => {
                     if (
                         typeof result === "string" &&
-                        result.match(/0x[0-9a-f]{130}/)
+                        result.match(/0x[0-9a-f]{128}/)
                     ) {
                         return resolve(result);
                     }
                     reject(
                         Error(
-                            `Expected account_sign to return a 65 byte hexstring but it returned ${result}`
+                            `Expected account_sign to return a 64 byte hexstring but it returned ${result}`
                         )
                     );
                 })

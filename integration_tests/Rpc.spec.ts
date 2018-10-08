@@ -13,7 +13,7 @@ import {
 import {
     generatePrivateKey,
     getAccountIdFromPrivate,
-    signEcdsa
+    signSchnorr
 } from "../lib/utils";
 
 import {
@@ -632,7 +632,7 @@ describe("rpc", () => {
             });
 
             test("Ok", async () => {
-                const { r, s, v } = signEcdsa(message, secret);
+                const { r, s } = signSchnorr(message, secret);
                 const signature = await sdk.rpc.account.sign(
                     message,
                     address,
@@ -640,7 +640,6 @@ describe("rpc", () => {
                 );
                 expect(signature).toContain(r);
                 expect(signature).toContain(s);
-                expect(signature).toContain(v);
             });
 
             test("WrongPassword", async done => {

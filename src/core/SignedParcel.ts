@@ -1,7 +1,7 @@
 import { PlatformAddress } from "codechain-primitives";
 import * as _ from "lodash";
 
-import { blake160, blake256, recoverEcdsa } from "../utils";
+import { blake160, blake256, recoverSchnorr } from "../utils";
 
 import { H160 } from "./H160";
 import { H256 } from "./H256";
@@ -51,38 +51,27 @@ export class SignedParcel {
     }
 
     /**
-     * Convert r, s, v values of an ECDSA signature to a string.
-     * @param params.r The r value of an ECDSA signature, which is up to 32 bytes of hexadecimal string.
-     * @param params.s The s value of an ECDSA signature, which is up to 32 bytes of hexadecimal string.
-     * @param params.v The recovery parameter of an ECDSA signature.
-     * @returns A 65 byte hexadecimal string.
+     * Convert r, s values of an Schnorr signature to a string.
+     * @param params.r The r value of an Schnorr signature, which is up to 32 bytes of hexadecimal string.
+     * @param params.s The s value of an Schnorr signature, which is up to 32 bytes of hexadecimal string.
+     * @returns A 64 byte hexadecimal string.
      */
-    public static convertRsvToSignatureString(params: {
-        r: string;
-        s: string;
-        v: number;
-    }) {
-        const { r, s, v } = params;
-        return `0x${_.padStart(r, 64, "0")}${_.padStart(
-            s,
-            64,
-            "0"
-        )}${_.padStart(v.toString(16), 2, "0")}`;
+    public static convertRsToSignatureString(params: { r: string; s: string }) {
+        const { r, s } = params;
+        return `0x${_.padStart(r, 64, "0")}${_.padStart(s, 64, "0")}`;
     }
 
-    private static convertSignatureStringToRsv(
+    private static convertSignatureStringToRs(
         signature: string
-    ): { r: string; s: string; v: number } {
+    ): { r: string; s: string } {
         if (signature.startsWith("0x")) {
             signature = signature.substr(2);
         }
         const r = `0x${signature.substr(0, 64)}`;
         const s = `0x${signature.substr(64, 64)}`;
-        const v = Number.parseInt(signature.substr(128, 2), 16);
-        return { r, s, v };
+        return { r, s };
     }
     public unsigned: Parcel;
-    public v: number;
     public r: U256;
     public s: U256;
     public blockNumber: number | null;
@@ -91,7 +80,7 @@ export class SignedParcel {
 
     /**
      * @param unsigned A Parcel.
-     * @param sig An ECDSA signature which is a 65 byte hexadecimal string.
+     * @param sig An Schnorr signature which is a 64 byte hexadecimal string.
      * @param blockNumber The block number of the block that contains the parcel.
      * @param blockHash The hash of the block that contains the parcel.
      * @param parcelIndex The index(location) of the parcel within the block.
@@ -104,8 +93,7 @@ export class SignedParcel {
         parcelIndex?: number
     ) {
         this.unsigned = unsigned;
-        const { r, s, v } = SignedParcel.convertSignatureStringToRsv(sig);
-        this.v = v;
+        const { r, s } = SignedParcel.convertSignatureStringToRs(sig);
         this.r = new U256(r);
         this.s = new U256(s);
         this.blockNumber = blockNumber === undefined ? null : blockNumber;
@@ -117,8 +105,8 @@ export class SignedParcel {
      * Get the signature of a parcel.
      */
     public signature() {
-        const { v, r, s } = this;
-        return { v, r, s };
+        const { r, s } = this;
+        return { r, s };
     }
 
     /**
@@ -127,7 +115,6 @@ export class SignedParcel {
     public toEncodeObject(): any[] {
         const {
             unsigned: { nonce, fee, action, networkId },
-            v,
             r,
             s
         } = this;
@@ -135,7 +122,7 @@ export class SignedParcel {
             s.value.toString(16),
             64,
             "0"
-        )}${_.padStart(v.toString(16), 2, "0")}`;
+        )}`;
         if (!nonce || !fee) {
             throw Error("Nonce and fee in the parcel must be present");
         }
@@ -169,11 +156,10 @@ export class SignedParcel {
      * @deprecated
      */
     public getSignerAccountId(): H160 {
-        const { r, s, v, unsigned } = this;
-        const publicKey = recoverEcdsa(unsigned.hash().value, {
+        const { r, s, unsigned } = this;
+        const publicKey = recoverSchnorr(unsigned.hash().value, {
             r: r.value.toString(16),
-            s: s.value.toString(16),
-            v
+            s: s.value.toString(16)
         });
         return new H160(blake160(publicKey));
     }
@@ -192,12 +178,11 @@ export class SignedParcel {
      * @returns A public key.
      */
     public getSignerPublic(): H512 {
-        const { r, s, v, unsigned } = this;
+        const { r, s, unsigned } = this;
         return new H512(
-            recoverEcdsa(unsigned.hash().value, {
+            recoverSchnorr(unsigned.hash().value, {
                 r: r.value.toString(16),
-                s: s.value.toString(16),
-                v
+                s: s.value.toString(16)
             })
         );
     }
@@ -212,14 +197,12 @@ export class SignedParcel {
             blockHash,
             parcelIndex,
             unsigned: { nonce, fee, networkId, action },
-            v,
             r,
             s
         } = this;
-        const sig = SignedParcel.convertRsvToSignatureString({
+        const sig = SignedParcel.convertRsToSignatureString({
             r: r.value.toString(16),
-            s: s.value.toString(16),
-            v
+            s: s.value.toString(16)
         });
         if (!nonce || !fee) {
             throw Error("Nonce and fee in the parcel must be present");

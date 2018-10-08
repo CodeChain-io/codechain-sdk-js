@@ -116,16 +116,15 @@ test("sign", () => {
         nonce: 0,
         fee: 0
     });
-    const { v, r, s } = signed.signature();
-    expect(v).toBe(1);
+    const { r, s } = signed.signature();
     expect(r.toEncodeObject()).toEqual(
         new U256(
-            "0x8e1718666082bad693c4a899da5aa09e074f9af76f6ebfe56603c4162cb54cda"
+            "0x7226b649aa46be60221c08f7a742ecc37e5ebfb58a289f0b279b47aaee543689"
         ).toEncodeObject()
     );
     expect(s.toEncodeObject()).toEqual(
         new U256(
-            "0x5ff543d92956ee5a45b9bbb28a22fd291792258691290be26c4d08ece010c6e6"
+            "0x3a6d14104d20321b0b1b9979e92f83a3d533d5d4c025905fdabf25f018643f04"
         ).toEncodeObject()
     );
 });
@@ -140,7 +139,7 @@ test("signed hash", () => {
     });
     expect(signed.hash()).toEqual(
         new H256(
-            "fb9410043ceefdef45f346e035fbd037b919c46dc678511b997011176e4accbb"
+            "a224d92cdaf1be61917317866876c35544ff565d4d1d8946f2be4c1ef5968f81"
         )
     );
 });

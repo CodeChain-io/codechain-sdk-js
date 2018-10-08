@@ -1,6 +1,6 @@
 import { PlatformAddress } from "codechain-primitives";
 
-import { blake256, signEcdsa } from "../utils";
+import { blake256, signSchnorr } from "../utils";
 import { Action, getActionFromJSON } from "./action/Action";
 import { AssetTransactionGroup } from "./action/AssetTransactionGroup";
 import { CreateShard } from "./action/CreateShard";
@@ -126,11 +126,11 @@ export class Parcel {
             throw Error("The parcel fee is already set");
         }
         this.fee = U256.ensure(fee);
-        const { r, s, v } = signEcdsa(
+        const { r, s } = signSchnorr(
             this.hash().value,
             H256.ensure(secret).value
         );
-        const sig = SignedParcel.convertRsvToSignatureString({ r, s, v });
+        const sig = SignedParcel.convertRsToSignatureString({ r, s });
         return new SignedParcel(this, sig);
     }
 

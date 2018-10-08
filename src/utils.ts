@@ -9,11 +9,11 @@ import {
     getAccountIdFromPrivate as _getAccountIdFromPrivate,
     getAccountIdFromPublic as _getAccountIdFromPublic,
     getPublicFromPrivate as _getPublicFromPrivate,
-    recoverEcdsa as _recoverEcdsa,
+    recoverSchnorr as _recoverSchnorr,
     ripemd160 as _ripemd160,
-    signEcdsa as _signEcdsa,
+    signSchnorr as _signSchnorr,
     toHex as _toHex,
-    verifyEcdsa as _verifyEcdsa
+    verifySchnorr as _verifySchnorr
 } from "codechain-primitives";
 
 /**
@@ -164,44 +164,43 @@ const encodeSignatureTagOutput = (output: number[]) => {
     return bytes.reverse();
 };
 
-export interface EcdsaSignature {
+export interface SchnorrSignature {
     r: string;
     s: string;
-    v: number;
 }
 
 /**
  * Gets signature for message from private key.
  * @param message arbitrary length string
  * @param priv 32 byte hexadecimal string of private key
- * @returns r, s, v of ECDSA signature
+ * @returns r, s of Schnorr signature
  */
-export const signEcdsa = (message: string, priv: string): EcdsaSignature =>
-    _signEcdsa(message, priv);
+export const signSchnorr = (message: string, priv: string): SchnorrSignature =>
+    _signSchnorr(message, priv);
 
 /**
- * Checks if the signature from signEcdsa is correct.
+ * Checks if the signature from signSchnorr is correct.
  * @param message arbitrary length string
- * @param signature r, s, v of ECDSA signature
+ * @param signature r, s of Schnorr signature
  * @param pub 64 byte hexadecimal string of public key
  * @returns if signature is valid, true. Else false.
  */
-export const verifyEcdsa = (
+export const verifySchnorr = (
     message: string,
-    signature: EcdsaSignature,
+    signature: SchnorrSignature,
     pub: string
-): boolean => _verifyEcdsa(message, signature, pub);
+): boolean => _verifySchnorr(message, signature, pub);
 
 /**
  * Gets public key from the message and signature.
  * @param message arbitrary length string
- * @param signature r, s, v of ECDSA signature
+ * @param signature r, s, v of Schnorr signature
  * @returns 64 byte hexadecimal string public key
  */
-export const recoverEcdsa = (
+export const recoverSchnorr = (
     message: string,
-    signature: EcdsaSignature
-): string => _recoverEcdsa(message, signature);
+    signature: SchnorrSignature
+): string => _recoverSchnorr(message, signature);
 
 /**
  * Generates a private key.

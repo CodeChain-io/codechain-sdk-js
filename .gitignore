@@ -3,7 +3,6 @@ yarn-error.log
 node_modules
 gh-pages
 
-/lib/
 /docs/
 
 /examples/package.json

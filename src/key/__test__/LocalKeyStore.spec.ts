@@ -43,7 +43,7 @@ test("exportRawKey", async () => {
     expect(accountId).toBe(key);
 });
 
-test.skip("sign", async () => {
+test("sign", async () => {
     const store = await LocalKeyStore.createForTest();
     const key = await store.asset.createKey();
     const publicKey = await store.asset.getPublicKey({ key });

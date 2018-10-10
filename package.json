@@ -33,7 +33,7 @@
   ],
   "dependencies": {
     "buffer": "5.1.0",
-    "codechain-keystore": "^0.4.0",
+    "codechain-keystore": "CodeChain-io/codechain-keystore-js#schnorr",
     "codechain-primitives": "^0.3.4",
     "jayson": "^2.0.6",
     "lodash": "^4.17.10",

@@ -18,6 +18,7 @@ import { AssetTransferOutput } from "./transaction/AssetTransferOutput";
 import { ChangeAssetScheme } from "./transaction/ChangeAssetScheme";
 import { ComposeAsset } from "./transaction/ComposeAsset";
 import { CreateShard } from "./transaction/CreateShard";
+import { Custom } from "./transaction/Custom";
 import { DecomposeAsset } from "./transaction/DecomposeAsset";
 import { fromJSONToAssetTransaction } from "./transaction/json";
 import { MintAsset } from "./transaction/MintAsset";
@@ -60,6 +61,7 @@ export class Core {
         WrapCCC,
         Store,
         Remove,
+        Custom,
         AssetTransferInput,
         AssetTransferOutput,
         AssetOutPoint,
@@ -290,6 +292,26 @@ export class Core {
             };
         }
         return new Remove(removeParam, this.networkId);
+    }
+
+    /**
+     * Creates Custom action that will be handled by a specified action handler
+     * @param params.handlerId An Id of an action handler which will handle a custom parcel
+     * @param params.bytes A custom parcel body
+     * @throws Given number for handlerId is invalid for converting it to U64
+     */
+    public createCustomParcel(params: {
+        handlerId: number;
+        bytes: Buffer;
+    }): Custom {
+        const { handlerId, bytes } = params;
+        checkHandlerId(handlerId);
+        checkBytes(bytes);
+        const customParam = {
+            handlerId: U64.ensure(handlerId),
+            bytes
+        };
+        return new Custom(customParam, this.networkId);
     }
 
     /**
@@ -1198,6 +1220,26 @@ function checkSignature(signature: string) {
     ) {
         throw Error(
             `Expected signature param to be a 65 byte hexstring but found ${signature}`
+        );
+    }
+}
+
+function checkHandlerId(handlerId: number) {
+    if (
+        typeof handlerId !== "number" ||
+        !Number.isInteger(handlerId) ||
+        handlerId < 0
+    ) {
+        throw Error(
+            `Expected handlerId param to be a non-negative number value but found ${handlerId}`
+        );
+    }
+}
+
+function checkBytes(bytes: Buffer) {
+    if (!(bytes instanceof Buffer)) {
+        throw Error(
+            `Expected bytes param to be an instance of Buffer but found ${bytes}`
         );
     }
 }

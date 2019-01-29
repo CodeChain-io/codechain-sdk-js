@@ -23,11 +23,13 @@ export abstract class Transaction {
     private _seq: number | null;
     private _fee: U64 | null;
     private readonly _networkId: NetworkId;
+    private _expiration: number | null;
 
     protected constructor(networkId: NetworkId) {
         this._seq = null;
         this._fee = null;
         this._networkId = networkId;
+        this._expiration = null;
     }
 
     public seq(): number | null {
@@ -38,6 +40,10 @@ export abstract class Transaction {
         return this._fee;
     }
 
+    public expiration(): number | null {
+        return this._expiration;
+    }
+
     public setSeq(seq: number) {
         this._seq = seq;
     }
@@ -46,19 +52,34 @@ export abstract class Transaction {
         this._fee = U64.ensure(fee);
     }
 
+    public setExpiration(expiration: number) {
+        this._expiration = expiration;
+    }
+
     public networkId(): NetworkId {
         return this._networkId;
     }
 
     public toEncodeObject(): any[] {
-        const [seq, fee, networkId] = [this._seq, this._fee, this._networkId];
+        const [seq, fee, networkId] = [
+            this._seq,
+            this._fee,
+            this._networkId,
+            this._expiration
+        ];
         if (seq == null || !fee) {
             throw Error("Seq and fee in the tx must be present");
+        }
+
+        let expiration: number[] = [];
+        if (this._expiration != null) {
+            expiration = [this._expiration];
         }
         return [
             seq,
             fee.toEncodeObject(),
             networkId,
+            expiration,
             this.actionToEncodeObject()
         ];
     }
@@ -97,6 +118,7 @@ export abstract class Transaction {
         const seq = this._seq;
         const fee = this._fee;
         const networkId = this._networkId;
+        const expiration = this._expiration;
         if (!fee) {
             throw Error("Transaction must have the fee");
         }
@@ -105,7 +127,8 @@ export abstract class Transaction {
         const result: any = {
             fee: fee.toJSON(),
             networkId,
-            action
+            action,
+            expiration
         };
         if (seq != null) {
             result.seq = seq;

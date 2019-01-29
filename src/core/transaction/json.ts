@@ -28,7 +28,7 @@ import { UnwrapCCC } from "./UnwrapCCC";
 import { WrapCCC } from "./WrapCCC";
 
 export function fromJSONToTransaction(result: any): Transaction {
-    const { seq, fee, networkId, action } = result;
+    const { seq, fee, networkId, expiration, action } = result;
     let tx;
     switch (action.type) {
         case "mintAsset": {
@@ -250,6 +250,7 @@ export function fromJSONToTransaction(result: any): Transaction {
     }
     tx.setSeq(seq);
     tx.setFee(fee);
+    tx.setExpiration(expiration);
     return tx;
 }
 

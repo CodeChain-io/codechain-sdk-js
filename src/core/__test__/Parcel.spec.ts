@@ -17,14 +17,17 @@ test("rlp", () => {
     );
     t.setFee(0);
     t.setSeq(0);
+    t.setExpiration(0);
     expect(t.rlpBytes()).toEqual(
         Buffer.from([
-            221,
+            223,
             128,
             128,
             130,
             116,
             99,
+            193,
+            128,
             215,
             2,
             148,
@@ -66,7 +69,7 @@ test("hash", () => {
     t.setSeq(0);
     expect(t.hash()).toEqual(
         new H256(
-            "3b578bebb32cae770ab1094d572a4721b624fc101bb88fbc580eeb2931f65665"
+            "c136ff50721fad93a5e625a9d42f0cd5929b05152e1390192ebe6ea2298f1289"
         )
     );
 });
@@ -90,12 +93,12 @@ test("sign", () => {
     expect(v).toBe(1);
     expect(r.toEncodeObject()).toEqual(
         new U256(
-            "0x3f9bcff484bd5f1d5549f912f9eeaf8c2fe349b257bde2b61fb1036013d4e44c"
+            "0xd4edd82b359aa257f771b3251ff91ba83f7e563c86b14f5ace7ac019e741a841"
         ).toEncodeObject()
     );
     expect(s.toEncodeObject()).toEqual(
         new U256(
-            "0x204a4215d26cb879eaad2028fe1a7898e4cf9a5d979eb383e0a384140d6e04c1"
+            "0x46ff72a000f503e880fc71785673e2f5428e6616a5b7af9d5471156009b0d50a"
         ).toEncodeObject()
     );
 });
@@ -117,7 +120,7 @@ test("signed hash", () => {
     });
     expect(signed.hash()).toEqual(
         new H256(
-            "6547527d42f407352b8d23470322e09261d6dee6fda43c10aa2f59aafa70ba4b"
+            "5a86f4527eaf838aa9ad04392b4b13f756c32b3d0a28b07bed9ad3374e6598f3"
         )
     );
 });
@@ -133,5 +136,6 @@ test("toJSON", () => {
     );
     p.setFee(33);
     p.setSeq(44);
+    p.setExpiration(55);
     expect(fromJSONToTransaction(p.toJSON())).toEqual(p);
 });

@@ -90,14 +90,14 @@ yarn add codechain-sdk</code></pre>
 				<h1 id="usage-examples">Usage examples</h1>
 				<p>Make sure that your CodeChain RPC server is listening. In the examples, we assume that it is localhost:8080</p>
 				<h2 id="setup-the-test-account">Setup the test account</h2>
-				<p>Before you begin to meet various examples, you need to setup the account. The given account below(<code>tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78</code>) holds 100000 CCC at the genesis block. It&#39;s a sufficient quantity to pay for the transaction fee.</p>
+				<p>Before you begin to meet various examples, you need to setup the account. The given account below(<code>tccq9h7vnl68frvqapzv3tujrxtxtwqdnxw6yamrrgd</code>) holds 100000 CCC at the genesis block. It&#39;s a sufficient quantity to pay for the transaction fee.</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
 <span class="hljs-keyword">var</span> sdk = <span class="hljs-keyword">new</span> SDK({ <span class="hljs-attr">server</span>: <span class="hljs-string">"http://localhost:8080"</span> });
 
 <span class="hljs-keyword">var</span> secret = <span class="hljs-string">"ede1d4ccb4ec9a8bbbae9a13db3f4a7b56ea04189be86ac3a6a439d9a0a1addd"</span>;
 <span class="hljs-keyword">var</span> passphrase = <span class="hljs-string">"satoshi"</span>;
 sdk.rpc.account.importRaw(secret, passphrase).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">account</span>) </span>{
-  <span class="hljs-built_in">console</span>.log(account); <span class="hljs-comment">// tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78</span>
+  <span class="hljs-built_in">console</span>.log(account); <span class="hljs-comment">// tccq9h7vnl68frvqapzv3tujrxtxtwqdnxw6yamrrgd</span>
 });</code></pre>
 				<hr>
 				<h2 id="get-the-latest-block-number">Get the latest block number</h2>
@@ -128,16 +128,16 @@ sdk.rpc.chain.getBestBlockNumber().then(<span class="hljs-function"><span class=
 
 <span class="hljs-keyword">var</span> passphrase = <span class="hljs-string">"my-secret"</span>;
 sdk.rpc.account.create(passphrase).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">account</span>) </span>{
-  <span class="hljs-built_in">console</span>.log(account); <span class="hljs-comment">// string that starts with "ccc". For example: tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78</span>
+  <span class="hljs-built_in">console</span>.log(account); <span class="hljs-comment">// string that starts with either "tcc"(Solo testnet) or "ccc"(mainnet). For example: tccq9h7vnl68frvqapzv3tujrxtxtwqdnxw6yamrrgd</span>
 });</code></pre>
 				<hr>
 				<h2 id="get-the-balance-of-an-account">Get the balance of an account</h2>
-				<p>You can get the balance of an account using <code>getBalance</code> method in <code>sdk.rpc.chain</code>. See also <code>getNonce</code>, <code>getRegularKey</code>.</p>
+				<p>You can get the balance of an account using <code>getBalance</code> method in <code>sdk.rpc.chain</code>. See also <code>getSeq</code>, <code>getRegularKey</code>.</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
 <span class="hljs-keyword">var</span> sdk = <span class="hljs-keyword">new</span> SDK({ <span class="hljs-attr">server</span>: <span class="hljs-string">"http://localhost:8080"</span> });
 
 sdk.rpc.chain
-  .getBalance(<span class="hljs-string">"tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78"</span>)
+  .getBalance(<span class="hljs-string">"tccq9h7vnl68frvqapzv3tujrxtxtwqdnxw6yamrrgd"</span>)
   .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">balance</span>) </span>{
     <span class="hljs-comment">// the balance is a U256 instance at this moment. Use toString() to print it out.</span>
     <span class="hljs-built_in">console</span>.log(balance.toString()); <span class="hljs-comment">// the quantity of CCC that the account has.</span>
@@ -148,14 +148,14 @@ sdk.rpc.chain
 				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">"codechain-sdk"</span>);
 <span class="hljs-keyword">var</span> sdk = <span class="hljs-keyword">new</span> SDK({ <span class="hljs-attr">server</span>: <span class="hljs-string">"http://localhost:8080"</span> });
 
-<span class="hljs-keyword">var</span> tx = sdk.core.createPaymentTransaction({
-  <span class="hljs-attr">recipient</span>: <span class="hljs-string">"tccqruq09sfgax77nj4gukjcuq69uzeyv0jcs7vzngg"</span>,
+<span class="hljs-keyword">var</span> tx = sdk.core.createPayTransaction({
+  <span class="hljs-attr">recipient</span>: <span class="hljs-string">"tccqxv9y4cw0jwphhu65tn4605wadyd2sxu5yezqghw"</span>,
   <span class="hljs-attr">quantity</span>: <span class="hljs-number">10000</span>
 });
 
 sdk.rpc.chain
   .sendTransaction(tx, {
-    <span class="hljs-attr">account</span>: <span class="hljs-string">"tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78"</span>,
+    <span class="hljs-attr">account</span>: <span class="hljs-string">"tccq9h7vnl68frvqapzv3tujrxtxtwqdnxw6yamrrgd"</span>,
     <span class="hljs-attr">passphrase</span>: <span class="hljs-string">"satoshi"</span>
   })
   .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">hash</span>) </span>{
@@ -171,16 +171,16 @@ sdk.rpc.chain
 <span class="hljs-keyword">var</span> sdk = <span class="hljs-keyword">new</span> SDK({ <span class="hljs-attr">server</span>: <span class="hljs-string">"http://localhost:8080"</span> });
 
 <span class="hljs-keyword">var</span> tx = sdk.core.createPaymentTransaction({
-  <span class="hljs-attr">recipient</span>: <span class="hljs-string">"tccqruq09sfgax77nj4gukjcuq69uzeyv0jcs7vzngg"</span>,
+  <span class="hljs-attr">recipient</span>: <span class="hljs-string">"tccqxv9y4cw0jwphhu65tn4605wadyd2sxu5yezqghw"</span>,
   <span class="hljs-attr">quantity</span>: <span class="hljs-number">10000</span>
 });
 
-<span class="hljs-keyword">var</span> account = <span class="hljs-string">"tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78"</span>;
+<span class="hljs-keyword">var</span> account = <span class="hljs-string">"tccq9h7vnl68frvqapzv3tujrxtxtwqdnxw6yamrrgd"</span>;
 <span class="hljs-keyword">var</span> accountSecret =
   <span class="hljs-string">"ede1d4ccb4ec9a8bbbae9a13db3f4a7b56ea04189be86ac3a6a439d9a0a1addd"</span>;
 
 sdk.rpc.chain
-  .getNonce(account)
+  .getSeq(account)
   .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nonce</span>) </span>{
     <span class="hljs-keyword">return</span> sdk.rpc.chain.sendSignedTransaction(
       tx.sign({
@@ -222,7 +222,7 @@ sdk.key
   <span class="hljs-string">"tcaqqq9pgkq69z488qlkvhkpcxcgfd3cqlkzgxyq9cewxuda8qqz7jtlvctt5eze"</span>;
 
 <span class="hljs-comment">// Send a change-shard-state transaction to process the transaction.</span>
-<span class="hljs-keyword">var</span> tx = sdk.core.createAssetMintTransaction({
+<span class="hljs-keyword">var</span> tx = sdk.core.createMintAssetTransaction({
   <span class="hljs-attr">scheme</span>: {
     <span class="hljs-attr">shardId</span>: <span class="hljs-number">0</span>,
     <span class="hljs-attr">metadata</span>: <span class="hljs-built_in">JSON</span>.stringify({
@@ -237,7 +237,7 @@ sdk.key
 
 sdk.rpc.chain
   .sendTransaction(tx, {
-    <span class="hljs-attr">account</span>: <span class="hljs-string">"tccqzn9jjm3j6qg69smd7cn0eup4w7z2yu9my9a2k78"</span>,
+    <span class="hljs-attr">account</span>: <span class="hljs-string">"tccq9h7vnl68frvqapzv3tujrxtxtwqdnxw6yamrrgd"</span>,
     <span class="hljs-attr">passphrase</span>: <span class="hljs-string">"satoshi"</span>
   })
   .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">hash</span>) </span>{
@@ -248,12 +248,12 @@ sdk.rpc.chain
     });
   })
   .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>) </span>{
-    <span class="hljs-comment">// The result of mint transaction is  boolean.</span>
+    <span class="hljs-comment">// The result of the mint transaction is a boolean.</span>
     <span class="hljs-built_in">console</span>.log(result); <span class="hljs-comment">// true</span>
   });</code></pre>
 				<hr>
 				<h2 id="transfer-assets">Transfer assets</h2>
-				<p>A brief version of the example will be uploaded soon. The entire example can be viewed <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/master/examples/mint-and-transfer.js">here</a>.</p>
+				<p>The entire example can be viewed <a href="https://github.com/CodeChain-io/codechain-sdk-js/blob/master/examples/mint-and-transfer.js">here</a>.</p>
 				<hr>
 				<h1 id="sdk-modules">SDK modules</h1>
 				<ul>
@@ -262,6 +262,7 @@ sdk.rpc.chain
 							<li><a href="classes/chainrpc.html">chain</a></li>
 							<li><a href="classes/networkrpc.html">network</a></li>
 							<li><a href="classes/accountrpc.html">account</a></li>
+							<li><a href="classes/enginerpc.html">engine</a></li>
 						</ul>
 					</li>
 					<li><a href="classes/core.html">Core</a><ul>

@@ -43,6 +43,10 @@ import { UnwrapCCC } from "./transaction/UnwrapCCC";
 import { WrapCCC } from "./transaction/WrapCCC";
 import { NetworkId } from "./types";
 
+const RLP = require("rlp");
+
+const IBC_CUSTOM_ACTION_HANDLER_ID = 3;
+
 export class Core {
     public static classes = {
         // Data
@@ -330,6 +334,45 @@ export class Core {
             bytes
         };
         return new Custom(customParam, this.networkId);
+    }
+
+    /**
+     * Create a client for interchain communication
+     * @param params.id An ID of the connection. It cannot be duplicate.
+     * @param params.kind The kind of a chain. CodeChain = 0.
+     * @param params.consensusState
+     * @experimental
+     */
+    public createCreateClientTransaction(params: {
+        id: string;
+        kind: number;
+        consensusState: {
+            height: U64Value;
+            root: H256Value;
+            nextValidatorSet: H512Value[];
+        };
+    }): Custom {
+        const ACTION_CREATE_CLIENT = 1;
+        const { id, kind, consensusState } = params;
+        const encodable = [
+            ACTION_CREATE_CLIENT,
+            id,
+            U64.ensure(kind).toEncodeObject(),
+            RLP.encode([
+                U64.ensure(consensusState.height).toEncodeObject(),
+                [H256.ensure(consensusState.root).toEncodeObject()],
+                consensusState.nextValidatorSet.map(v =>
+                    H512.ensure(v).toEncodeObject()
+                )
+            ])
+        ];
+        return new Custom(
+            {
+                handlerId: U64.ensure(IBC_CUSTOM_ACTION_HANDLER_ID),
+                bytes: RLP.encode(encodable)
+            },
+            this.networkId
+        );
     }
 
     /**

@@ -33,7 +33,7 @@
     "lib"
   ],
   "dependencies": {
-    "buffer": "5.1.0",
+    "buffer": "^5.2.1",
     "codechain-keystore": "^0.6.0",
     "codechain-primitives": "^1.0.0",
     "jayson": "^2.0.6",

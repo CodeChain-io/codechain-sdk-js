@@ -997,11 +997,13 @@ export class ChainRpc {
      * Gets pending transactions that have the insertion timestamp within the given range.
      * @param from The lower bound of the insertion timestamp.
      * @param to The upper bound of the insertion timestamp.
+     * @param futureIncluded Including the future transactions. If true, future transactions are included.
      * @returns List of SignedTransaction, with each tx has null for blockNumber/blockHash/transactionIndex.
      */
     public getPendingTransactions(
         from?: number | null,
-        to?: number | null
+        to?: number | null,
+        futureIncluded: boolean = false
     ): Promise<{
         transactions: SignedTransaction[];
         lastTimestamp: number | null;
@@ -1017,11 +1019,21 @@ export class ChainRpc {
                 `Expected the second argument of getPendingTransactions to be a non-negative integer but found ${to}`
             );
         }
+        if (typeof futureIncluded !== "boolean") {
+            throw Error(
+                `Expected the third argument to be a boolean but found ${futureIncluded}`
+            );
+        }
+
         return new Promise((resolve, reject) => {
             this.rpc
-                .sendRpcRequest("mempool_getPendingTransactions", [from, to], {
-                    fallbackServers
-                })
+                .sendRpcRequest(
+                    "mempool_getPendingTransactions",
+                    [from, to, futureIncluded],
+                    {
+                        fallbackServers
+                    }
+                )
                 .then(result => {
                     try {
                         const resultTransactions = result.transactions;
@@ -1363,11 +1375,13 @@ export class ChainRpc {
      * Gets the count of the pending transactions within the given range from the transaction queues.
      * @param from The lower bound of collected pending transactions. If null, there is no lower bound.
      * @param to The upper bound of collected pending transactions. If null, there is no upper bound.
+     * @param futureIncluded Counting the future transactions. If true, future transactions are counted.
      * @returns The count of the pending transactions.
      */
     public getPendingTransactionsCount(
         from?: number | null,
-        to?: number | null
+        to?: number | null,
+        futureIncluded: boolean = false
     ): Promise<number> {
         const fallbackServers = this.fallbackServers;
         if (from != null && !isNonNegativeInterger(from)) {
@@ -1380,11 +1394,16 @@ export class ChainRpc {
                 `Expected the second argument of getPendingTransactions to be a non-negative integer but found ${to}`
             );
         }
+        if (typeof futureIncluded !== "boolean") {
+            throw Error(
+                `Expected the third argument to be a boolean but found ${futureIncluded}`
+            );
+        }
         return new Promise((resolve, reject) => {
             this.rpc
                 .sendRpcRequest(
                     "mempool_getPendingTransactionsCount",
-                    [from, to],
+                    [from, to, futureIncluded],
                     { fallbackServers }
                 )
                 .then(result => {

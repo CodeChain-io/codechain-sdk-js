@@ -397,7 +397,13 @@ describe("rpc", () => {
             });
         });
 
-        describe.skip("with pending transactions", () => {
+        describe("with pending transactions", () => {
+            test("deleteAllPendingTransactions", async () => {
+                await sdk.rpc.chain.deleteAllPendingTransactions();
+            });
+        });
+
+        describe.skip("with pending transactions__skiped", () => {
             test("getPendingTransactions", async () => {
                 const pendingTransactions = await sdk.rpc.chain.getPendingTransactions();
                 expect(pendingTransactions.transactions[0]).toEqual(

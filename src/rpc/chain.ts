@@ -1372,6 +1372,29 @@ export class ChainRpc {
     }
 
     /**
+     * Deletes all pending transactions including future ones.
+     */
+    public deleteAllPendingTransactions(): Promise<null> {
+        const fallbackServers = this.fallbackServers;
+        return new Promise((resolve, reject) => {
+            this.rpc
+                .sendRpcRequest("mempool_deleteAllPendingTransactions", [], {
+                    fallbackServers
+                })
+                .then(result => {
+                    if (result == null) {
+                        return resolve();
+                    }
+                    reject(
+                        Error(
+                            `Expected mempool_deleteAllPendingTransactions to return null but it returned ${result}`
+                        )
+                    );
+                });
+        });
+    }
+
+    /**
      * Gets the count of the pending transactions within the given range from the transaction queues.
      * @param from The lower bound of collected pending transactions. If null, there is no lower bound.
      * @param to The upper bound of collected pending transactions. If null, there is no upper bound.

@@ -1,4 +1,4 @@
-CodeChain SDK for JavaScript [![npm version](https://badge.fury.io/js/codechain-sdk.svg)](https://badge.fury.io/js/codechain-sdk) [![Build Status](https://travis-ci.org/CodeChain-io/codechain-sdk-js.svg?branch=master)](https://travis-ci.org/CodeChain-io/codechain-sdk-js) [![Gitter](https://badges.gitter.im/CodeChain-io/codechain-sdk-js.svg)](https://gitter.im/CodeChain-io/codechain-sdk-js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+CodeChain SDK for JavaScript [![npm version](https://badge.fury.io/js/codechain-sdk.svg)](https://badge.fury.io/js/codechain-sdk) [![Build Status](https://travis-ci.org/CodeChain-io/codechain-sdk-js.svg?branch=master)](https://travis-ci.org/CodeChain-io/codechain-sdk-js) [![Gitter](https://badges.gitter.im/CodeChain-io.svg)](https://gitter.im/CodeChain-io/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 ==============
 
 A JavaScript SDK for CodeChain
